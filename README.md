@@ -56,6 +56,10 @@
 
 bibleAPI is free and open to use. The project is primarily an educational tool, and we will not tolerate denial of service attacks preventing people from learning.
 
+## ► Credits and Thanks
+
+- [@thiagobodruk](https://github.com/thiagobodruk/) for sharing various versions of the bible in json
+
 ## ► Contributing
 
 Contributions, issues and feature requests are very welcome.
