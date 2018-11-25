@@ -24,6 +24,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Adonis install
+          command: yarn global add adonisjs
+
+      - run:
           name: Run tests
           command: yarn test
 
