@@ -11,11 +11,9 @@
     "prestart": "yarn build",
     "start": "ENV_SILENT=true node server.js",
     "start:dev": "ENV_SILENT=true yarn prestart && adonis serve --dev",
-    "pretest": "yarn migrations",
+    "pretest": "ENV_PATH=.env.testing yarn migrations",
     "test": "nyc adonis test",
-    "test:circle": "ENV_PATH=.env.testing node ace test",
-    "test:report": "nyc report --reporter=lcov",
-    "test:watch": "nodemon ace test",
+    "test:watch": "ENV_PATH=.env.testing nodemon ace test",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "pre-commit": [
