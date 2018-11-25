@@ -1,0 +1,15 @@
+{
+  "description": "A RESTful API for Bible",
+  "name": "bibleAPI",
+  "title": "bibleAPI",
+  "url": "https://bibleapi.co/",
+  "header": {
+    "title": "bibleAPI",
+    "index": "Home",
+    "indexHref": "https://bibleapi.co"
+  },
+  "template": {
+    "forceLanguage": "en"
+  },
+  "version": "1.0.0"
+}

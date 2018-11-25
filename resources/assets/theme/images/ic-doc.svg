@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-doc</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-doc" fill-rule="nonzero">
+            <circle id="Oval" fill="#5A3574" cx="32" cy="32" r="32"></circle>
+            <g id="Group" opacity="0.2" transform="translate(12.000000, 14.000000)" fill="#231F20">
+                <path d="M40,34 C40,36.209 38.209,38 36,38 L4,38 C1.791,38 0,36.209 0,34 L0,4 C0,1.791 1.791,0 4,0 L36,0 C38.209,0 40,1.791 40,4 L40,34 Z" id="Shape"></path>
+            </g>
+            <path d="M12,21.5 L12,46 C12,48.209 13.791,50 16,50 L48,50 C50.209,50 52,48.209 52,46 L52,21.5 L12,21.5 Z" id="Shape" fill="#FFFFFF"></path>
+            <g id="Group" opacity="0.2" transform="translate(12.000000, 14.000000)" fill="#231F20">
+                <path d="M40,4 C40,1.791 38.209,0 36,0 L4,0 C1.791,0 0,1.791 0,4 L0,10 L40,10 L40,4 Z" id="Shape"></path>
+            </g>
+            <path d="M52,16 C52,13.791 50.209,12 48,12 L16,12 C13.791,12 12,13.791 12,16 L12,22 L52,22 L52,16 Z" id="Shape" fill="#E0E0D1"></path>
+            <circle id="Oval" fill="#E0995E" cx="23" cy="17" r="2"></circle>
+            <circle id="Oval" fill="#9DC479" cx="29" cy="17" r="2"></circle>
+            <circle id="Oval" fill="#BA5F5B" cx="17" cy="17" r="2"></circle>
+            <rect id="Rectangle-path" fill="#6B6B65" x="16" y="28" width="12" height="18"></rect>
+            <rect id="Rectangle-path" fill="#E0E0D1" x="32" y="28" width="16" height="2"></rect>
+            <rect id="Rectangle-path" fill="#E0E0D1" x="32" y="32" width="16" height="2"></rect>
+            <rect id="Rectangle-path" fill="#E0E0D1" x="32" y="36" width="16" height="2"></rect>
+            <rect id="Rectangle-path" fill="#E0E0D1" x="32" y="40" width="16" height="2"></rect>
+            <rect id="Rectangle-path" fill="#E0E0D1" x="32" y="44" width="16" height="2"></rect>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,69 @@
+{
+  "name": "bibleapi",
+  "version": "0.2.0",
+  "adonis-version": "4.1.0",
+  "description": "A RESTful API for Bible (nvi, ra, acf, kjv, bbe)",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "doc": "apidoc -i app/ -o apidoc/ -t ../apidoc-bs3-template/template",
+    "migrations": "adonis migration:run",
+    "prestart": "yarn build",
+    "start": "ENV_SILENT=true node server.js",
+    "start:dev": "ENV_SILENT=true yarn prestart && adonis serve --dev",
+    "test": "nyc adonis test",
+    "test:circle": "ENV_PATH=.env.testing node ace test",
+    "test:report": "nyc report --reporter=lcov",
+    "test:watch": "nodemon ace test",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "pre-commit": [
+    "test:circle"
+  ],
+  "keywords": [
+    "bible",
+    "api",
+    "RESTful"
+  ],
+  "author": "marciovsena",
+  "license": "BSD",
+  "private": true,
+  "dependencies": {
+    "@adonisjs/ace": "^5.0.2",
+    "@adonisjs/antl": "^2.0.7",
+    "@adonisjs/auth": "^3.0.5",
+    "@adonisjs/bodyparser": "^2.0.3",
+    "@adonisjs/cors": "^1.0.6",
+    "@adonisjs/fold": "^4.0.8",
+    "@adonisjs/framework": "^5.0.7",
+    "@adonisjs/http-logger": "^1.0.0",
+    "@adonisjs/ignitor": "^2.0.6",
+    "@adonisjs/lucid": "^5.0.4",
+    "@adonisjs/vow": "^1.0.17",
+    "@adonisjs/vow-browser": "^1.0.7",
+    "adonis-throttle": "^2.1.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "7",
+    "babel-preset-env": "^1.7.0",
+    "compression-webpack-plugin": "^2.0.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "node-sass": "^4.9.2",
+    "nodemon": "^1.18.6",
+    "pg": "^7.4.3",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.19.0",
+    "webpack-cli": "^3.1.0"
+  },
+  "devDependencies": {
+    "conventional-changelog": "^3.0.5",
+    "nyc": "^13.1.0",
+    "pre-commit": "^1.2.2",
+    "uglify-es": "^3.3.9"
+  },
+  "autoload": {
+    "App": "./app"
+  }
+}

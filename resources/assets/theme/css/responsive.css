@@ -1,0 +1,291 @@
+@media only screen and (max-width: 767px) {
+
+   .navbar-header .navbar {
+    padding: 10px 15px;
+}
+ 
+    .navbar-toggler-icon{
+        height: auto;
+    }
+      .navbar-header .navbar-nav li a {
+         color: #171f3c;
+        font-size: 15px;
+        padding: 10px 12px !important;
+        font-weight: 500;
+        line-height: 30px;
+    }
+    .navbar-toggler {
+        color: #fff;
+        font-size: 35px;
+        line-height: 38px;
+        padding: 5px 0;
+        margin-right: 0;
+    }
+    .navbar-nav {
+        background-color: #fff;
+    }
+    .navbar-header .connect-block {
+    margin-left: 0;
+    margin-top: 0;
+}
+    .navbar-header .connect-block a{
+        display: block;
+    }
+    .navbar-header .connect-block .btn-white {
+  color: #171f3c!important;
+text-align: left;
+}
+    .hero-text {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+    .hero-text h2 {
+    font-size: 45px;
+    margin-bottom: 20px;
+    }
+    .title-h2 {
+    font-size: 32px;
+    }
+    img.img-width {
+    width: 100%;
+     margin-bottom: 25px;
+}
+    .features-text{
+        margin-bottom: 30px;
+    }
+    .nav-tabs .nav-link{ 
+          padding: 5px 10px;  
+        }
+    .background-div {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-bottom: 25px;
+     box-shadow: none;
+    }
+    .price-content-btn{
+            padding-bottom: 25px;
+        margin-bottom: 25px;
+    }
+    .table-plan{
+        margin-bottom: 30px;
+     -webkit-box-shadow: 0 13px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);  
+   background-color: #ffffff;
+    }
+    .prinicng-container{
+    background-color:transparent;
+    box-shadow: none!important;
+    -webkit-box-shadow:none;
+        padding-bottom: 0;
+    }
+    .background-div .price-content-btn  {
+        padding-bottom: 0;
+        margin-bottom: 15px;
+    }
+    .avatar-photo {
+    float: none;
+        margin-bottom: 20px;
+    position: relative;
+}
+    .avatar-photo img {
+    width: 120px !important;
+    }
+    .quote {
+    right: 0;
+   opacity: 0.5;
+   top: 80px;
+ }
+    .quote i{
+        font-size: 160px;    
+    }
+    .list-menu, .list-social{
+        margin-bottom: 35px;
+    }
+    .box-video a{
+       top: 25%;
+      left: 30%;
+       transform: translate(40%,30%);
+    }
+    .response-blog.comment-blog-inner {
+    padding-left: 20px;
+}
+    .form-comment .form-control {
+    margin-bottom: 25px;
+   }
+    .sidebar-side {
+        margin-top: 40px;
+    padding-left: 0;
+    padding-right: 0;
+}
+    .search{
+        width: 100%;
+    }
+    .navbar-header .navbar.sticky li a, .navbar-header .navbar.sticky .search-box-btn {
+    color: #fff!important;
+}
+    .navbar-header .navbar.sticky .navbar-nav,  .navbar-header .navbar.sticky .btn-white{ 
+        background-color:transparent;
+    }
+    .icon-app{
+        margin-bottom: 25px!important;
+    }
+    .form-comment .row.form-group, .mg-bt-mobile{
+        margin-bottom: 0;
+    }
+    .navbar-header .connect-block .btn-white{
+        border: none;
+    }
+    .rating{
+      left: 100px;   
+    }
+    .item-inner{
+        position: relative;
+        text-align: center;
+        padding-left: 0;
+    }
+    .call-to-action-text {
+      position: relative;
+     text-align: center;  
+    }
+    .testimonial-caroussel .owl-controls{
+      left: 35%;
+    transform: translate(35%, 50%); 
+    }
+    .call-to-action-text h2{
+      font-size: 42px;  
+    }
+   
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .navbar-header .connect-block .btn-white{
+     border: none;
+    }
+    .rating{
+     bottom: 60px;
+    left: 30px; 
+    }
+    
+       .navbar-header .navbar.sticky li a, .navbar-header .navbar.sticky .search-box-btn {
+    color: #fff!important;
+}
+    .navbar-header .navbar.sticky .navbar-nav,  .navbar-header .navbar.sticky .btn-white{ 
+        background-color:transparent;
+    }
+    .icon_menu{
+        height: auto;
+    }
+    .sidebar-side {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+    .search input{
+    width: 70%;
+        padding: 10px 0 0 20px;
+
+    }
+    .quote{
+    right: 0;   
+    }
+    .sidebar-post-inner img{
+        float: none;
+        margin-bottom: 10px;
+       
+    }
+    .sidebar-post-inner .date {
+    margin-top: 0;
+    }
+     .navbar-header .navbar-nav li a{
+     font-size: 15px;
+    padding: 10px 12px !important; 
+     line-height: 30px;
+    } 
+    .hero-text h2 {
+    font-size: 45px;
+    }
+ .navbar-toggler {
+        color: #fff;
+        font-size: 35px;
+        line-height: 38px;
+        padding: 15px 0;
+        margin-right: 15px;
+    }
+    .navbar-brand {
+        padding: 15px;
+    }
+    .navbar-header .navbar.sticky .navbar-brand {
+        padding: 0 15px;
+    }
+    .navbar-header .navbar.sticky .navbar-toggler {
+        padding: 15px 0;
+    }
+     .navbar-nav {
+        background-color: #fff;
+    }
+         .navbar-header .navbar-nav li a {
+         color: #171f3c;
+        font-size: 15px;
+        padding: 10px 12px !important;
+        font-weight: 500;
+        line-height: 30px;
+    }
+      .navbar-header .connect-block {
+    margin-left: 0;
+    margin-top: 0;
+}
+    .navbar-header .connect-block a{
+        display: block;
+    }
+    .navbar-header .connect-block .btn-white {
+  color: #171f3c!important;
+text-align: left;
+}
+    .nav-tabs .nav-link {
+    font-size: 14px;
+    padding: 5px 8px;
+    }
+    .icon-app .icon {
+    float: none;
+    }
+    .meta ul li{
+        font-size: 11px;
+    }
+    .meta {
+    margin-left: 15px;
+    margin-right: 15px;
+    }
+    #about{
+        padding-top: 80px;
+    }
+     .form-comment .row.form-group{
+        margin-bottom: 0;
+    }
+    .form-comment .form-control{
+        margin-bottom: 25px;
+    }
+    .subscribe-form .form-control{
+        width: 80%;  
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+  #about{
+   padding-top: 80px;
+    }  
+    .icon-app h3{
+    font-size: 15px;  
+    }
+}
+
+
+
+@media only screen and (min-width: 1920px) {
+.hero-padd {
+    padding-top: 250px;
+} 
+    #about{
+        padding-top: 0;
+    }
+}

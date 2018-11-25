@@ -1,0 +1,159 @@
+@import '../theme/css/animate.css';
+@import '../theme/css/bootstrap.min.css';
+@import '../theme/css/jquery.json-viewer.css';
+@import '../theme/css/responsive.css';
+@import '../theme/css/style.css';
+
+@import './variables';
+@import './json';
+
+body {
+  color: #555;
+}
+
+.navbar-header .navbar.sticky,
+.bg-color-1,
+.btn-border.color-2 {
+  background: $bossanova;
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse .navbar-nav {
+    background: $bossanova;
+  }
+}
+
+.btn-border.color-1 {
+  color: $primary-color;
+  border-color: $primary-color !important;
+}
+
+.hero-bg,
+.btn-color,
+.background-div .overlay-top,
+.footer-bottom,
+.loader::before,
+.loader::after {
+  background: $primary-color;
+}
+
+.btn-color:hover,
+.btn-border.color-1:hover {
+  background-color: $bossanova;
+}
+
+.btn-white,
+.navbar-header .connect-block .btn-white,
+.content-table h2.plan2,
+.content-table h2.plan1 {
+  color: $primary-color;
+}
+
+.navbar-header .connect-block .btn-white {
+  color: $primary-color !important;
+}
+
+.copyright p,
+.copyright a {
+  color: $white;
+  margin: 0;
+}
+
+.loader {
+  color: $primary-color;
+  background: $primary-color;
+}
+
+.navbar-brand img {
+  height: 22px;
+}
+
+.icon-app {
+  min-height: calc(100% - 25px);
+}
+
+.hero {
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+// Home
+
+.navbar {
+  background: $primary-color;
+  a {
+    color: $white !important;
+  }
+
+  .nav-item {
+    align-items: center;
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0 16px;
+
+    @media (max-width: 576px) {
+      padding: 0 8px;
+    }
+  }
+
+  .navbar-brand {
+    margin: 0;
+  }
+}
+
+.main {
+  margin-top: 42px;
+}
+
+.jumbotron-heading small {
+  font-size: 12px;
+}
+
+pre {
+  background-color: #222;
+  border-radius: 6px;
+  color: #aaa;
+  font: 16px/24px 'Courier New', Courier, 'Lucida Sans Typewriter',
+    'Lucida Typewriter', monospace;
+  padding: 20px;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.lead img {
+  vertical-align: baseline;
+  height: 10px !important;
+}
+
+.footer img {
+  vertical-align: baseline;
+}
+
+.flag {
+  border-radius: 2px;
+  width: 24px;
+}
+
+@media (max-width: 576px) {
+  .request-input {
+    flex-direction: column;
+
+    .input-group-text,
+    .form-control,
+    .input-group-append,
+    .btn {
+      min-height: 38px;
+      width: 100%;
+    }
+
+    .btn {
+      border-radius: 0 0 4px 4px;
+    }
+  }
+}

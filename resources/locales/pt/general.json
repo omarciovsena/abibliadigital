@@ -1,0 +1,7 @@
+{
+  "description": "API REST com múltiplas versões da Bíblia Sagrada em mais de 10 idiomas",
+  "english": "Inglês",
+  "portuguese": "Português",
+  "statusPage": "Página de status",
+  "title": "RESTful API da Bíblia"
+}

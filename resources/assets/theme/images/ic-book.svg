@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-book</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-book" fill-rule="nonzero">
+            <circle id="Oval" fill="#5A3574" cx="32" cy="32" r="32"></circle>
+            <g id="Group" opacity="0.2" transform="translate(16.000000, 14.000000)" fill="#231F20">
+                <path d="M32,36 C32,38.209 30.209,40 28,40 L4,40 C1.791,40 0,38.209 0,36 L0,4 C0,1.791 1.791,0 4,0 L28,0 C30.209,0 32,1.791 32,4 L32,36 Z" id="Shape"></path>
+            </g>
+            <path d="M48,48 C48,50.209 46.209,52 44,52 L20,52 C17.791,52 16,50.209 16,48 L16,16 C16,13.791 17.791,12 20,12 L44,12 C46.209,12 48,13.791 48,16 L48,48 Z" id="Shape" fill="#FFFFFF"></path>
+            <g id="Group" opacity="0.2" transform="translate(35.000000, 14.000000)" fill="#231F20">
+                <g id="Shape">
+                    <path d="M0,0 L0,7.846 C0,8.11 0.163,8.349 0.411,8.45 C0.494,8.483 0.58,8.5 0.666,8.5 C0.839,8.5 1.01,8.433 1.137,8.308 L4,5.501 L6.862,8.308 C6.989,8.433 7.16,8.5 7.333,8.5 C7.419,8.5 7.506,8.484 7.588,8.45 C7.837,8.349 8,8.11 8,7.846 L8,0 L0,0 Z"></path>
+                </g>
+            </g>
+            <path d="M35,12 L35,19.846 C35,20.11 35.163,20.349 35.411,20.45 C35.494,20.483 35.58,20.5 35.666,20.5 C35.839,20.5 36.01,20.433 36.137,20.308 L39,17.501 L41.862,20.308 C41.989,20.433 42.16,20.5 42.333,20.5 C42.419,20.5 42.506,20.484 42.588,20.45 C42.837,20.349 43,20.11 43,19.846 L43,12 L35,12 Z" id="Shape" fill="#BA5F5B"></path>
+            <rect id="Rectangle-path" fill="#442858" x="20" y="12" width="3" height="40"></rect>
+        </g>
+    </g>
+</svg>

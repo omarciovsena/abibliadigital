@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-clock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-clock" fill-rule="nonzero">
+            <circle id="Oval" fill="#5A3574" cx="32" cy="32" r="32"></circle>
+            <g id="Group" opacity="0.2" transform="translate(10.000000, 12.000000)" fill="#231F20">
+                <path d="M22,4 C31.925,4 40,12.075 40,22 C40,31.925 31.925,40 22,40 C12.075,40 4,31.925 4,22 C4,12.075 12.075,4 22,4 Z M22,0 C9.85,0 0,9.85 0,22 C0,34.15 9.85,44 22,44 C34.15,44 44,34.15 44,22 C44,9.85 34.15,0 22,0 Z" id="Shape"></path>
+            </g>
+            <path d="M32,14 C41.925,14 50,22.075 50,32 C50,41.925 41.925,50 32,50 C22.075,50 14,41.925 14,32 C14,22.075 22.075,14 32,14 Z M32,10 C19.85,10 10,19.85 10,32 C10,44.15 19.85,54 32,54 C44.15,54 54,44.15 54,32 C54,19.85 44.15,10 32,10 Z" id="Shape" fill="#FFFFFF"></path>
+            <g id="Group" opacity="0.2" transform="translate(30.000000, 24.000000)" fill="#231F20">
+                <g id="Shape">
+                    <path d="M10,20 C9.488,20 8.977,19.805 8.586,19.414 L0,10.829 L0,2 C0,0.896 0.896,0 2,0 C3.104,0 4,0.896 4,2 L4,9.171 L11.414,16.586 C12.195,17.367 12.195,18.633 11.414,19.414 C11.023,19.805 10.512,20 10,20 Z"></path>
+                </g>
+            </g>
+            <path d="M40,42 C39.488,42 38.977,41.805 38.586,41.414 L30,32.829 L30,24 C30,22.896 30.896,22 32,22 C33.104,22 34,22.896 34,24 L34,31.171 L41.414,38.586 C42.195,39.367 42.195,40.633 41.414,41.414 C41.023,41.805 40.512,42 40,42 Z" id="Shape" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

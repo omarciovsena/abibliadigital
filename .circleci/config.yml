@@ -1,0 +1,58 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10.7.0
+      - image: circleci/postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: marciovsena
+          POSTGRES_DB: bibleapi_test
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Install Dependencies
+          command: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Run tests
+          command: yarn test:circle
+
+  production:
+    docker:
+      - image: buildpack-deps:trusty
+
+    steps:
+      - checkout
+      - run: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - $HEROKU_SSH_FINGERPRINT
+      - deploy:
+          name: Deploy to Heroku if tests pass and branch is master
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
+            fi
+
+workflows:
+  version: 2
+  test_deploy:
+    jobs:
+      - test
+      - production:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
