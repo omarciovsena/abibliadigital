@@ -12,7 +12,7 @@
     "start": "ENV_SILENT=true node server.js",
     "start:dev": "ENV_SILENT=true yarn prestart && adonis serve --dev",
     "pretest": "ENV_PATH=.env.testing yarn migrations",
-    "test": "nyc adonis test",
+    "test": "ENV_PATH=.env.testing nyc adonis test",
     "test:watch": "ENV_PATH=.env.testing nodemon ace test",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
