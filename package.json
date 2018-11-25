@@ -7,18 +7,17 @@
   "scripts": {
     "build": "webpack --mode production",
     "doc": "apidoc -i app/ -o apidoc/ -t ../apidoc-bs3-template/template",
-    "migrations": "adonis migration:run",
+    "migrations": "adonis migration:reset && adonis migration:run && adonis seed --files='Seeder.js'",
     "prestart": "yarn build",
     "start": "ENV_SILENT=true node server.js",
     "start:dev": "ENV_SILENT=true yarn prestart && adonis serve --dev",
-    "test": "nyc adonis test",
-    "test:circle": "ENV_PATH=.env.testing node ace test",
-    "test:report": "nyc report --reporter=lcov",
-    "test:watch": "nodemon ace test",
+    "pretest": "ENV_PATH=.env.testing yarn migrations",
+    "test": "ENV_PATH=.env.testing nyc adonis test",
+    "test:watch": "ENV_PATH=.env.testing nodemon ace test",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "pre-commit": [
-    "test:circle"
+    "test"
   ],
   "keywords": [
     "bible",
@@ -57,6 +56,7 @@
     "webpack-cli": "^3.1.0"
   },
   "devDependencies": {
+    "chalk-animation": "^1.6.0",
     "conventional-changelog": "^3.0.5",
     "nodemon": "^1.18.6",
     "nyc": "^13.1.0",

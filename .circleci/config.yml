@@ -24,8 +24,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Adonisjs install
+          command: yarn global add @adonisjs/cli
+
+      - run:
           name: Run tests
-          command: yarn test:circle
+          command: yarn test
 
   production:
     docker:

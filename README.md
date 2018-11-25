@@ -48,6 +48,7 @@
 
 - Download this source code into a working directory.
 - Install the requirements: `yarn`
+- Create `.env` file
 - Run migrations `yarn migrations`
 - Run the server using the following command: `yarn start:dev`
 - Visit `localhost:3333` to see the running website!
