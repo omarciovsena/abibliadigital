@@ -52,7 +52,3 @@ workflows:
       - production:
           requires:
             - test
-          filters:
-            branches:
-              only:
-                - master
