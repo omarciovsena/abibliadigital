@@ -27,7 +27,7 @@
   ],
   "author": "marciovsena",
   "license": "BSD",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@adonisjs/ace": "^5.0.2",
     "@adonisjs/antl": "^2.0.7",
