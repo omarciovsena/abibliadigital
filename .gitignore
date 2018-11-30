@@ -17,3 +17,4 @@ apidoc/.gitignore
 
 .nyc_output/
 coverage/
+yarn-error.log
