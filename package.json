@@ -60,6 +60,7 @@
   "devDependencies": {
     "chalk-animation": "^1.6.0",
     "conventional-changelog": "^3.0.5",
+    "nodemon": "^1.18.6",
     "nyc": "^13.1.0",
     "pre-commit": "^1.2.2",
     "uglify-es": "^3.3.9"
