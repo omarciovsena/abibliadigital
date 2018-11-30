@@ -1,8 +1,8 @@
 @import '../theme/css/animate.css';
 @import '../theme/css/bootstrap.min.css';
 @import '../theme/css/jquery.json-viewer.css';
-@import '../theme/css/responsive.css';
 @import '../theme/css/style.css';
+@import '../theme/css/responsive.css';
 
 @import './variables';
 @import './json';
@@ -11,8 +11,11 @@ body {
   color: #555;
 }
 
+.row {
+  margin: 0;
+}
+
 .navbar-header .navbar.sticky,
-.bg-color-1,
 .btn-border.color-2 {
   background: $bossanova;
 }
@@ -33,12 +36,14 @@ body {
 .background-div .overlay-top,
 .footer-bottom,
 .loader::before,
+.bg-color-1,
 .loader::after {
   background: $primary-color;
 }
 
 .btn-color:hover,
-.btn-border.color-1:hover {
+.btn-border.color-1:hover,
+.footer-top {
   background-color: $bossanova;
 }
 
@@ -76,6 +81,25 @@ body {
   height: auto;
   min-height: 100vh;
   padding-bottom: 50px;
+
+  .container {
+    min-height: 100vh;
+  }
+
+  .hero-padd {
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+    padding: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .text-sm-center {
+    display: inline-block;
+    text-align: center !important;
+    width: 100%;
+  }
 }
 
 // Home
