@@ -4,6 +4,9 @@
   "adonis-version": "4.1.0",
   "description": "A RESTful API for Bible (nvi, ra, acf, kjv, bbe)",
   "main": "index.js",
+  "engines": {
+    "node": "10.7.0"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "doc": "apidoc -i app/ -o apidoc/ -t ../apidoc-bs3-template/template",
