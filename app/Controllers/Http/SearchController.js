@@ -7,7 +7,7 @@ const { notFound, badRequest } = use('App/utils')
 class SearchController {
   /**
    * @api {get} api/verses/:version/:book/:chapter/:number Get Verse
-   * @apiVersion 1.0.0
+   * @apiVersion 0.2.0
    * @apiName GetVerse
    * @apiGroup Verses
    *
@@ -93,7 +93,7 @@ class SearchController {
 
   /**
    * @api {get} api/verses/:version/:book/:chapter/ Get Verses
-   * @apiVersion 1.0.0
+   * @apiVersion 0.2.0
    * @apiName GetVerses
    * @apiGroup Verses
    *
@@ -216,7 +216,7 @@ class SearchController {
 
   /**
    * @api {get} api/books/ Get Books
-   * @apiVersion 1.0.0
+   * @apiVersion 0.2.0
    * @apiName getBooks
    * @apiGroup Books
    *
@@ -291,7 +291,7 @@ class SearchController {
 
   /**
    * @api {get} api/books/:abbrev Get Book
-   * @apiVersion 1.0.0
+   * @apiVersion 0.2.0
    * @apiName getBook
    * @apiGroup Books
    *
@@ -351,7 +351,7 @@ class SearchController {
 
   /**
    * @api {post} api/search/ Search
-   * @apiVersion 1.0.0
+   * @apiVersion 0.2.0
    * @apiName Search
    * @apiGroup Search
    *

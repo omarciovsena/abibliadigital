@@ -7,10 +7,10 @@ const Verse = use('App/Models/Verse')
 
 trait('Test/ApiClient')
 
-before(async () => {
-  const book = await Factory.model('App/Models/Book').createMany(66)
-  const verse = await Factory.model('App/Models/Verse').create()
-})
+const {
+  booksPopulate,
+  versesPopulate
+} = require('../../database/seeds/functions')
 
 test('size list of books is 66', async ({ client, assert }) => {
   const response = await client.get('/api/books').end()
@@ -39,25 +39,30 @@ test('not found book', async ({ client }) => {
   })
 })
 
-test('chapter is gn 1', async ({ client }) => {
-  const response = await client.get('/api/verses/nvi/gn/1').end()
+test('chapter is sl 117', async ({ client }) => {
+  const response = await client.get('/api/verses/nvi/sl/117').end()
   response.assertStatus(200)
   response.assertJSONSubset({
     book: {
-      abbrev: 'gn',
-      name: 'Gênesis',
-      author: 'Moisés',
-      group: 'Pentateuco',
+      abbrev: 'sl',
+      name: 'Salmos',
+      author: 'David, Moisés, Salomão',
+      group: 'Poéticos',
       version: 'nvi'
     },
     chapter: {
-      number: 1,
-      verses: 1
+      number: 117,
+      verses: 2
     },
     verses: [
       {
         number: 1,
-        text: 'No princípio Deus criou os céus e a terra.'
+        text: 'Louvem o Senhor, todas as nações; exaltem-no, todos os povos!'
+      },
+      {
+        number: 2,
+        text:
+          'Porque imenso é o seu amor leal por nós, e a fidelidade do Senhor dura para sempre. Aleluia!'
       }
     ]
   })
