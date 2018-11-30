@@ -1,9 +1,12 @@
 {
   "name": "bibleapi",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "adonis-version": "4.1.0",
   "description": "A RESTful API for Bible (nvi, ra, acf, kjv, bbe)",
   "main": "index.js",
+  "engines": {
+    "node": "10.7.0"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "doc": "apidoc -i app/ -o apidoc/ -t ../apidoc-bs3-template/template",
@@ -13,7 +16,6 @@
     "start:dev": "ENV_SILENT=true yarn prestart && adonis serve --dev",
     "pretest": "ENV_PATH=.env.testing yarn migrations",
     "test": "ENV_PATH=.env.testing nyc adonis test",
-    "test:watch": "ENV_PATH=.env.testing nodemon ace test",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "pre-commit": [
@@ -58,7 +60,6 @@
   "devDependencies": {
     "chalk-animation": "^1.6.0",
     "conventional-changelog": "^3.0.5",
-    "nodemon": "^1.18.6",
     "nyc": "^13.1.0",
     "pre-commit": "^1.2.2",
     "uglify-es": "^3.3.9"

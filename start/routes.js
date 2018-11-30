@@ -2,26 +2,13 @@
 
 const Route = use('Route')
 
-Route.get('/en', ({ view, antl }) => {
-  antl.switchLocale('en')
-  return view.render('home')
-})
 
-Route.get('/pt', ({ view, antl }) => {
-  antl.switchLocale('pt')
-  return view.render('home')
-})
-
-Route.get('/', ({ view }) => {
-  return view.render('home')
-})
-
-Route.get('/index/:lang', ({ view, params, antl }) => {
+Route.get('/:lang', ({ view, params, antl }) => {
   antl.switchLocale(params.lang || 'pt')
   return view.render('index')
 })
 
-Route.get('/index', ({ view }) => {
+Route.get('/', ({ view }) => {
   return view.render('index')
 })
 
