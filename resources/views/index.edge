@@ -11,6 +11,8 @@
     <script async src="/theme/js/jquery-1.12.4.min.js"></script>
     <script defer src="/theme/js/jquery.json-viewer.js"></script>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
     {{ style('app') }}
     {{ script('app') }}
 
@@ -189,13 +191,33 @@
 
         </section>
 
+        <!--call-to-action-->
+        <section id="call-to-action" class="bg-color-1 padd-60">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-8 col-sm-8 col-xs-12">
+                      <div class="call-to-action-text">
+                          <h2>{{ antl.formatMessage('index.bannerTitle') }}</h2>
+                          <p>{{ antl.formatMessage('index.bannerDescription1') }} <br/> {{ antl.formatMessage('index.bannerDescription2') }}</p>
+                      </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="call-to-action-btn">
+                          <a href="https://doc.bibleapi.co" target="_blank" class="btn btn-white" title="Acesse a documentação">{{ antl.formatMessage('index.bannerButton') }}</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </section>
+        <!--call-to-action-->
+
         <section id="howToUse" class=" pd-tp-80  pd-bt-100 bg-color  clearfix">
           <div class="container">
             <div class="row-centered">
               <div class="col-centered col-lg-7 ">
                 <h2 class="title-h2">{{ antl.formatMessage('menu.howToUse') }}</h2>
                 <p class="font-p mg-bt-30">
-                  {{ antl.formatMessage('home.options') }}: books, books/gn, verses/nvi/gn/1, verses/acf/gn/1/1 <a href="http://doc.bibleapi.co/" title="{{ antl.formatMessage('home.documentation') }}">{{ antl.formatMessage('home.andMore') }}</a>
+                  {{ antl.formatMessage('home.options') }}: books, books/gn, verses/nvi/gn/1, verses/acf/gn/1/1 <a href="http://doc.bibleapi.co/" target="_blank" title="{{ antl.formatMessage('home.documentation') }}">{{ antl.formatMessage('home.andMore') }}</a>
                 </p>
               </div>
               <form id="form">
@@ -218,45 +240,41 @@
           </div>
         </section>
 
-        <!--call-to-action-->
-        <section id="call-to-action" class="bg-color-1 padd-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <div class="call-to-action-text">
-                            <h2>{{ antl.formatMessage('index.bannerTitle') }}</h2>
-                            <p>{{ antl.formatMessage('index.bannerDescription1') }} <br/> {{ antl.formatMessage('index.bannerDescription2') }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="call-to-action-btn">
-                            <a href="https://doc.bibleapi.co" class="btn btn-white" title="Acesse a documentação">{{ antl.formatMessage('index.bannerButton') }}</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--call-to-action-->
+        <section id="app" class=" pd-tp-80  pd-bt-100 bg-color  clearfix">
+          <div class="container">
+              <div class="row-centered">
+                  <div class="col-centered col-lg-7 ">
+                      <h2 class="title-h2">{{ antl.formatMessage('index.contributeTitle') }}</h2>
+                      <p class="font-p mg-bt-30">
+                          {{ antl.formatMessage('index.contributeDescription') }}
+                      </p>
+                      <a href="https://www.patreon.com/join/bibleapi" target="_blank">
+                        <img src="https://cdn-std.dprcdn.net/files/acc_649651/plrSCT" style="height: 80px;" alt="Patreon">
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </section>
     </div>
 
     <!--End page cotnent-->
+  <!--Footer-->
 
-    <!--Footer-->
-    <footer class="footer">
-      <div class="footer-warpper">
-          <div class="footer-bottom">
-              <div class="copyright">
-                <div class="container">
-                  <div class="row justify-content-between">
-                    <p class="text-left">{{ antl.formatMessage('index.credits') }}</p>
-                    <a href="https://stats.uptimerobot.com/5PXmCNLM" target="_blank" title="{{ antl.formatMessage('general.statusPage') }}">{{ antl.formatMessage('general.statusPage') }}</a>
-                  </div>
-                </div>
+  <footer class="footer">
+    <div class="footer-warpper">
+        <div class="footer-bottom">
+          <div class="copyright">
+            <div class="container">
+              <div class="row justify-content-between">
+                <p class="text-left text-sm-center">{{ antl.formatMessage('index.credits') }}</p>
+                <p class="text-sm-center"><a href="https://stats.uptimerobot.com/5PXmCNLM" target="_blank" title="{{ antl.formatMessage('general.statusPage') }}">{{ antl.formatMessage('general.statusPage') }}</a></p>
               </div>
+            </div>
           </div>
       </div>
-    </footer>
-    <!--Footer -->
+    </div>
+  </footer>
+  <!--Footer -->
 
     <script defer src="/theme/js/bootstrap.min.js"></script>
     <!-- Template Plugins -->

@@ -1,4 +1,9 @@
 <p align="center">
+  <a href="https://www.patreon.com/join/bibleapi" target="_blank">
+    <img src="https://cdn-std.dprcdn.net/files/acc_649651/plrSCT" height="80" alt="Patreon">
+  </a>
+</p>
+<p align="center">
   <img src="https://bibleapi.co/theme/images/brand.png" alt="bibleAPI" width="150">
 </p>
 <p align="center">
