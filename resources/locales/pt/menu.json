@@ -1,11 +1,13 @@
 {
-  "index": "Início",
   "about": "Manifesto",
   "aboutTitle": "Conheça nosso manifesto",
+  "contact": "Fale conosco",
+  "contactTitle": "Entre em contato conosco",
+  "documentation": "Documentação",
+  "documentationTitle": "Entenda em detalhes como utilizar cada funcionalidade",
+  "donate": "Doe",
+  "donateTitle": "Contribua financeiramente para o projeto",
   "howToUse": "Como usar?",
   "howToUseTitle": "Aprenda a usar",
-  "pricing": "Valores",
-  "pricingTitle": "Conheça nossos valores e funcionalidades",
-  "contact": "Fale conosco",
-  "contactTitle": "Entre em contato conosco"
+  "index": "Início"
 }
