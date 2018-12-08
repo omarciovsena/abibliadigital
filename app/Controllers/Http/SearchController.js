@@ -2,7 +2,7 @@
 
 const Book = use('App/Models/Book')
 const Verse = use('App/Models/Verse')
-const { notFound, badRequest } = use('App/utils')
+const { notFound, badRequest, newRequest } = use('App/utils')
 
 class SearchController {
   /**
@@ -62,7 +62,8 @@ class SearchController {
    *
    */
 
-  async getVerse({ params, response }) {
+  async getVerse({ request, params, response }) {
+    newRequest(request.url())
     const { chapter, number, book, version } = params
     const bookData = await Book.query().where('abbrev', book)
     if (bookData.length > 0) {
@@ -178,7 +179,8 @@ class SearchController {
    *
    */
 
-  async getChapter({ params, response }) {
+  async getChapter({ request, params, response }) {
+    newRequest(request.url())
     const { chapter, book, version } = params
     const bookData = await Book.query().where('abbrev', book)
     if (bookData.length > 0) {
@@ -277,7 +279,8 @@ class SearchController {
    *    HTTP/1.1 429 Too Many Requests
    */
 
-  async getBooks() {
+  async getBooks({ request }) {
+    newRequest(request.url())
     const books = await Book.query()
     return books.map(book => ({
       abbrev: book.abbrev,
@@ -335,7 +338,8 @@ class SearchController {
    *
    */
 
-  async getBook({ params, response }) {
+  async getBook({ request, params, response }) {
+    newRequest(request.url())
     const book = await Book.findBy('abbrev', params.book)
     return book
       ? {
@@ -417,7 +421,8 @@ class SearchController {
    * }
    */
 
-  async search({ response, request }) {
+  async search({ request, response }) {
+    newRequest(request.url())
     const { version, search } = request.all()
     if (!version || !search) {
       return badRequest(
