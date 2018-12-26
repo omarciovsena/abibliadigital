@@ -7,26 +7,21 @@ const Verse = use('App/Models/Verse')
 
 trait('Test/ApiClient')
 
-const {
-  booksPopulate,
-  versesPopulate
-} = require('../../database/seeds/functions')
-
 test('size list of books is 66', async ({ client, assert }) => {
   const response = await client.get('/api/books').end()
   response.assertStatus(200)
   assert.equal(response.body.length, 66)
 })
 
-test('book is Gênesis', async ({ client }) => {
-  const response = await client.get('/api/books/gn').end()
+test('book is Salmos', async ({ client }) => {
+  const response = await client.get('/api/books/sl').end()
   response.assertStatus(200)
   response.assertJSONSubset({
-    abbrev: 'gn',
-    author: 'Moisés',
-    chapters: 50,
-    group: 'Pentateuco',
-    name: 'Gênesis',
+    abbrev: 'sl',
+    author: 'David, Moisés, Salomão',
+    chapters: 150,
+    group: 'Poéticos',
+    name: 'Salmos',
     testament: 'VT'
   })
 })
@@ -77,19 +72,19 @@ test('not found chapter', async ({ client }) => {
 })
 
 test('is "No princípio Deus criou os céus e a terra."', async ({ client }) => {
-  const response = await client.get('/api/verses/nvi/gn/1/1').end()
+  const response = await client.get('/api/verses/nvi/sl/117/1').end()
   response.assertStatus(200)
   response.assertJSONSubset({
     book: {
-      abbrev: 'gn',
-      name: 'Gênesis',
-      author: 'Moisés',
-      group: 'Pentateuco',
+      abbrev: 'sl',
+      name: 'Salmos',
+      author: 'David, Moisés, Salomão',
+      group: 'Poéticos',
       version: 'nvi'
     },
-    chapter: 1,
+    chapter: 117,
     number: 1,
-    text: 'No princípio Deus criou os céus e a terra.'
+    text: 'Louvem o Senhor, todas as nações; exaltem-no, todos os povos!'
   })
 })
 
@@ -101,12 +96,12 @@ test('not found verse', async ({ client }) => {
   })
 })
 
-test('is gn. 1:1', async ({ client }) => {
+test('is sl. 117', async ({ client }) => {
   const response = await client
     .post('/api/search/')
     .send({
       version: 'nvi',
-      search: 'No princípio Deus'
+      search: 'Louvem o Senhor, todas as nações; exaltem-no, todos os povos!'
     })
     .end()
   response.assertStatus(200)
@@ -115,10 +110,10 @@ test('is gn. 1:1', async ({ client }) => {
     version: 'nvi',
     verses: [
       {
-        book: 'gn',
-        chapter: 1,
+        book: 'sl',
+        chapter: 117,
         number: 1,
-        text: 'No princípio Deus criou os céus e a terra.'
+        text: 'Louvem o Senhor, todas as nações; exaltem-no, todos os povos!'
       }
     ]
   })

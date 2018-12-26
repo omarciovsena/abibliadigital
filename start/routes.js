@@ -2,7 +2,6 @@
 
 const Route = use('Route')
 
-
 Route.get('/:lang', ({ view, params, antl }) => {
   antl.switchLocale(params.lang || 'pt')
   return view.render('index')
@@ -14,6 +13,22 @@ Route.get('/', ({ view }) => {
 
 Route.post('api/users', 'UserController.create')
 Route.post('api/sessions', 'SessionController.create')
+
+Route.get('api/requests/count/:period?', 'RequestController.count').middleware(
+  'throttle:3:300'
+)
+
+Route.get('api/requests/:period?', 'RequestController.show').middleware(
+  'throttle:3:300'
+)
+
+Route.get('api/requests/month', 'RequestController.month').middleware(
+  'throttle:3:300'
+)
+
+Route.get('api/requests/week', 'RequestController.week').middleware(
+  'throttle:3:300'
+)
 
 Route.get('api/books/', 'SearchController.getBooks').middleware(
   'throttle:3:300'

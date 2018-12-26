@@ -1,3 +1,5 @@
+const Request = use('App/Models/Request')
+
 const notFound = response => {
   response.status(404)
   return {
@@ -18,7 +20,17 @@ const badRequest = (response, message) => {
   }
 }
 
+const newRequest = async url => {
+  const req = { url }
+  try {
+    await Request.create(req)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 module.exports = {
   badRequest,
-  notFound
+  notFound,
+  newRequest
 }
