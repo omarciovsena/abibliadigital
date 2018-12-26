@@ -54,7 +54,7 @@ class RequestController {
     const requests = date
       ? await Request.query().where('created_at', '>', date)
       : await Request.query()
-    return requests.map(request => ({
+    return await requests.map(request => ({
       url: request.url,
       date: request.created_at
     }))
