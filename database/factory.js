@@ -13,3 +13,9 @@ Factory.blueprint('App/Models/Verse', (faker, i, data) => {
     ...data
   }
 })
+
+Factory.blueprint('App/Models/Request', (faker, i, data) => {
+  return {
+    ...data
+  }
+})

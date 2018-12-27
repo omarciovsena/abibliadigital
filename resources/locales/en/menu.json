@@ -1,11 +1,13 @@
 {
-  "index": "Home",
   "about": "Manifest",
   "aboutTitle": "Meet Our Manifest",
+  "contact": "Contact us",
+  "contactTitle": "Contact us",
+  "documentation": "Documentation",
+  "documentationTitle": "Understand in detail how to use each feature",
+  "donate": "Donate",
+  "donateTitle": "Contribute financially to the project",
   "howToUse": "How to use?",
   "howToUseTitle": "Learn to use",
-  "pricing": "Prices",
-  "pricingTitle": "Know our prices and functionalities",
-  "contact": "Contact us",
-  "contactTitle": "Contact us"
+  "index": "Home"
 }

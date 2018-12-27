@@ -64,7 +64,7 @@
                 <div class="container">
                     <a class="navbar-brand" href="/" title="bibleAPI"><img src="/theme/images/logo.png" alt="bibleAPI"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon  icon_menu"></span>
+                      <span class="navbar-toggler-icon  fas fa-bars"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -79,7 +79,10 @@
                               <a data-scroll="" class="nav-link section-scroll" href="#howToUse" title="{{ antl.formatMessage('menu.howToUseTitle') }}">{{ antl.formatMessage('menu.howToUse') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a data-scroll="" class="nav-link section-scroll" href="#pricing" title="{{ antl.formatMessage('menu.pricingTitle') }}">{{ antl.formatMessage('menu.pricing') }}</a>
+                              <a data-scroll="" class="nav-link section-scroll" href="https://doc.bibleapi.co" target="_blank" title="{{ antl.formatMessage('menu.documentationTitle') }}">{{ antl.formatMessage('menu.documentation') }}</a>
+                            </li>
+                            <li class="nav-item">
+                              <a data-scroll="" class="nav-link section-scroll" href="#donate" title="{{ antl.formatMessage('menu.donateTitle') }}">{{ antl.formatMessage('menu.donate') }}</a>
                             </li>
                             @if(antl.currentLocale() === 'pt')
                               <li class="nav-item">
@@ -96,7 +99,7 @@
                             @endif
                             <li>
                               <div class="connect-block">
-                                <a href="/" class="btn btn-white" title="{{ antl.formatMessage('menu.contactTitle') }}">{{ antl.formatMessage('menu.contact') }}</a>
+                                <a href="http://twitter.com/bibleapico" target="_blank" class="btn btn-white" title="{{ antl.formatMessage('menu.contactTitle') }}"><i class="fab fa-twitter"></i>&nbsp;&nbsp;{{ antl.formatMessage('menu.contact') }}</a>
                               </div>
                             </li>
                         </ul>
@@ -184,7 +187,7 @@
                       <p class="font-p">{{ antl.formatMessage('index.manifestDescription1') }}</p>
                       <p class="font-p mg-bt-10">{{ antl.formatMessage('index.manifestDescription2') }}</p>
                       <p class="font-p mg-bt-30">{{ antl.formatMessage('index.manifestDescription3') }}</p>
-                      <a href="mailto:contato@marciosena.com.br" class="btn btn-color" title="{{ antl.formatMessage('index.buttonContactUs') }}">{{ antl.formatMessage('index.buttonContactUs') }}</a>
+                      <a href="http://twitter.com/bibleapico" target="_blank" class="btn btn-color" title="{{ antl.formatMessage('index.buttonContactUs') }}"><i class="fab fa-twitter"></i>&nbsp;&nbsp;{{ antl.formatMessage('index.buttonContactUs') }}</a>
                     </div>
                 </div>
             </div>
@@ -240,7 +243,7 @@
           </div>
         </section>
 
-        <section id="app" class=" pd-tp-80  pd-bt-100 bg-color  clearfix">
+        <section id="donate" class=" pd-tp-80  pd-bt-100 bg-color  clearfix">
           <div class="container">
               <div class="row-centered">
                   <div class="col-centered col-lg-7 ">
