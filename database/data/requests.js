@@ -9,9 +9,6 @@ const requests = [
     url: '/api/requests/count/week'
   },
   {
-    url: '/api/requests/count/week'
-  },
-  {
     url: '/api/requests/count/month'
   },
   {
@@ -19,9 +16,6 @@ const requests = [
   },
   {
     url: '/api/requests/week'
-  },
-  {
-    url: '/api/requests/count/month'
   }
 ]
 
