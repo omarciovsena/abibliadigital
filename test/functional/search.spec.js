@@ -71,7 +71,7 @@ test('not found chapter', async ({ client }) => {
   })
 })
 
-test('is "No princípio Deus criou os céus e a terra."', async ({ client }) => {
+test('is sl 117:1', async ({ client }) => {
   const response = await client.get('/api/verses/nvi/sl/117/1').end()
   response.assertStatus(200)
   response.assertJSONSubset({

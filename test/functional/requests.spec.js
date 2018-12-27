@@ -40,5 +40,5 @@ test('list all requests', async ({ client }) => {
 test('count all requests', async ({ client, assert }) => {
   const response = await client.get('api/requests/count/month').end()
   response.assertStatus(200)
-  assert.equal(response.body.length, 7)
+  assert.equal(response.body[0].count, 2)
 })
