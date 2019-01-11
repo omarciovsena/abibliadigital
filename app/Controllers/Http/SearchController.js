@@ -315,6 +315,7 @@ class SearchController {
     {
         "abbrev": "gn",
         "author": "Moisés",
+        "comment": "Uma vez que este livro anônimo integra o Pentateuco unificado",
         "chapters": 50,
         "group": "Pentateuco",
         "name": "Gênesis",
@@ -346,6 +347,7 @@ class SearchController {
           abbrev: book.abbrev,
           author: book.author,
           chapters: book.chapters,
+          comment: book.comment,
           group: book.group,
           name: book.name,
           testament: book.testament
