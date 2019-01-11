@@ -45,7 +45,7 @@ class SearchController {
    *      "text": "No princípio Deus criou os céus e a terra."
    *    }
    *
-   * @apiError TooManyRequests When performing more than 3 requests at the same endpoint in an interval less than 5 minutes
+   * @apiError TooManyRequests When performing more than 50 requests at the same endpoint in an interval less than 5 minutes
    * @apiError VerseNotFound When the verse was not found
    *
    * @apiErrorExample {text} Error-Response:
@@ -162,7 +162,7 @@ class SearchController {
     ]
 }
    *
-   * @apiError TooManyRequests When performing more than 3 requests at the same endpoint in an interval less than 5 minutes
+   * @apiError TooManyRequests When performing more than 50 requests at the same endpoint in an interval less than 5 minutes
    * @apiError VerseNotFound When the verse was not found
    *
    * @apiErrorExample {text} Error-Response:
@@ -273,7 +273,7 @@ class SearchController {
     ...
 ]
    *
-   * @apiError TooManyRequests When performing more than 3 requests at the same endpoint in an interval less than 5 minutes
+   * @apiError TooManyRequests When performing more than 50 requests at the same endpoint in an interval less than 5 minutes
    *
    * @apiErrorExample {text} Error-Response:
    *    HTTP/1.1 429 Too Many Requests
@@ -321,7 +321,7 @@ class SearchController {
         "testament": "VT"
     }
    *
-   * @apiError TooManyRequests When performing more than 3 requests at the same endpoint in an interval less than 5 minutes
+   * @apiError TooManyRequests When performing more than 50 requests at the same endpoint in an interval less than 5 minutes
    * @apiError VerseNotFound When the verse was not found
    *
    * @apiErrorExample {text} Error-Response:
@@ -395,7 +395,7 @@ class SearchController {
         ]
     }
    *
-   * @apiError TooManyRequests When performing more than 3 requests at the same endpoint in an interval less than 5 minutes
+   * @apiError TooManyRequests When performing more than 50 requests at the same endpoint in an interval less than 5 minutes
    * @apiError VerseNotFound When the verse was not found
    * @apiError BadRequest When the required parameters are not sent
    *
