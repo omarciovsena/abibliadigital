@@ -98,6 +98,13 @@ body {
   }
 }
 
+.nav-item--github a {
+  display: flex;
+  i {
+    font-size: 30px;
+  }
+}
+
 @media (max-width: 992px) {
   .text-sm-center {
     display: inline-block;
