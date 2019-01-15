@@ -8,7 +8,7 @@ class BookSchema extends Schema {
       table.increments()
       table.integer('chapters').notNullable()
       table.string('abbrev').notNullable()
-      table.string('comment').notNullable()
+      table.text('comment').notNullable()
       table.string('group').notNullable()
       table.string('testament').notNullable()
       table.string('name').notNullable()

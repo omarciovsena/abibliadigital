@@ -8,7 +8,7 @@
     "node": "10.7.0"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production && ENV_SILENT=true node ace migration:run --force",
     "doc": "apidoc -i app/ -o apidoc/ -t ../apidoc-bs3-template/template",
     "migrations": "adonis migration:reset && adonis migration:run && adonis seed --files='Seeder.js'",
     "prestart": "yarn build",

@@ -1,5 +1,5 @@
 {
-  "description": "RESTful API with multiple versions of the Holy Bible in more than 10 languages",
+  "description": "Bible API - RESTful API with multiple versions of the Holy Bible in more than 10 languages",
   "english": "English",
   "portuguese": "Portuguese",
   "statusPage": "Status page",

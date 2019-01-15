@@ -39,7 +39,7 @@ class RequestController {
    *      "date": "2018-12-08T22:16:52.000Z"
    *    }]
    *
-   * @apiError TooManyRequests When performing more than 3 requests at the same endpoint in an interval less than 5 minutes
+   * @apiError TooManyRequests When performing more than 50 requests at the same endpoint in an interval less than 5 minutes
    *
    * @apiErrorExample {text} Error-Response:
    *    HTTP/1.1 429 Too Many Requests
@@ -82,7 +82,7 @@ class RequestController {
    *      "count": "3",
    *    }]
    *
-   * @apiError TooManyRequests When performing more than 3 requests at the same endpoint in an interval less than 5 minutes
+   * @apiError TooManyRequests When performing more than 50 requests at the same endpoint in an interval less than 5 minutes
    *
    * @apiErrorExample {text} Error-Response:
    *    HTTP/1.1 429 Too Many Requests

@@ -15,39 +15,39 @@ Route.post('api/users', 'UserController.create')
 Route.post('api/sessions', 'SessionController.create')
 
 Route.get('api/requests/count/:period?', 'RequestController.count').middleware(
-  'throttle:3:300'
+  'throttle:50:300'
 )
 
 Route.get('api/requests/:period?', 'RequestController.show').middleware(
-  'throttle:3:300'
+  'throttle:50:300'
 )
 
 Route.get('api/requests/month', 'RequestController.month').middleware(
-  'throttle:3:300'
+  'throttle:50:300'
 )
 
 Route.get('api/requests/week', 'RequestController.week').middleware(
-  'throttle:3:300'
+  'throttle:50:300'
 )
 
 Route.get('api/books/', 'SearchController.getBooks').middleware(
-  'throttle:3:300'
+  'throttle:50:300'
 )
 
 Route.get('api/books/:book', 'SearchController.getBook').middleware(
-  'throttle:3:300'
+  'throttle:50:300'
 )
 
 Route.get(
   'api/verses/:version/:book/:chapter',
   'SearchController.getChapter'
-).middleware('throttle:3:300')
+).middleware('throttle:50:300')
 
 Route.get(
   'api/verses/:version/:book/:chapter/:number',
   'SearchController.getVerse'
-).middleware('throttle:3:300')
+).middleware('throttle:50:300')
 
 Route.post('api/search/', 'SearchController.search').middleware(
-  'throttle:3:300'
+  'throttle:50:300'
 )
