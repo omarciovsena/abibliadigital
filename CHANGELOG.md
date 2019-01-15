@@ -1,15 +1,22 @@
-## [0.2.3](https://github.com/marciovsena/bibleapi/compare/v0.2.2...v0.2.3) (2018-12-26)
+## [0.2.4](https://github.com/marciovsena/bibleapi/compare/v0.2.2...v0.2.4) (2019-01-15)
 
 
 ### Bug Fixes
 
+* comment column ([c0d804c](https://github.com/marciovsena/bibleapi/commit/c0d804c))
 * copy and menu links on homepage ([#11](https://github.com/marciovsena/bibleapi/issues/11)) ([3fdad7a](https://github.com/marciovsena/bibleapi/commit/3fdad7a))
-* requests test ([ebd597e](https://github.com/marciovsena/bibleapi/commit/ebd597e))
+* logger tests ([#13](https://github.com/marciovsena/bibleapi/issues/13)) v.0.2.3 ([5201fe6](https://github.com/marciovsena/bibleapi/commit/5201fe6))
+* migrations on production ([#17](https://github.com/marciovsena/bibleapi/issues/17)) ([e395d0a](https://github.com/marciovsena/bibleapi/commit/e395d0a))
+* remove requests tests ([#15](https://github.com/marciovsena/bibleapi/issues/15)) ([1e3efe4](https://github.com/marciovsena/bibleapi/commit/1e3efe4))
+* remove unused page ([4b45939](https://github.com/marciovsena/bibleapi/commit/4b45939))
+* requests logger ([#14](https://github.com/marciovsena/bibleapi/issues/14)) ([c670c38](https://github.com/marciovsena/bibleapi/commit/c670c38))
 
 
 ### Features
 
-* add requests stats ([68697e6](https://github.com/marciovsena/bibleapi/commit/68697e6))
+* add comment on getBook ([f1ec961](https://github.com/marciovsena/bibleapi/commit/f1ec961))
+* add github link ([294f935](https://github.com/marciovsena/bibleapi/commit/294f935))
+* add requests stats ([#12](https://github.com/marciovsena/bibleapi/issues/12)) ([303aca9](https://github.com/marciovsena/bibleapi/commit/303aca9))
 
 
 
