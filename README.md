@@ -17,7 +17,7 @@
   <a href="https://stats.uptimerobot.com/5PXmCNLM" title="Circle CI">
     <img src="https://circleci.com/gh/ofallante/bibleapi.svg?style=shield&circle-token=d5991d37b216f8da35b279de6789085300b5c75e" alt="Circle Ci"/>
   </a>
-  <a href="https://github.com/ofallante/bibleapi/master/LICENSE.rst" title="license">
+  <a href="https://github.com/ofallante/bibleapi/blob/dev/LICENSE" title="license">
     <img src="https://badgen.net/badge/license/BSD/blue" alt="BSD License">
   </a>
 </p>
