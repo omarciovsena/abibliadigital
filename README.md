@@ -15,9 +15,9 @@
     <img src="https://img.shields.io/uptimerobot/ratio/m778918918-3e92c097147760ee39d02d36.svg" alt="Uptimerobot">
   </a>
   <a href="https://stats.uptimerobot.com/5PXmCNLM" title="Circle CI">
-    <img src="https://circleci.com/gh/marciovsena/bibleapi.svg?style=shield&circle-token=d5991d37b216f8da35b279de6789085300b5c75e" alt="Circle Ci"/>
+    <img src="https://circleci.com/gh/ofallante/bibleapi.svg?style=shield&circle-token=d5991d37b216f8da35b279de6789085300b5c75e" alt="Circle Ci"/>
   </a>
-  <a href="https://github.com/marciosena/bibleapi/master/LICENSE.rst" title="license">
+  <a href="https://github.com/ofallante/bibleapi/master/LICENSE.rst" title="license">
     <img src="https://badgen.net/badge/license/BSD/blue" alt="BSD License">
   </a>
 </p>

@@ -301,6 +301,7 @@ class SearchController {
    *
    * @apiSuccess {String} abbrev Abbreviation of the book
    * @apiSuccess {String} author Book author
+   * @apiSuccess {String} comment Book review
    * @apiSuccess {Number} chapters Number of chapters
    * @apiSuccess {String} group ame of the group that the book belongs to
    * @apiSuccess {String} name Book name
