@@ -279,8 +279,11 @@ class SearchController {
    *    HTTP/1.1 429 Too Many Requests
    */
 
-  async getBooks({ request }) {
-    newRequest(request.url())
+  async getBooks({ request, params }) {
+    console.log(params)
+    if (params.count !== 'false') {
+      newRequest(request.url())
+    }
     const books = await Book.query()
     return books.map(book => ({
       abbrev: book.abbrev,
