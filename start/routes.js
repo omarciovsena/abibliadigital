@@ -18,15 +18,11 @@ Route.get('api/requests/count/:period?', 'RequestController.count').middleware(
   'throttle:50:300'
 )
 
+Route.get('api/requests/total/:period?', 'RequestController.total').middleware(
+  'throttle:50:300'
+)
+
 Route.get('api/requests/:period?', 'RequestController.show').middleware(
-  'throttle:50:300'
-)
-
-Route.get('api/requests/month', 'RequestController.month').middleware(
-  'throttle:50:300'
-)
-
-Route.get('api/requests/week', 'RequestController.week').middleware(
   'throttle:50:300'
 )
 

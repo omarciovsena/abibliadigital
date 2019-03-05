@@ -108,6 +108,16 @@ class RequestController {
           .orderBy('count', 'desc')
     return requests
   }
+
+  async total({ request, params }) {
+    const requests = await this.count({ request, params })
+    let total = 0
+    requests.forEach(req => (total = total + parseInt(req.count)))
+
+    return {
+      total
+    }
+  }
 }
 
 module.exports = RequestController
