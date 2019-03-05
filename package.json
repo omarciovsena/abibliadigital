@@ -1,6 +1,6 @@
 {
   "name": "bibleapi",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "adonis-version": "4.1.0",
   "description": "A RESTful API for Bible (nvi, ra, acf, kjv, bbe)",
   "main": "index.js",
