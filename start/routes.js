@@ -30,7 +30,7 @@ Route.get('api/requests/week', 'RequestController.week').middleware(
   'throttle:50:300'
 )
 
-Route.get('api/books/:count?', 'SearchController.getBooks').middleware(
+Route.get('api/books', 'SearchController.getBooks').middleware(
   'throttle:50:300'
 )
 
@@ -51,3 +51,5 @@ Route.get(
 Route.post('api/search/', 'SearchController.search').middleware(
   'throttle:50:300'
 )
+
+Route.get('api/check', 'SearchController.check').middleware('throttle:50:300')

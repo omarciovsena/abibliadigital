@@ -467,6 +467,12 @@ class SearchController {
     }
     return notFound(response)
   }
+
+  async check() {
+    return {
+      result: 'success'
+    }
+  }
 }
 
 module.exports = SearchController
