@@ -284,7 +284,7 @@ class SearchController {
     if (params.count !== 'false') {
       newRequest(request.url())
     }
-    const books = await Book.query()
+    const books = await Book.query().orderBy('id')
     return books.map(book => ({
       abbrev: book.abbrev,
       author: book.author,
@@ -466,6 +466,12 @@ class SearchController {
       }
     }
     return notFound(response)
+  }
+
+  async check() {
+    return {
+      result: 'success'
+    }
   }
 }
 
