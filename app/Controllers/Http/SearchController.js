@@ -63,7 +63,7 @@ class SearchController {
    */
 
   async getVerse({ request, params, response }) {
-    newRequest(request.url())
+    newRequest(request)
     const { chapter, number, book, version } = params
     const bookData = await Book.query().where('abbrev', book)
     if (bookData.length > 0) {
@@ -180,7 +180,7 @@ class SearchController {
    */
 
   async getChapter({ request, params, response }) {
-    newRequest(request.url())
+    newRequest(request)
     const { chapter, book, version } = params
     const bookData = await Book.query().where('abbrev', book)
     if (bookData.length > 0) {
@@ -280,9 +280,8 @@ class SearchController {
    */
 
   async getBooks({ request, params }) {
-    console.log(params)
     if (params.count !== 'false') {
-      newRequest(request.url())
+      newRequest(request)
     }
     const books = await Book.query().orderBy('id')
     return books.map(book => ({
@@ -344,7 +343,7 @@ class SearchController {
    */
 
   async getBook({ request, params, response }) {
-    newRequest(request.url())
+    newRequest(request)
     const book = await Book.findBy('abbrev', params.book)
     return book
       ? {
@@ -428,7 +427,7 @@ class SearchController {
    */
 
   async search({ request, response }) {
-    newRequest(request.url())
+    newRequest(request)
     const { version, search } = request.all()
     if (!version || !search) {
       return badRequest(
