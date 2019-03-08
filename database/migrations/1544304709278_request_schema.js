@@ -8,6 +8,7 @@ class RequestSchema extends Schema {
     this.create('requests', table => {
       table.increments()
       table.text('url').notNullable()
+      table.text('ip')
       table.timestamps()
     })
   }

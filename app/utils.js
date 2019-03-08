@@ -20,8 +20,8 @@ const badRequest = (response, message) => {
   }
 }
 
-const newRequest = async url => {
-  const req = { url }
+const newRequest = async request => {
+  const req = { url: request.url(), ip: request.ip() }
   try {
     await Request.create(req)
   } catch (err) {

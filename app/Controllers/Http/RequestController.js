@@ -48,7 +48,7 @@ class RequestController {
    */
 
   async show({ request, params }) {
-    newRequest(request.url())
+    newRequest(request)
     const { period } = params
     const date = getPeriod(period)
     const requests = date
@@ -91,7 +91,7 @@ class RequestController {
    */
 
   async count({ request, params }) {
-    newRequest(request.url())
+    newRequest(request)
     const { period } = params
     const date = getPeriod(period)
     const requests = date
