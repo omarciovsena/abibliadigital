@@ -78,6 +78,5 @@ Visite our [trello](https://trello.com/b/VPGRzM36/biblieapi) board
 Created and maintained by:
 
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/3450717?s=460&v=4" width="60px;"/><br /><sub><b>Márcio Sena</b></sub>](https://github.com/ofallante)<br />[💻](https://github.com/ofallant
-/bibleapi/commits?author=ofallante "Code") [📖](https://github.com/ofallante/bibleapi/commits?author=ofallante "Documentation") [🐛](https://github.com/ofallante/bibleapi/issues?q=author%3Aofallante "Bug reports")
+| [<img src="https://avatars0.githubusercontent.com/u/3450717?s=460&v=4" width="60px;"/><br /><sub><b>Márcio Sena</b></sub>](https://github.com/ofallante)<br />[💻](https://github.com/ofallante/bibleapi/commits?author=ofallante "Code") [📖](https://github.com/ofallante/bibleapi/commits?author=ofallante "Documentation") [🐛](https://github.com/ofallante/bibleapi/issues?q=author%3Aofallante "Bug reports")
 | :---: |
