@@ -46,7 +46,7 @@
 
 #### Dependencies
 
-- [Yarn](https://adonisjs.com/)
+- [Yarn](https://yarnpkg.com/en/)
 - [AdonisJs](https://adonisjs.com/)
 
 #### Setup
