@@ -21,6 +21,7 @@
     "jest",
     "eslint-plugin-import-helpers"
   ],
+  "ignorePatterns": ["public/"],
   "rules": {
     "import-helpers/order-imports": [
       "warn",
