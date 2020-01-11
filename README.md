@@ -7,73 +7,192 @@
   <img src="https://bibleapi.co/theme/images/brand.png" alt="bibleAPI" width="150">
 </p>
 <p align="center">
-  <a href="https://bibleapi.co">bibleAPI.co</a> is a RESTful API of the Holy Bible  developed with <a href="https://adonisjs.com/">AdonisJs</a> 🚀
+  <a href="https://bibleapi.co">bibleAPI.co</a> is a RESTful API of the Holy Bible developed with Node.js + Express + MongoDB 🚀
 </p>
 
 <p align="center">
   <a href="https://stats.uptimerobot.com/5PXmCNLM" title="Uptimerobot">
     <img src="https://img.shields.io/uptimerobot/ratio/m778918918-3e92c097147760ee39d02d36.svg" alt="Uptimerobot">
   </a>
-  <a href="https://stats.uptimerobot.com/5PXmCNLM" title="Circle CI">
-    <img src="https://circleci.com/gh/marciovsena/bibleapi.svg?style=shield&circle-token=d5991d37b216f8da35b279de6789085300b5c75e" alt="Circle Ci"/>
-  </a>
-  <a href="https://github.com/marciosena/bibleapi/master/LICENSE.rst" title="license">
+  <a href="https://github.com/marciovsena/bibleapi/blob/dev/LICENSE" title="license">
     <img src="https://badgen.net/badge/license/BSD/blue" alt="BSD License">
   </a>
 </p>
 
-## ► Documentation
+## ► Table of Contents
 
-- [📘 Documentation](https://doc.bibleapi.co) - apiDoc
-- [😍 Home Page](https://bibleapi.co)
+- [Why ?](#why-)
+- [Documentation](#documentation)
+- [Setup](#setup)
+- [Fair use policy](#fair-use-policy)
+- [Credits and Thanks](#credits-and-thanks)
+- [Contributing](#contributing)
+- [Contributor](#contributor)
 
-## ► Usage
+## Why ?
 
-- `GET https://bibleapi.co/api/books/:abbrev`
-- `GET https://bibleapi.co/api/books/`
-- `POST https://bibleapi.co/api/search/`
-  - body:
-  ```
+Application and site development is still a complex process for churches and religious organizations.
+
+We know that creating unique content ends up competing with basic tasks such as making devotions, verses, comments, social networking nurture, and so many other day-to-day tasks available.
+
+We believe that we can offer many of these services, free of charge, with the professional quality and focused on the word of God.
+
+## Documentation
+
+### Book list
+
+`GET https://bibleapi.co/api/books`
+
+```
+[
   {
-    "version": ":version",
-    "search": ":work"
-  }
-  ```
-- `GET https://bibleapi.co/api/verses/:version/:book/:chapter/:number`
-- `GET https://bibleapi.co/api/verses/:version/:book/:chapter/`
+    "abbrev": {"pt":"gn","en":"gn"},
+    "author":"Moisés",
+    "chapters":50,
+    "group":"Pentateuco",
+    "name":"Gênesis",
+    "testament":"VT"
+  },
+  {
+    "abbrev": {"pt":"ex","en":"ex"},
+    "author":"Moisés",
+    "chapters":40,
+    "group":"Pentateuco",
+    "name":"Êxodo",
+    "testament":"VT"
+  },
+  ...
+]
+```
 
-## ► Installation
+### Get Book
 
-#### Dependencies
+`GET https://bibleapi.co/api/books/:abbrev`
 
-- [Yarn](https://adonisjs.com/)
-- [AdonisJs](https://adonisjs.com/)
+```
+{
+  "abbrev": {"pt":"mt","en":"mt"},
+  "author":"Mateus",
+  "chapters":28,
+  "comment":"",
+  "group":"Evangelhos",
+  "name":"Mateus",
+  "testament":"NT"
+}
+```
 
-#### Setup
+### Get Chapter
+
+- `GET https://bibleapi.co/api/verses/:version/:abbrev/:chapter`
+
+```
+{
+  "book": {
+    "abbrev":{"pt":"gn","en":"gn"},
+    "name":"Gênesis",
+    "author":"Moisés",
+    "group":"Pentateuco",
+    "version":"nvi"
+  },
+  "chapter": {
+    "number":1,
+    "verses":31
+  },
+  "verses": [
+    {"number": 1,"text":"No princípio Deus criou os céus e a terra."},
+    {"number": 2,"text":"Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas."}
+    ...
+  ]
+}
+```
+
+### Get Verse
+
+`GET https://bibleapi.co/api/verses/:version/:abbrev/:chapter/:number`
+
+```
+{
+  "book": {
+    "abbrev":{"pt":"gn","en":"gn"},
+    "name":"Gênesis",
+    "author":"Moisés",
+    "group":"Pentateuco",
+    "version":"nvi"
+  },
+  "chapter": {
+    "number": 1,
+    "verses": 31
+  },
+  "chapter": 1,
+  "number": 1,
+  "text": "No princípio Deus criou os céus e a terra."
+}
+```
+
+### Search by word
+
+`POST https://bibleapi.co/api/verses/search`
+
+#### Body:
+
+```
+{
+  "version": "nvi",
+  "search": "terra"
+}
+```
+
+```
+{
+  "occurrence": 987,
+  "version": "nvi",
+  "verses": [
+    {
+      "book": {
+          "abbrev": {
+              "pt": "gn"
+          }
+      },
+      "chapter": 1,
+      "number": 2,
+      "text": "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas."
+    },
+    ...
+  ]
+}
+```
+
+## Setup
+
+### Dependencies
+
+- [Yarn](https://yarnpkg.com/en/)
+- Node.JS - I recommend using [NVM](https://github.com/nvm-sh/nvm)
+
+### Steps
 
 - Download this source code into a working directory.
 - Install the requirements: `yarn`
 - Create `.env` file
-- Run migrations `yarn migrations`
-- Run the server using the following command: `yarn start:dev`
-- Visit `localhost:3333` to see the running website!
+- Run the server using the following command: `yarn dev`
+- Visit `localhost:3000/api/check` to see the running api!
 
-## ► Fair use policy
+## Fair use policy
 
 bibleAPI is free and open to use. The project is primarily an educational tool, and we will not tolerate denial of service attacks preventing people from learning.
 
-## ► Credits and Thanks
+## Credits and Thanks
 
 - [@thiagobodruk](https://github.com/thiagobodruk/) for sharing various versions of the bible in json
 
-## ► Contributing
+## Contributing
 
 Contributions, issues and feature requests are very welcome.
 Please make sure to read the [Contributing Guide](/CONTRIBUTING.md) before making a pull request.
 
 Visite our [trello](https://trello.com/b/VPGRzM36/biblieapi) board
 
-## ► Contributor
+## Contributor
 
 Created and maintained by:
 

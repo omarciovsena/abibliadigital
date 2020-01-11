@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600|Roboto:300,400,500,900");
+
+:root {
+  --bossanova: #442858;
+  --primary-color: #5a3972;
+  --white: #fff;
+  --light-color: #d8d0de;
+  --black: #000;
+  --ft-base: "Roboto", sans-serif;
+}
+
+body {
+  color: #555;
+}
+
+.row {
+  margin: 0;
+}
+
+.navbar-header .navbar.sticky,
+.btn-border.color-2 {
+  background: var(--bossanova);
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse .navbar-nav {
+    background: var(--bossanova);
+  }
+}
+
+.btn-border.color-1 {
+  color: var(--primary-color);
+  border-color: var(--primary-color) !important;
+}
+
+.hero-bg,
+.btn-color,
+.background-div .overlay-top,
+.footer-bottom,
+.loader::before,
+.bg-color-1,
+.loader::after {
+  background: var(--primary-color);
+}
+
+.btn-color:hover,
+.btn-border.color-1:hover,
+.footer-top {
+  background-color: var(--bossanova);
+}
+
+.btn-white,
+.navbar-header .connect-block .btn-white,
+.content-table h2.plan2,
+.content-table h2.plan1 {
+  color: var(--primary-color);
+}
+
+.navbar-header .connect-block .btn-white {
+  color: var(--primary-color) !important;
+}
+
+.copyright p,
+.copyright a {
+  color: var(--white);
+  margin: 0;
+}
+
+.loader {
+  color: var(--primary-color);
+  background: var(--primary-color);
+}
+
+.navbar-brand img {
+  height: 22px;
+}
+
+.icon-app {
+  min-height: calc(100% - 25px);
+}
+
+.hero {
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.hero .container {
+  min-height: 100vh;
+}
+
+.hero padd {
+  align-items: center;
+  height: 100%;
+  min-height: 100vh;
+  padding: 0;
+
+  @media (max-width: 992px) {
+    padding-top: 150px;
+  }
+}
+
+.nav-item--github a {
+  display: flex;
+}
+
+.nav-item--github a i {
+  font-size: 30px;
+}
+
+@media (max-width: 992px) {
+  .text-sm-center {
+    display: inline-block;
+    text-align: center !important;
+    width: 100%;
+  }
+}
+
+.navbar {
+  background: var(--primary-color);
+}
+
+.navbar a {
+  color: var(--white) !important;
+}
+
+.navbar .nav-item {
+  align-items: center;
+  display: flex;
+}
+
+.navbar .nav-link {
+  padding: 0 16px;
+
+  @media (max-width: 576px) {
+    padding: 0 8px;
+  }
+}
+
+.navbar .navbar-brand {
+  margin: 0;
+}
+
+.main {
+  margin-top: 42px;
+}
+
+.jumbotron-heading small {
+  font-size: 12px;
+}
+
+pre {
+  background-color: #222;
+  border-radius: 6px;
+  color: #aaa;
+  font: 16px/24px "Courier New", Courier, "Lucida Sans Typewriter",
+    "Lucida Typewriter", monospace;
+  padding: 20px;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.lead img {
+  vertical-align: baseline;
+  height: 10px !important;
+}
+
+.footer img {
+  vertical-align: baseline;
+}
+
+.flag {
+  border-radius: 2px;
+  width: 24px;
+}
+
+@media (max-width: 576px) {
+  .request-input {
+    flex-direction: column;
+  }
+
+  .request-input .input-group-text,
+  .request-input .form-control,
+  .request-input .input-group-append,
+  .request-input .btn {
+    min-height: 38px;
+    width: 100%;
+  }
+
+  .request-input .btn {
+    border-radius: 0 0 4px 4px;
+  }
+}
