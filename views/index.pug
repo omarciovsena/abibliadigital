@@ -1,0 +1,208 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  title bibleAPI | #{__("title")}
+  meta(name='author' content='@bibleapico')
+  meta(name='description' content=__("description"))
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  script(async='' src='/theme/js/jquery-1.12.4.min.js')
+  script(defer='' src='/theme/js/jquery.json-viewer.js')
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous')
+  link(rel='stylesheet' href='/theme/css/animate.css')
+  link(rel='stylesheet' href='/theme/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/theme/css/jquery.json-viewer.css')
+  link(rel='stylesheet' href='/theme/css/style.css')
+  link(rel='stylesheet' href='/theme/css/responsive.css')
+  link(rel='stylesheet' href='/theme/css/bibleapi/style.css')
+  link(rel='stylesheet' href='/theme/css/bibleapi/json.css')
+  // Global site tag (gtag.js) - Google Analytics
+  script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-128270174-1')
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-128270174-1');
+  link(rel='apple-touch-icon' sizes='57x57' href='/theme/images/favicon/apple-icon-57x57.png')
+  link(rel='apple-touch-icon' sizes='60x60' href='/theme/images/favicon/apple-icon-60x60.png')
+  link(rel='apple-touch-icon' sizes='72x72' href='/theme/images/favicon/apple-icon-72x72.png')
+  link(rel='apple-touch-icon' sizes='76x76' href='/theme/images/favicon/apple-icon-76x76.png')
+  link(rel='apple-touch-icon' sizes='114x114' href='/theme/images/favicon/apple-icon-114x114.png')
+  link(rel='apple-touch-icon' sizes='120x120' href='/theme/images/favicon/apple-icon-120x120.png')
+  link(rel='apple-touch-icon' sizes='144x144' href='/theme/images/favicon/apple-icon-144x144.png')
+  link(rel='apple-touch-icon' sizes='152x152' href='/theme/images/favicon/apple-icon-152x152.png')
+  link(rel='apple-touch-icon' sizes='180x180' href='/theme/images/favicon/apple-icon-180x180.png')
+  link(rel='icon' type='image/png' sizes='192x192' href='/theme/images/favicon/android-icon-192x192.png')
+  link(rel='icon' type='image/png' sizes='32x32' href='/theme/images/favicon/favicon-32x32.png')
+  link(rel='icon' type='image/png' sizes='96x96' href='/theme/images/favicon/favicon-96x96.png')
+  link(rel='icon' type='image/png' sizes='16x16' href='/theme/images/favicon/favicon-16x16.png')
+  link(rel='manifest' href='/theme/images/favicon/manifest.json')
+  meta(name='msapplication-TileColor' content='#ffffff')
+  meta(name='msapplication-TileImage' content='/ms-icon-144x144.png')
+  meta(name='theme-color' content='#ffffff')
+  script(defer='' src='/theme/js/modernizr.js')
+  //if lt IE 9
+    script(src='/theme/js/html5shiv.min.js')
+    script(src='/theme/js/respond.min.js')
+// Page Content
+.warpper.clearfix
+  // Header
+  header.navbar-header
+    nav.navbar.navbar-expand-lg.fixed-top
+      .container
+        a.navbar-brand(href='/' title='bibleAPI')
+          img(src='/theme/images/logo.png' alt='bibleAPI')
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon.fas.fa-bars
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.active
+              a.nav-link.section-scroll(data-scroll='' href='#home' title=__('index'))= __('index')
+            li.nav-item
+              a.nav-link.section-scroll(data-scroll='' href='#about' title=__('aboutTitle'))= __('about')
+            li.nav-item
+              a.nav-link.section-scroll(data-scroll='' href='#howToUse' title=__('howToUseTitle'))= __('howToUse')
+            li.nav-item
+              a.nav-link.section-scroll(data-scroll='' href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('documentationTitle'))= __('documentation')
+            li.nav-item
+              a.nav-link.section-scroll(data-scroll='' href='#donate' title=__('donateTitle'))= __('donate')
+            li.nav-item.nav-item--github
+              a.nav-link.section-scroll(data-scroll='' href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('githubTitle'))
+                i.fab.fa-github
+            li.nav-item
+              a.nav-link(href='/en' title=__('english'))
+                img.flag(src="/theme/images/en.svg" alt=__('english'))
+            li.nav-item
+              a.nav-link(href='/pt' title=__('portuguese'))
+                img.flag(src="/theme/images/br.svg" alt=__('portuguese'))
+            li
+              .connect-block
+                a.btn.btn-white(href='http://twitter.com/bibleapico' target='_blank' title=__('contactTitle'))
+                  i.fab.fa-twitter
+                  | &nbsp;&nbsp;#{__('contact')}
+  // Header
+  // Begin Hero Section
+  section#home.hero
+    .hero-bg
+    .container
+      .row.hero-padd
+        .col-md-6.col-xs-12.col-sm-10
+          .hero-text
+            h2= __('heroTitle')
+            p= __('heroSubtitle')
+            a.btn.btn-white(href='#about' title=__('heroButton'))=__('heroButton')
+        .col-md-6.col-xs-12.col-sm-6.d-none.d-sm-block.text-right
+          img(src='/theme/images/brand.png' alt='bibleAPI')
+  section#about.padd-80
+    // container
+    .container
+      .row
+        .col-lg-6.col-md-6.col-xs-12
+          .row.align-items-stretch
+            .col-md-6.col-lg-6.col-xs-12
+              .icon-app
+                .icon
+                  img(src="/theme/images/ic-book.svg" alt=__('content'))
+                .icon-header
+                  h3= __('content') 
+                .icon-content
+                  p= __('contentDescription')
+            .col-md-6.col-lg-6.col-xs-12
+              .icon-app
+                .icon
+                  img(src="/theme/images/ic-doc.svg" alt=__('doc'))
+                .icon-header
+                  h3= __('doc') 
+                .icon-content
+                  p= __('docDescription')
+            .col-md-6.col-lg-6.col-xs-12
+              .icon-app
+                .icon
+                  img(src="/theme/images/ic-clock.svg" alt=__('availability'))
+                .icon-header
+                  h3= __('availability') 
+                .icon-content
+                  p= __('availabilityDescription')
+            .col-md-6.col-lg-6.col-xs-12
+              .icon-app
+                .icon
+                  img(src="/theme/images/ic-search.svg" alt=__('search'))
+                .icon-header
+                  h3= __('search') 
+                .icon-content
+                  p= __('searchDescription')                                                      
+        .col-lg-6.col-md-6.col-xs-12
+          h2.title-h2= __('manifestTitle')
+          h3.title-h3= __('manifestSubtitle')
+          p.font-p= __('manifestDescription1')
+          p.font-p.mg-bt-10= __('manifestDescription2')
+          p.font-p.mg-bt-30= __('manifestDescription3')
+          a.btn.btn-color(href='http://twitter.com/bibleapico' target='_blank' title=__('buttonContactUs'))
+            i.fab.fa-twitter
+            | &nbsp;&nbsp;#{__('buttonContactUs')}
+  // call-to-action
+  section#call-to-action.bg-color-1.padd-60
+    .container
+      .row
+        .col-md-8.col-sm-8.col-xs-12
+          .call-to-action-text
+            h2= __('bannerTitle')
+            p
+              | #{__('bannerDescription1')}
+              br
+              |  #{__('bannerDescription2')}
+        .col-md-4.col-sm-4.col-xs-12
+          .call-to-action-btn
+            a.btn.btn-white(href='https://doc.bibleapi.co' target='_blank' title=__('documentationTitle'))= __('bannerButton')
+  // call-to-action
+  section#howToUse.pd-tp-80.pd-bt-100.bg-color.clearfix
+    .container
+      .row-centered
+        .col-centered.col-lg-7
+          h2.title-h2= __('howToUse')
+          p.font-p.mg-bt-30
+            | #{__('options')}: books, books/gn, verses/nvi/gn/1, verses/acf/gn/1/1 
+            a(href='http://doc.bibleapi.co/' target='_blank' title=__("documentation"))= __('andMore')
+        form#form
+          .request-input.input-group.mb-3
+            .input-group-prepend
+              label#basic-addon3.input-group-text(for='path') https://bibleapi.co/api/
+            input#path.form-control(type='text' aria-describedby='basic-addon3' value='verses/nvi/sl/23' placeholder='verses/{version}/{book}/{chapter}/{number}')
+            .input-group-append
+              button#button-addon2.btn.btn-color(type='submit' title=__('search'))
+                i.fa.fa-search.d-block.d-sm-none
+                span.hidden-sm-down.d-none.d-sm-block= __('search')
+          pre#output.pre-scrollable.
+            
+  section#donate.pd-tp-80.pd-bt-100.bg-color.clearfix
+    .container
+      .row-centered
+        .col-centered.col-lg-7
+          h2.title-h2= __('contributeTitle')
+          p.font-p.mg-bt-30
+            | #{__('contributeDescription')}
+          a(href='https://www.patreon.com/join/bibleapi' target='_blank')
+            img(src='https://cdn-std.dprcdn.net/files/acc_649651/plrSCT' style='height: 80px;' alt='Patreon')
+// End page cotnent
+// Footer
+footer.footer
+  .footer-warpper
+    .footer-bottom
+      .copyright
+        .container
+          .row.justify-content-between
+            p.text-left.text-sm-center= __("credits")
+            p.text-sm-center
+              a(href='https://stats.uptimerobot.com/5PXmCNLM' target='_blank' title=__("statusPage"))= __("statusPage") 
+// Footer
+script(defer='' src='/theme/js/bootstrap.min.js')
+// Template Plugins
+script(defer='' src='/theme/js/jquery.easing.js')
+script(defer='' src='/theme/js/wow.min.js ')
+script(defer='' src='/theme/js/owl.carousel.min.js')
+script(defer='' src='/theme/js/magnific-popup.min.js')
+script(defer='' src='/theme/js/jquery.ajaxchimp.min.js')
+script(defer='' src='/theme/js/jquery.easy-pie-chart.js')
+// Main js
+script(defer='' src='/theme/js/main.js')
+script(defer='' src='/assets/scripts/app.js')

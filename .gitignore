@@ -1,20 +1,5 @@
-# Node modules
-node_modules
-
-# Adonis directory for storing tmp files
-tmp
-
-# Environment variables, never commit this file
+node_modules/
 .env
-
-# The development sqlite file
-database/development.sqlite
-
-public/
-dist/
-
-apidoc/.gitignore
-
-.nyc_output/
 coverage/
-yarn-error.log
+*.log
+__test__/seeders/

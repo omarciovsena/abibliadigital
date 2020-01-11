@@ -1,71 +1,57 @@
 {
   "name": "bibleapi",
-  "version": "0.2.5",
-  "adonis-version": "4.1.0",
+  "version": "2.0.0",
   "description": "A RESTful API for Bible (nvi, ra, acf, kjv, bbe)",
   "main": "index.js",
-  "engines": {
-    "node": "10.7.0"
-  },
-  "scripts": {
-    "build": "webpack --mode production && ENV_SILENT=true node ace migration:run --force",
-    "doc": "apidoc -i app/ -o apidoc/ -t ../apidoc-bs3-template/template",
-    "migrations": "adonis migration:reset && adonis migration:run && adonis seed --files='Seeder.js'",
-    "prestart": "yarn build",
-    "start": "ENV_SILENT=true node server.js",
-    "start:dev": "ENV_SILENT=true yarn prestart && adonis serve --dev",
-    "pretest": "ENV_PATH=.env.testing yarn migrations",
-    "test": "ENV_PATH=.env.testing nyc adonis test",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
-  },
-  "pre-commit": [
-    "test"
-  ],
-  "keywords": [
-    "bible",
-    "api",
-    "RESTful"
-  ],
-  "author": "marciovsena",
-  "license": "BSD",
+  "repository": "https://github.com/marciovsena/bibleapi",
+  "author": "Márcio Sena <contato@marciosena.com.br>",
+  "license": "MIT",
   "private": false,
+  "scripts": {
+    "lint": "eslint ./",
+    "build": "next build",
+    "dev": "nodemon --exec babel-node app.js",
+    "start": "NODE_ENV=production babel-node app.js",
+    "test:db:book": "babel-node __test__/seeders/book.js",
+    "test:db:verse": "babel-node __test__/seeders/verse.js",
+    "test": "jest",
+    "test:watch": "jest --watch --testTimeout=15000"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn test"
+    }
+  },
   "dependencies": {
-    "@adonisjs/ace": "^5.0.2",
-    "@adonisjs/antl": "^2.0.7",
-    "@adonisjs/auth": "^3.0.5",
-    "@adonisjs/bodyparser": "^2.0.3",
-    "@adonisjs/cors": "^1.0.6",
-    "@adonisjs/fold": "^4.0.8",
-    "@adonisjs/framework": "^5.0.7",
-    "@adonisjs/http-logger": "^1.0.0",
-    "@adonisjs/ignitor": "^2.0.6",
-    "@adonisjs/lucid": "^5.0.4",
-    "@adonisjs/vow": "^1.0.17",
-    "@adonisjs/vow-browser": "^1.0.7",
-    "adonis-throttle": "^2.1.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "7",
-    "babel-preset-env": "^1.7.0",
-    "compression-webpack-plugin": "^2.0.0",
-    "copy-webpack-plugin": "^4.6.0",
-    "css-loader": "^1.0.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "file-loader": "^2.0.0",
-    "moment": "^2.22.2",
-    "node-sass": "^4.9.2",
-    "pg": "^7.4.3",
-    "sass-loader": "^7.1.0",
-    "webpack": "^4.19.0",
-    "webpack-cli": "^3.1.0"
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@zeit/next-css": "^1.0.1",
+    "body-parser": "^1.19.0",
+    "chalk": "^3.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "i18n": "^0.8.4",
+    "jest": "^24.9.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.11",
+    "pug": "^2.0.4",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
-    "chalk-animation": "^1.6.0",
-    "conventional-changelog": "^3.0.5",
-    "nyc": "^13.1.0",
-    "pre-commit": "^1.2.2",
-    "uglify-es": "^3.3.9"
-  },
-  "autoload": {
-    "App": "./app"
+    "axios": "^0.19.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-import-helpers": "^1.0.2",
+    "eslint-plugin-jest": "^23.4.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.1.0",
+    "mongoose-seed": "^0.6.0",
+    "nodemon": "^2.0.1"
   }
 }
