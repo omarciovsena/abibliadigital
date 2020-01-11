@@ -164,6 +164,13 @@ We believe that we can offer many of these services, free of charge, with the pr
 
 ## Setup
 
+### Dependencies
+
+- [Yarn](https://yarnpkg.com/en/)
+- Node.JS - I recommend using [NVM](https://github.com/nvm-sh/nvm)
+
+### Steps
+
 - Download this source code into a working directory.
 - Install the requirements: `yarn`
 - Create `.env` file
