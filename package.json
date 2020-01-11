@@ -7,9 +7,11 @@
   "author": "Márcio Sena <contato@marciosena.com.br>",
   "license": "MIT",
   "private": false,
+  "engines": {
+    "node": "10.15.3"
+  },
   "scripts": {
     "lint": "eslint ./",
-    "build": "next build",
     "dev": "nodemon --exec babel-node app.js",
     "start": "NODE_ENV=production babel-node app.js",
     "test:db:book": "babel-node __test__/seeders/book.js",
