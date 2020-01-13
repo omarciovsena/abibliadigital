@@ -1,19 +1,14 @@
 import { saveRequest } from '../controllers/request'
+import { genericError, notFound } from '../helpers/'
 import Book from '../models/book'
 
 export const getBooks = async (req, res) => {
   try {
     saveRequest(req)
     const books = await getList()
-    if (!books || books.length === 0) {
-      throw new Error({
-        statusCode: 404,
-        message: 'Not found'
-      })
-    }
     res.json(books)
   } catch (err) {
-    res.json(err)
+    genericError(res, err)
   }
 }
 
@@ -23,14 +18,11 @@ export const getBook = async (req, res) => {
     saveRequest(req)
     const book = await getItem(abbrev)
     if (!book) {
-      throw new Error({
-        statusCode: 404,
-        message: 'Not found'
-      })
+      return notFound(res, 'Book')
     }
     res.json(book)
   } catch (err) {
-    res.json(err)
+    genericError(res, err)
   }
 }
 

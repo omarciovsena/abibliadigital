@@ -74,7 +74,7 @@ export const saveRequest = async req => {
     ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
     text: req.body ? req.body.search : null,
     url: req.originalUrl,
-    user: null,
+    user: req.user ? req.user._id : null,
     version: req.body ? req.body.version : null
   })
   await request.save()

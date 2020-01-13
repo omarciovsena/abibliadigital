@@ -21,13 +21,28 @@ describe('controllers:book', () => {
     expect(count).toEqual(66)
   })
 
-  it('should return object named Gênesis', async () => {
-    const { body } = await supertest(app).get('/books/gn')
-    expect(body.name).toBe('Gênesis')
+  describe('getBook', () => {
+    it('should return error 404 and "Book not found" message', async () => {
+      const { body, statusCode } = await supertest(app).get('/books/gns')
+      expect(statusCode).toBe(404)
+      expect(body.msg).toEqual('Book not found')
+    })
+
+    it('should return object named "Juízes"', async () => {
+      const { body } = await supertest(app).get('/books/jz')
+      expect(body.name).toBe('Juízes')
+    })
+
+    it('should return object named Juizes', async () => {
+      const { body } = await supertest(app).get('/books/jud')
+      expect(body.name).toBe('Juízes')
+    })
   })
 
-  it('should return 66 books', async () => {
-    const { body } = await supertest(app).get('/books')
-    expect(body.length).toBe(66)
+  describe('getBooks', () => {
+    it('should return 66 books', async () => {
+      const { body } = await supertest(app).get('/books')
+      expect(body.length).toBe(66)
+    })
   })
 })

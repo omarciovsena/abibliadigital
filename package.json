@@ -16,8 +16,8 @@
     "start": "NODE_ENV=production babel-node app.js",
     "test:db:book": "babel-node __test__/seeders/book.js",
     "test:db:verse": "babel-node __test__/seeders/verse.js",
-    "test": "jest",
-    "test:watch": "jest --watch --testTimeout=15000"
+    "test": "jest --testTimeout=15000",
+    "test:watch": "jest --watch --testTimeout=25000"
   },
   "husky": {
     "hooks": {
@@ -37,6 +37,8 @@
     "express": "^4.17.1",
     "i18n": "^0.8.4",
     "jest": "^24.9.0",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
     "moment": "^2.24.0",
     "mongoose": "^5.7.11",
     "pug": "^2.0.4",
