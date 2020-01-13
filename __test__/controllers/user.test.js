@@ -72,7 +72,7 @@ describe('controllers:user', () => {
     it('should return error 400 and "User already exists" message ', async () => {
       const { statusCode, body } = await supertest(app).post('/users').send({
         name: 'Fake User',
-        email: 'fake@email.com',
+        email: user.email,
         password: '123456',
         notifications: false
       })
@@ -132,6 +132,40 @@ describe('controllers:user', () => {
       }).set('Authorization', `Bearer ${removedUser.token}`)
       expect(statusCode).toBe(200)
       expect(body.msg).toEqual('User successfully removed')
+    })
+  })
+
+  describe('updateToken', () => {
+    let updateTokenUser = {
+      email: 'fake02@email.com'
+    }
+    beforeAll(async () => {
+      updateTokenUser = await await User.create({
+        name: 'Fake User',
+        email: updateTokenUser.email,
+        notifications: false,
+        token: generateToken(updateTokenUser.email),
+        password: md5('102030'),
+        lastLogin: new Date()
+      })
+    })
+
+    it('should return error 404 and "User not found" message', async () => {
+      const { statusCode, body } = await supertest(app).put('/users/token').send({
+        email: updateTokenUser.email,
+        password: '10203040'
+      })
+      expect(statusCode).toBe(404)
+      expect(body.msg).toEqual('User not found')
+    })
+
+    it('should return different token', async () => {
+      const { statusCode, body } = await supertest(app).put('/users/token').send({
+        email: updateTokenUser.email,
+        password: '102030'
+      })
+      expect(statusCode).toBe(200)
+      expect(body.token).not.toEqual(updateTokenUser.token)
     })
   })
 })

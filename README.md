@@ -22,9 +22,9 @@
 ## ► Table of Contents
 
 - [Why ?](#why-)
-- [Documentation](#documentation)
 - [Setup](#setup)
 - [Fair use policy](#fair-use-policy)
+- [Documentation](https://github.com/marciovsena/bibleapi/blob/dev/DOCUMENTATION.md)
 - [Credits and Thanks](#credits-and-thanks)
 - [Contributing](#contributing)
 - [Contributor](#contributor)
@@ -37,135 +37,11 @@ We know that creating unique content ends up competing with basic tasks such as 
 
 We believe that we can offer many of these services, free of charge, with the professional quality and focused on the word of God.
 
-## Documentation
-
-### Book list
-
-`GET https://bibleapi.co/api/books`
-
-```
-[
-  {
-    "abbrev": {"pt":"gn","en":"gn"},
-    "author":"Moisés",
-    "chapters":50,
-    "group":"Pentateuco",
-    "name":"Gênesis",
-    "testament":"VT"
-  },
-  {
-    "abbrev": {"pt":"ex","en":"ex"},
-    "author":"Moisés",
-    "chapters":40,
-    "group":"Pentateuco",
-    "name":"Êxodo",
-    "testament":"VT"
-  },
-  ...
-]
-```
-
-### Get Book
-
-`GET https://bibleapi.co/api/books/:abbrev`
-
-```
-{
-  "abbrev": {"pt":"mt","en":"mt"},
-  "author":"Mateus",
-  "chapters":28,
-  "comment":"",
-  "group":"Evangelhos",
-  "name":"Mateus",
-  "testament":"NT"
-}
-```
-
-### Get Chapter
-
-- `GET https://bibleapi.co/api/verses/:version/:abbrev/:chapter`
-
-```
-{
-  "book": {
-    "abbrev":{"pt":"gn","en":"gn"},
-    "name":"Gênesis",
-    "author":"Moisés",
-    "group":"Pentateuco",
-    "version":"nvi"
-  },
-  "chapter": {
-    "number":1,
-    "verses":31
-  },
-  "verses": [
-    {"number": 1,"text":"No princípio Deus criou os céus e a terra."},
-    {"number": 2,"text":"Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas."}
-    ...
-  ]
-}
-```
-
-### Get Verse
-
-`GET https://bibleapi.co/api/verses/:version/:abbrev/:chapter/:number`
-
-```
-{
-  "book": {
-    "abbrev":{"pt":"gn","en":"gn"},
-    "name":"Gênesis",
-    "author":"Moisés",
-    "group":"Pentateuco",
-    "version":"nvi"
-  },
-  "chapter": {
-    "number": 1,
-    "verses": 31
-  },
-  "chapter": 1,
-  "number": 1,
-  "text": "No princípio Deus criou os céus e a terra."
-}
-```
-
-### Search by word
-
-`POST https://bibleapi.co/api/verses/search`
-
-#### Body:
-
-```
-{
-  "version": "nvi",
-  "search": "terra"
-}
-```
-
-```
-{
-  "occurrence": 987,
-  "version": "nvi",
-  "verses": [
-    {
-      "book": {
-          "abbrev": {
-              "pt": "gn"
-          }
-      },
-      "chapter": 1,
-      "number": 2,
-      "text": "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas."
-    },
-    ...
-  ]
-}
-```
-
 ## Setup
 
 ### Dependencies
 
+- [Mongodb](https://www.mongodb.com/)
 - [Yarn](https://yarnpkg.com/en/)
 - Node.JS - I recommend using [NVM](https://github.com/nvm-sh/nvm)
 
@@ -173,7 +49,14 @@ We believe that we can offer many of these services, free of charge, with the pr
 
 - Download this source code into a working directory.
 - Install the requirements: `yarn`
-- Create `.env` file
+- Create `.env` file:
+
+```
+MONGODB_URI=mongodb://localhost/bibleapi
+NODE_ENV="development"
+SECRET_KEY=""
+```
+
 - Run the server using the following command: `yarn dev`
 - Visit `localhost:3000/api/check` to see the running api!
 

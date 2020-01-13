@@ -1,4 +1,5 @@
 import md5 from 'md5'
+import moment from 'moment'
 
 import { notFound, genericError } from '../helpers/'
 import User from '../models/user'
@@ -36,6 +37,30 @@ export const getUser = async (req, res) => {
   }
 }
 
+export const updateToken = async (req, res) => {
+  try {
+    const { email, password } = req.body
+    User.findOne({ email, password: md5(password) }, async (err, user) => {
+      if (err) throw err
+
+      if (user) {
+        user.token = generateToken(`${moment()}.${user._id}`)
+        user.lastLogin = new Date()
+        await user.save()
+        res.json({
+          name: user.name,
+          email: user.email,
+          token: user.token
+        })
+      } else {
+        return notFound(res, 'User')
+      }
+    })
+  } catch (err) {
+    genericError(res, err)
+  }
+}
+
 export const createUser = async (req, res) => {
   try {
     const { name, email, password, notifications } = req.body
@@ -51,7 +76,7 @@ export const createUser = async (req, res) => {
       const newUser = await User.create({
         name,
         email,
-        token: generateToken(email),
+        token: generateToken(`${moment()}.${email}`),
         password: md5(password),
         notifications,
         lastLogin: new Date()

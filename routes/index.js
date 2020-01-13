@@ -3,7 +3,7 @@ import express from 'express'
 import { getBooks, getBook } from '../controllers/book'
 import { getRequests, getRequestsNumber } from '../controllers/request'
 import { setRequiredToken, validToken } from '../controllers/session'
-import { getUser, createUser, removeUser } from '../controllers/user'
+import { getUser, createUser, removeUser, updateToken } from '../controllers/user'
 import { getVerse, getChapter, search } from '../controllers/verse'
 
 const router = express.Router()
@@ -18,13 +18,13 @@ router.get('/books', validToken, getBooks)
 router.get('/books/:abbrev', validToken, getBook)
 
 router.get('/users/:email', setRequiredToken, validToken, getUser)
+router.put('/users/token', updateToken)
 router.post('/users', createUser)
 router.delete('/users', setRequiredToken, validToken, removeUser)
 
 router.get('/requests/:period', setRequiredToken, validToken, getRequests)
 router.get('/requests/amount/:period', setRequiredToken, validToken, getRequestsNumber)
 
-router.get('/requests/:period', setRequiredToken, validToken, getRequests)
 router.get('/check', validToken, (req, res) => {
   res.json({
     result: 'success'
