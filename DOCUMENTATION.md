@@ -167,6 +167,8 @@
 
 ### Users
 
+<i>The project will always be open source. Authentication is only to identify how many users are using the project and to inform about new updates.</i>
+
 <details>
   <summary>
     <b>Create User</b> - <i>create a new user</i>
