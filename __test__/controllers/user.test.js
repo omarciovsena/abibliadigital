@@ -1,7 +1,9 @@
 import md5 from 'md5'
+import moment from 'moment'
 import supertest from 'supertest'
 
 import { generateToken } from '../../controllers/session'
+import Request from '../../models/request'
 import User from '../../models/user'
 import app from '../app'
 import { connect } from '../utils'
@@ -14,6 +16,7 @@ describe('controllers:user', () => {
   beforeAll(async () => {
     connection = await connect()
     await User.deleteMany()
+    await Request.deleteMany()
     await supertest(app).post('/users').send({
       name: 'Fake User',
       email: 'fake@email.com',
@@ -25,6 +28,7 @@ describe('controllers:user', () => {
 
   afterAll(async () => {
     await User.deleteMany()
+    await Request.deleteMany()
     return connection.disconnect()
   })
 
@@ -116,11 +120,10 @@ describe('controllers:user', () => {
     })
 
     it('should return error 404 and "User not found" message', async () => {
-      const anotherUser = await User.findOne({ email: { $ne: removedUser.email } })
       const { statusCode, body } = await supertest(app).delete('/users').send({
         email: removedUser.email,
         password: '102030'
-      }).set('Authorization', `Bearer ${anotherUser.token}`)
+      }).set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toEqual('User not found')
     })
@@ -150,6 +153,10 @@ describe('controllers:user', () => {
       })
     })
 
+    afterAll(async () => {
+      await User.deleteMany()
+    })
+
     it('should return error 404 and "User not found" message', async () => {
       const { statusCode, body } = await supertest(app).put('/users/token').send({
         email: updateTokenUser.email,
@@ -166,6 +173,44 @@ describe('controllers:user', () => {
       })
       expect(statusCode).toBe(200)
       expect(body.token).not.toEqual(updateTokenUser.token)
+    })
+  })
+
+  describe('getUserStats', () => {
+    let userStats = {
+      email: 'fake02@email.com'
+    }
+    beforeAll(async () => {
+      userStats = await await User.create({
+        name: 'Fake User',
+        email: userStats.email,
+        notifications: false,
+        token: generateToken(userStats.email),
+        password: md5('102030'),
+        lastLogin: new Date()
+      })
+
+      await supertest(app).get('/users/stats').set('Authorization', `Bearer ${userStats.token}`)
+      await supertest(app).get('/books/gn').set('Authorization', `Bearer ${userStats.token}`)
+      await supertest(app).get('/books/jo/3/16').set('Authorization', `Bearer ${userStats.token}`)
+    })
+
+    afterAll(async () => {
+      await User.deleteMany()
+    })
+
+    it('should return error 404 and "not authorized token" message', async () => {
+      const { statusCode, body } = await supertest(app).get('/users/stats')
+      expect(statusCode).toBe(403)
+      expect(body.msg).toEqual('Not authorized token')
+    })
+
+    it('should return stats', async () => {
+      const { statusCode, body } = await supertest(app).get('/users/stats').set('Authorization', `Bearer ${userStats.token}`)
+      expect(statusCode).toBe(200)
+      expect(body.lastLogin).not.toEqual(null)
+      expect(body.requestsPerMonth[0].range).toEqual(`${moment().format('M')}/${moment().format('YYYY')}`)
+      expect(body.requestsPerMonth[0].total).toEqual(3)
     })
   })
 })

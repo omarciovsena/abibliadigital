@@ -5,7 +5,7 @@ import { saveRequest } from './request'
 
 export const getChapter = async (req, res) => {
   try {
-    saveRequest(req)
+    await saveRequest(req)
     const { version, abbrev, chapter } = req.params
     const book = await getBook(abbrev)
     if (!book) {
@@ -39,7 +39,7 @@ export const getChapter = async (req, res) => {
 
 export const getVerse = async (req, res) => {
   try {
-    saveRequest(req)
+    await saveRequest(req)
     const { abbrev } = req.params
     const book = await getBook(abbrev)
     if (!book) {
@@ -69,7 +69,7 @@ export const getVerse = async (req, res) => {
 
 export const search = async (req, res) => {
   try {
-    saveRequest(req)
+    await saveRequest(req)
     const { version, search } = req.body
 
     if (!version) {

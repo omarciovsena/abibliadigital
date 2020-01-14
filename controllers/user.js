@@ -1,7 +1,9 @@
 import md5 from 'md5'
 import moment from 'moment'
 
+import { saveRequest } from '../controllers/request'
 import { notFound, genericError } from '../helpers/'
+import Request from '../models/request'
 import User from '../models/user'
 import { generateToken } from './session'
 
@@ -18,13 +20,13 @@ export const updateLastLogin = async (_id) => {
 
 export const getUser = async (req, res) => {
   try {
+    await saveRequest(req)
     const { email } = req.params
     const { token } = req.user
     const user = await User.findOne({ email, token })
     if (!user) {
       return notFound(res, 'User')
     }
-    await updateLastLogin(user._id)
     res.json({
       name: user.name,
       email: user.email,
@@ -42,6 +44,11 @@ export const updateToken = async (req, res) => {
     const { email, password } = req.body
     User.findOne({ email, password: md5(password) }, async (err, user) => {
       if (err) throw err
+
+      req.user = {
+        _id: user ? user._id : null
+      }
+      await saveRequest(req)
 
       if (user) {
         user.token = generateToken(`${moment()}.${user._id}`)
@@ -67,6 +74,7 @@ export const createUser = async (req, res) => {
     const exists = await User.findOne({ email })
 
     if (exists) {
+      await saveRequest(req)
       return res.status(400).json({
         msg: 'User already exists'
       })
@@ -82,6 +90,11 @@ export const createUser = async (req, res) => {
         lastLogin: new Date()
       })
 
+      req.user = {
+        _id: newUser._id
+      }
+      await saveRequest(req)
+
       return res.json({
         name: newUser.name,
         email: newUser.email,
@@ -89,7 +102,7 @@ export const createUser = async (req, res) => {
         token: newUser.token
       })
     }
-
+    await saveRequest(req)
     return res.status(400).json({
       msg: '{name}(String), {email}(String), {notifications}(Boolean) and {password}(String) are required'
     })
@@ -100,6 +113,7 @@ export const createUser = async (req, res) => {
 
 export const removeUser = async (req, res) => {
   try {
+    await saveRequest(req)
     const { email, password } = req.body
     const { token } = req.user
     const user = await User.deleteOne({ email, password: md5(password), token })
@@ -108,6 +122,38 @@ export const removeUser = async (req, res) => {
     }
     res.json({
       msg: 'User successfully removed'
+    })
+  } catch (err) {
+    genericError(res, err)
+  }
+}
+
+export const getUserStats = async (req, res) => {
+  try {
+    await saveRequest(req)
+    const requestsPerMonth = await Request.aggregate([
+      {
+        $match: {
+          user: req.user._id.toString()
+        }
+      },
+      {
+        $group: {
+          _id: {
+            year: { $year: '$createdAt' },
+            month: { $month: '$createdAt' }
+          },
+          count: { $sum: 1 }
+        }
+      }
+    ])
+
+    res.json({
+      lastLogin: req.user.lastLogin,
+      requestsPerMonth: requestsPerMonth.map(request => ({
+        range: `${request._id.month}/${request._id.year}`,
+        total: request.count
+      }))
     })
   } catch (err) {
     genericError(res, err)

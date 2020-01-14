@@ -13,6 +13,7 @@ describe('controllers:request', () => {
   beforeAll(async () => {
     connection = await connect()
     await User.deleteMany()
+    await Request.deleteMany()
     await supertest(app).post('/users').send({
       name: 'Fake User',
       email: 'fake@email.com',
@@ -24,6 +25,7 @@ describe('controllers:request', () => {
 
   afterAll(async () => {
     await User.deleteMany()
+    await Request.deleteMany()
     return connection.disconnect()
   })
 

@@ -2,6 +2,7 @@ import moment from 'moment'
 
 import { genericError } from '../helpers/'
 import Request from '../models/request'
+import { updateLastLogin } from './user'
 
 const getPeriod = period => {
   switch (period) {
@@ -70,6 +71,7 @@ export const getRequestsNumber = async (req, res) => {
 }
 
 export const saveRequest = async req => {
+  req.user && updateLastLogin(req.user._id)
   const request = new Request({
     ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
     text: req.body ? req.body.search : null,

@@ -4,7 +4,7 @@ import Book from '../models/book'
 
 export const getBooks = async (req, res) => {
   try {
-    saveRequest(req)
+    await saveRequest(req)
     const books = await getList()
     res.json(books)
   } catch (err) {
@@ -15,7 +15,7 @@ export const getBooks = async (req, res) => {
 export const getBook = async (req, res) => {
   const { abbrev } = req.params
   try {
-    saveRequest(req)
+    await saveRequest(req)
     const book = await getItem(abbrev)
     if (!book) {
       return notFound(res, 'Book')
