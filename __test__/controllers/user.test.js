@@ -234,13 +234,13 @@ describe('controllers:user', () => {
     })
 
     it('should return error 404 and "User not found" message', async () => {
-      const { statusCode, body } = await supertest(app).get('/users/password/notFound@email.com')
+      const { statusCode, body } = await supertest(app).post('/users/password/notFound@email.com')
       expect(statusCode).toBe(404)
       expect(body.msg).toEqual('User not found')
     })
 
     it('should return 200 and success message', async () => {
-      const { statusCode, body } = await supertest(app).get('/users/password/fake02@email.com')
+      const { statusCode, body } = await supertest(app).post('/users/password/fake02@email.com')
       expect(statusCode).toBe(200)
       expect(body.msg).toEqual('New password successfully sent to email fake02@email.com')
     })

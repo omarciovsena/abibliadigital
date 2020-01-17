@@ -237,11 +237,47 @@
 
 <details>
   <summary>
-    <b>Get Token</b> - <i>returns a token</i>
+    <b>Get User Stats</b> - <i>returns user statistics</i>
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `POST https://bibleapi.co/api/users/token`
+  <b>Endpoint:</b> `GET https://bibleapi.co/api/users/stats`
+  <br />
+  <b>Authenticated:</b> Yes
+  <br />
+  <b>Header:</b>
+  
+  ```
+  { 
+     Authorization: Bearer eyJhbGciOiJIU... 
+  }
+  ```
+
+  <br />
+  <b>Response:</b>
+
+  ```
+  {
+    lastLogin: "2020-01-01T16:59:22.862Z",
+    requestsPerMonth: [{
+      range: '01/2020',
+      total: 23
+    },
+    {
+      range: '02/2020',
+      total: 56
+    }]
+  }
+  ```
+</details>
+
+<details>
+  <summary>
+    <b>Update Token</b> - <i>returns a token</i>
+  </summary>
+  <br/>
+  
+  <b>Endpoint:</b> `PUT https://bibleapi.co/api/users/token`
   <br />
   <b>Authenticated:</b> No
   <br />
@@ -267,7 +303,7 @@
 
 <details>
   <summary>
-    <b>Remove User</b> - <i>remove user</i>
+    <b>Delete User</b> - <i>remove user</i>
   </summary>
   <br/>
   
@@ -298,6 +334,27 @@
   ```
   {
     msg: "User successfully removed",
+  }
+  ```
+</details>
+
+<details>
+  <summary>
+    <b>Resend User Password</b> - <i>send email</i>
+  </summary>
+  <br/>
+  
+  <b>Endpoint:</b> `POST https://bibleapi.co/api/users/password/:email`
+  <br />
+  <b>Authenticated:</b> No
+  <br />
+
+  <br />
+  <b>Response:</b>
+
+  ```
+  {
+    msg: "New password successfully sent to email :email"
   }
   ```
 </details>

@@ -18,11 +18,12 @@ router.get('/books', validToken, getBooks)
 router.get('/books/:abbrev', validToken, getBook)
 
 router.get('/users/stats', setRequiredToken, validToken, getUserStats)
-router.get('/users/password/:email', resendNewPassword)
 router.get('/users/:email', setRequiredToken, validToken, getUser)
 
-router.put('/users/token', updateToken)
+router.post('/users/password/:email', resendNewPassword)
 router.post('/users', createUser)
+
+router.put('/users/token', updateToken)
 router.delete('/users', setRequiredToken, validToken, removeUser)
 
 router.get('/requests/:period', setRequiredToken, validToken, getRequests)
