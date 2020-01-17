@@ -9,9 +9,3 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
       - uses: stefanoeb/eslint-action@1.0.2
-      - run: npm test
-        env:
-          MONGODB_URI: mongodb://heroku_w17rq5w6:c661stfru6rf2m8na6otok1es9@ds133251.mlab.com:33251/heroku_w17rq5w6
-          NODE_ENV: staging
-          SECRET_KEY: D27q0SO37QjdYbXtTmJ3AHFp5ywc8368
-          SENDGRID_KEY: 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
