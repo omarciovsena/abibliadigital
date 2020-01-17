@@ -358,3 +358,60 @@
   }
   ```
 </details>
+
+
+### Requests
+
+<details>
+  <summary>
+    <b>Get Requests</b> - <i>All period requests</i>
+  </summary>
+  <br/>
+  
+  <b>Endpoint:</b> `GET https://bibleapi.co/api/requests/:range` (month, week, day)
+  <br />
+  <b>Authenticated:</b> Yes
+  <br />
+  <b>Response:</b>
+  
+  ```
+  [
+    {
+        "url": "/api/verses/nvi/1co/9/8",
+        "date": "2020-01-17T21:03:50.996Z"
+    },
+    {
+        "url": "/api/books",
+        "date": "2020-01-17T20:13:19.078Z"
+    }
+  ]
+  ```
+</details>
+
+<details>
+  <summary>
+    <b>Get Number Requisitions</b> - <i>Number of requisitions for the period</i>
+  </summary>
+  <br/>
+  
+  <b>Endpoint:</b> `GET https://bibleapi.co/api/requests/amount/:range` (month, week, day)
+  <br />
+  <b>Authenticated:</b> Yes
+  <br />
+  <b>Response:</b>
+  
+  ```
+  {
+    "total": 3,
+    "requests": [
+      {
+          "_id": "/api/books/",
+          "count": 2
+      },
+      {
+          "_id": "/api/verses/nvi/sl/23/",
+          "count": 1
+      }
+  ]
+  ```
+</details>
