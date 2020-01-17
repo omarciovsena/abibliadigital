@@ -1,3 +1,5 @@
+import sendgrid from '@sendgrid/mail'
+import generatePassword from 'generate-password'
 import md5 from 'md5'
 import moment from 'moment'
 
@@ -154,6 +156,54 @@ export const getUserStats = async (req, res) => {
         range: `${request._id.month}/${request._id.year}`,
         total: request.count
       }))
+    })
+  } catch (err) {
+    genericError(res, err)
+  }
+}
+
+export const resendNewPassword = async (req, res) => {
+  try {
+    const { email } = req.params
+
+    User.findOne({ email }, async (err, user) => {
+      if (err) throw err
+
+      if (!user) {
+        return notFound(res, 'User')
+      }
+
+      const { SENDGRID_KEY, NODE_ENV } = process.env
+
+      sendgrid.setApiKey(SENDGRID_KEY)
+
+      req.user = {
+        _id: user ? user._id : null
+      }
+      await saveRequest(req)
+
+      const newPassword = generatePassword.generate({
+        length: 10,
+        numbers: true
+      })
+      user.password = md5(newPassword)
+      user.save()
+
+      const msg = {
+        to: email,
+        from: 'contato@marciosena.com.br',
+        subject: 'Bibleapi.co - Resend Password',
+        html: `Hello.<br /><br />As you requested, follow the new password for access to bibleAPI: <ul><li><strong>Password:</strong> ${newPassword}</li></ul><br /><br />Thank you for using bibleAPI.`,
+        mail_settings: {
+          sandbox_mode: {
+            enable: NODE_ENV !== 'production'
+          }
+        }
+      }
+      sendgrid.send(msg)
+      res.json({
+        msg: `New password successfully sent to email ${email}`
+      })
     })
   } catch (err) {
     genericError(res, err)

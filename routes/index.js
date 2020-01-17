@@ -3,7 +3,7 @@ import express from 'express'
 import { getBooks, getBook } from '../controllers/book'
 import { getRequests, getRequestsNumber } from '../controllers/request'
 import { setRequiredToken, validToken } from '../controllers/session'
-import { getUser, getUserStats, createUser, removeUser, updateToken } from '../controllers/user'
+import { getUser, resendNewPassword, getUserStats, createUser, removeUser, updateToken } from '../controllers/user'
 import { getVerse, getChapter, search } from '../controllers/verse'
 
 const router = express.Router()
@@ -18,7 +18,9 @@ router.get('/books', validToken, getBooks)
 router.get('/books/:abbrev', validToken, getBook)
 
 router.get('/users/stats', setRequiredToken, validToken, getUserStats)
+router.get('/users/password/:email', resendNewPassword)
 router.get('/users/:email', setRequiredToken, validToken, getUser)
+
 router.put('/users/token', updateToken)
 router.post('/users', createUser)
 router.delete('/users', setRequiredToken, validToken, removeUser)

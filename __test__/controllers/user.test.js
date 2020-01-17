@@ -199,7 +199,7 @@ describe('controllers:user', () => {
       await User.deleteMany()
     })
 
-    it('should return error 404 and "not authorized token" message', async () => {
+    it('should return error 403 and "not authorized token" message', async () => {
       const { statusCode, body } = await supertest(app).get('/users/stats')
       expect(statusCode).toBe(403)
       expect(body.msg).toEqual('Not authorized token')
@@ -211,6 +211,38 @@ describe('controllers:user', () => {
       expect(body.lastLogin).not.toEqual(null)
       expect(body.requestsPerMonth[0].range).toEqual(`${moment().format('M')}/${moment().format('YYYY')}`)
       expect(body.requestsPerMonth[0].total).toEqual(3)
+    })
+  })
+
+  describe('resendNewPassword', () => {
+    let userStats = {
+      email: 'fake02@email.com'
+    }
+    beforeAll(async () => {
+      userStats = await await User.create({
+        name: 'Fake User',
+        email: userStats.email,
+        notifications: false,
+        token: generateToken(userStats.email),
+        password: md5('102030'),
+        lastLogin: new Date()
+      })
+    })
+
+    afterAll(async () => {
+      await User.deleteMany()
+    })
+
+    it('should return error 404 and "User not found" message', async () => {
+      const { statusCode, body } = await supertest(app).get('/users/password/notFound@email.com')
+      expect(statusCode).toBe(404)
+      expect(body.msg).toEqual('User not found')
+    })
+
+    it('should return 200 and success message', async () => {
+      const { statusCode, body } = await supertest(app).get('/users/password/fake02@email.com')
+      expect(statusCode).toBe(200)
+      expect(body.msg).toEqual('New password successfully sent to email fake02@email.com')
     })
   })
 })
