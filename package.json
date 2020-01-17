@@ -16,8 +16,8 @@
     "start": "NODE_ENV=production babel-node app.js",
     "test:db:book": "babel-node __test__/seeders/book.js",
     "test:db:verse": "babel-node __test__/seeders/verse.js",
-    "test": "jest",
-    "test:watch": "jest --watch --testTimeout=15000"
+    "test": "jest --coverage --testTimeout=25000",
+    "test:watch": "jest --watch --coverage --testTimeout=25000"
   },
   "husky": {
     "hooks": {
@@ -29,14 +29,18 @@
     "@babel/core": "^7.7.2",
     "@babel/node": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
+    "@sendgrid/mail": "^6.5.0",
     "@zeit/next-css": "^1.0.1",
     "body-parser": "^1.19.0",
     "chalk": "^3.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "generate-password": "^1.4.2",
     "i18n": "^0.8.4",
     "jest": "^24.9.0",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
     "moment": "^2.24.0",
     "mongoose": "^5.7.11",
     "pug": "^2.0.4",

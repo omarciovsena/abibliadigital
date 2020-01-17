@@ -1,24 +1,19 @@
+import { genericError, notFound } from '../helpers/'
 import Verse from '../models/verse'
 import { getItem as getBook } from './book'
 import { saveRequest } from './request'
 
 export const getChapter = async (req, res) => {
   try {
-    saveRequest(req)
+    await saveRequest(req)
     const { version, abbrev, chapter } = req.params
     const book = await getBook(abbrev)
     if (!book) {
-      throw new Error({
-        statusCode: 404,
-        message: 'Not found'
-      })
+      return notFound(res, 'Book')
     }
     const verses = await getList(req.params)
     if (!verses || verses.length === 0) {
-      throw new Error({
-        statusCode: 404,
-        message: 'Not found'
-      })
+      return notFound(res, 'Chapter')
     }
     res.json({
       book: {
@@ -38,29 +33,22 @@ export const getChapter = async (req, res) => {
       }))
     })
   } catch (err) {
-    console.log('err', err)
-    res.status(500).json(err)
+    genericError(res, err)
   }
 }
 
 export const getVerse = async (req, res) => {
   try {
-    saveRequest(req)
+    await saveRequest(req)
     const { abbrev } = req.params
     const book = await getBook(abbrev)
     if (!book) {
-      throw new Error({
-        statusCode: 404,
-        message: 'Not found'
-      })
+      return notFound(res, 'Book')
     }
     const verse = await getItem(req.params)
 
     if (!verse) {
-      throw new Error({
-        statusCode: 404,
-        message: 'Not found'
-      })
+      return notFound(res, 'Verse')
     }
     res.json({
       book: {
@@ -75,21 +63,17 @@ export const getVerse = async (req, res) => {
       text: verse.text
     })
   } catch (err) {
-    console.log('err', err)
-    res.status(500).json(err)
+    genericError(res, err)
   }
 }
 
 export const search = async (req, res) => {
   try {
-    saveRequest(req)
+    await saveRequest(req)
     const { version, search } = req.body
 
     if (!version) {
-      throw new Error({
-        statusCode: 404,
-        message: 'Version not found'
-      })
+      return notFound(res, 'Version')
     }
 
     var expression = new RegExp(
@@ -121,7 +105,7 @@ export const search = async (req, res) => {
       }))
     })
   } catch (err) {
-    res.status(err.status || 500).json({ msg: err.msg })
+    genericError(res, err)
   }
 }
 
