@@ -110,29 +110,27 @@ describe('controllers:user', () => {
       })
     })
 
-    it('should return error 403', async () => {
-      const { statusCode, body } = await supertest(app).delete('/users').send({
+    const removeUser = async (token) => {
+      return supertest(app).delete('/users').send({
         email: removedUser.email,
         password: '102030'
-      })
+      }).set('Authorization', `Bearer ${token}`)
+    }
+
+    it('should return error 403', async () => {
+      const { statusCode, body } = await removeUser()
       expect(statusCode).toBe(403)
       expect(body.msg).toEqual('Not authorized token')
     })
 
     it('should return error 404 and "User not found" message', async () => {
-      const { statusCode, body } = await supertest(app).delete('/users').send({
-        email: removedUser.email,
-        password: '102030'
-      }).set('Authorization', `Bearer ${user.token}`)
+      const { statusCode, body } = await removeUser(user.token)
       expect(statusCode).toBe(404)
       expect(body.msg).toEqual('User not found')
     })
 
     it('should return success message', async () => {
-      const { statusCode, body } = await supertest(app).delete('/users').send({
-        email: removedUser.email,
-        password: '102030'
-      }).set('Authorization', `Bearer ${removedUser.token}`)
+      const { statusCode, body } = await removeUser(removedUser.token)
       expect(statusCode).toBe(200)
       expect(body.msg).toEqual('User successfully removed')
     })
