@@ -118,12 +118,16 @@ export const removeUser = async (req, res) => {
     await saveRequest(req)
     const { email, password } = req.body
     const { token } = req.user
-    const user = await User.deleteOne({ email, password: md5(password), token })
-    if (user.deletedCount === 0) {
+    await User.deleteOne({ email, password: md5(password), token }, (err, response) => {
+      if (err) return notFound(res, 'User')
+
+      if (response.deletedCount === 1) {
+        return res.json({
+          msg: 'User successfully removed'
+        })
+      }
+
       return notFound(res, 'User')
-    }
-    res.json({
-      msg: 'User successfully removed'
     })
   } catch (err) {
     genericError(res, err)

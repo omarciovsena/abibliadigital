@@ -1,6 +1,6 @@
 {
   "name": "bibleapi",
-  "version": "2.0.0",
+  "version": "0.3.1",
   "description": "A RESTful API for Bible (nvi, ra, acf, kjv, bbe)",
   "main": "index.js",
   "repository": "https://github.com/marciovsena/bibleapi",

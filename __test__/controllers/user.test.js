@@ -100,7 +100,7 @@ describe('controllers:user', () => {
       email: 'fake02@email.com'
     }
     beforeAll(async () => {
-      removedUser = await await User.create({
+      removedUser = await User.create({
         name: 'Fake User',
         email: removedUser.email,
         notifications: false,
@@ -140,10 +140,10 @@ describe('controllers:user', () => {
 
   describe('updateToken', () => {
     let updateTokenUser = {
-      email: 'fake02@email.com'
+      email: 'fake03@email.com'
     }
     beforeAll(async () => {
-      updateTokenUser = await await User.create({
+      updateTokenUser = await User.create({
         name: 'Fake User',
         email: updateTokenUser.email,
         notifications: false,
@@ -151,10 +151,6 @@ describe('controllers:user', () => {
         password: md5('102030'),
         lastLogin: new Date()
       })
-    })
-
-    afterAll(async () => {
-      await User.deleteMany()
     })
 
     it('should return error 404 and "User not found" message', async () => {
@@ -178,10 +174,10 @@ describe('controllers:user', () => {
 
   describe('getUserStats', () => {
     let userStats = {
-      email: 'fake02@email.com'
+      email: 'fake04@email.com'
     }
     beforeAll(async () => {
-      userStats = await await User.create({
+      userStats = await User.create({
         name: 'Fake User',
         email: userStats.email,
         notifications: false,
@@ -193,10 +189,6 @@ describe('controllers:user', () => {
       await supertest(app).get('/users/stats').set('Authorization', `Bearer ${userStats.token}`)
       await supertest(app).get('/books/gn').set('Authorization', `Bearer ${userStats.token}`)
       await supertest(app).get('/books/jo/3/16').set('Authorization', `Bearer ${userStats.token}`)
-    })
-
-    afterAll(async () => {
-      await User.deleteMany()
     })
 
     it('should return error 403 and "not authorized token" message', async () => {
@@ -216,10 +208,10 @@ describe('controllers:user', () => {
 
   describe('resendNewPassword', () => {
     let userStats = {
-      email: 'fake02@email.com'
+      email: 'fake05@email.com'
     }
     beforeAll(async () => {
-      userStats = await await User.create({
+      userStats = await User.create({
         name: 'Fake User',
         email: userStats.email,
         notifications: false,
@@ -229,10 +221,6 @@ describe('controllers:user', () => {
       })
     })
 
-    afterAll(async () => {
-      await User.deleteMany()
-    })
-
     it('should return error 404 and "User not found" message', async () => {
       const { statusCode, body } = await supertest(app).post('/users/password/notFound@email.com')
       expect(statusCode).toBe(404)
@@ -240,9 +228,9 @@ describe('controllers:user', () => {
     })
 
     it('should return 200 and success message', async () => {
-      const { statusCode, body } = await supertest(app).post('/users/password/fake02@email.com')
+      const { statusCode, body } = await supertest(app).post(`/users/password/${userStats.email}`)
       expect(statusCode).toBe(200)
-      expect(body.msg).toEqual('New password successfully sent to email fake02@email.com')
+      expect(body.msg).toEqual(`New password successfully sent to email ${userStats.email}`)
     })
   })
 })

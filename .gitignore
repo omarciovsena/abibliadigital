@@ -2,4 +2,3 @@ node_modules/
 .env
 coverage/
 *.log
-__test__/seeders/
