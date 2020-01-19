@@ -17,6 +17,7 @@
   <a href="https://github.com/marciovsena/bibleapi/blob/dev/LICENSE" title="license">
     <img src="https://badgen.net/badge/license/BSD/blue" alt="BSD License">
   </a>
+  <a href="https://codeclimate.com/github/marciovsena/bibleapi/maintainability"><img src="https://api.codeclimate.com/v1/badges/2cf1c4940336ad7911be/maintainability" /></a>
 </p>
 
 ## ► Table of Contents
