@@ -3,10 +3,9 @@ import moment from 'moment'
 import supertest from 'supertest'
 
 import { generateToken } from '../../controllers/session'
-import Request from '../../models/request'
 import User from '../../models/user'
 import app from '../app'
-import { connect } from '../utils'
+import { connect, resetDatabase } from '../utils'
 
 jest.mock('axios')
 describe('controllers:user', () => {
@@ -15,20 +14,11 @@ describe('controllers:user', () => {
 
   beforeAll(async () => {
     connection = await connect()
-    await User.deleteMany()
-    await Request.deleteMany()
-    await supertest(app).post('/users').send({
-      name: 'Fake User',
-      email: 'fake@email.com',
-      password: '123456',
-      notifications: false
-    })
+    await resetDatabase()
     user = await User.findOne()
   })
 
   afterAll(async () => {
-    await User.deleteMany()
-    await Request.deleteMany()
     return connection.disconnect()
   })
 
@@ -61,8 +51,12 @@ describe('controllers:user', () => {
       await User.deleteOne({ email: 'fake01@email.com' })
     })
 
+    const createUser = async (user) => {
+      return supertest(app).post('/users').send(user)
+    }
+
     it('should return user', async () => {
-      const { statusCode, body } = await supertest(app).post('/users').send({
+      const { statusCode, body } = await createUser({
         name: 'Fake User',
         email: 'fake01@email.com',
         password: '123456',
@@ -74,7 +68,7 @@ describe('controllers:user', () => {
     })
 
     it('should return error 400 and "User already exists" message ', async () => {
-      const { statusCode, body } = await supertest(app).post('/users').send({
+      const { statusCode, body } = await createUser({
         name: 'Fake User',
         email: user.email,
         password: '123456',
@@ -85,7 +79,7 @@ describe('controllers:user', () => {
     })
 
     it('should return error 400 and "{name}(String), {email}(String), {notifications}(Boolean) and {password}(String) are required" message ', async () => {
-      const { statusCode, body } = await supertest(app).post('/users').send({
+      const { statusCode, body } = await createUser({
         name: 'Fake User',
         password: '123456',
         notifications: false
@@ -151,8 +145,12 @@ describe('controllers:user', () => {
       })
     })
 
+    const updateToken = async (user) => {
+      return supertest(app).put('/users/token').send(user)
+    }
+
     it('should return error 404 and "User not found" message', async () => {
-      const { statusCode, body } = await supertest(app).put('/users/token').send({
+      const { statusCode, body } = await updateToken({
         email: updateTokenUser.email,
         password: '10203040'
       })
@@ -161,7 +159,7 @@ describe('controllers:user', () => {
     })
 
     it('should return different token', async () => {
-      const { statusCode, body } = await supertest(app).put('/users/token').send({
+      const { statusCode, body } = await updateToken({
         email: updateTokenUser.email,
         password: '102030'
       })
@@ -189,14 +187,18 @@ describe('controllers:user', () => {
       await supertest(app).get('/books/jo/3/16').set('Authorization', `Bearer ${userStats.token}`)
     })
 
+    const getUserStats = async (token) => {
+      return token ? supertest(app).get('/users/stats').set('Authorization', `Bearer ${token}`) : supertest(app).get('/users/stats')
+    }
+
     it('should return error 403 and "not authorized token" message', async () => {
-      const { statusCode, body } = await supertest(app).get('/users/stats')
+      const { statusCode, body } = await getUserStats()
       expect(statusCode).toBe(403)
       expect(body.msg).toEqual('Not authorized token')
     })
 
     it('should return stats', async () => {
-      const { statusCode, body } = await supertest(app).get('/users/stats').set('Authorization', `Bearer ${userStats.token}`)
+      const { statusCode, body } = await getUserStats(userStats.token)
       expect(statusCode).toBe(200)
       expect(body.lastLogin).not.toEqual(null)
       expect(body.requestsPerMonth[0].range).toEqual(`${moment().format('M')}/${moment().format('YYYY')}`)

@@ -3,7 +3,7 @@ import supertest from 'supertest'
 import Request from '../../models/request'
 import User from '../../models/user'
 import app from '../app'
-import { connect } from '../utils'
+import { connect, resetDatabase } from '../utils'
 
 jest.mock('axios')
 describe('controllers:request', () => {
@@ -12,20 +12,11 @@ describe('controllers:request', () => {
 
   beforeAll(async () => {
     connection = await connect()
-    await User.deleteMany()
-    await Request.deleteMany()
-    await supertest(app).post('/users').send({
-      name: 'Fake User',
-      email: 'fake@email.com',
-      password: '123456',
-      notifications: false
-    })
+    await resetDatabase()
     user = await User.findOne()
   })
 
   afterAll(async () => {
-    await User.deleteMany()
-    await Request.deleteMany()
     return connection.disconnect()
   })
 
