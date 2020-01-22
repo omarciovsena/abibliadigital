@@ -6,15 +6,15 @@ export const getBooks = async (req, res) => {
   try {
     await saveRequest(req)
     const books = await getList()
-    res.json(books)
+    return res.json(books)
   } catch (err) {
-    genericError(res, err)
+    return genericError(res, err)
   }
 }
 
 export const getBook = async (req, res) => {
-  const { abbrev } = req.params
   try {
+    const { abbrev } = req.params
     await saveRequest(req)
     const book = await getItem(abbrev)
     if (!book) {
@@ -22,7 +22,7 @@ export const getBook = async (req, res) => {
     }
     res.json(book)
   } catch (err) {
-    genericError(res, err)
+    return genericError(res, err)
   }
 }
 

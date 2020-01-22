@@ -13,14 +13,15 @@ describe('controllers:book', () => {
 })
 
 describe('controllers:genericError', () => {
-  it('should return error 500 and "Book not found" message', async () => {
-    const res = httpMocks.createResponse()
-    const req = {
-      user: null,
-      headers: {
-        'x-forwarded-for': true
-      }
+  const res = httpMocks.createResponse()
+  const req = {
+    user: null,
+    headers: {
+      'x-forwarded-for': true
     }
+  }
+
+  it('should return response.status valid', async () => {
     const response = await resendNewPassword(req, res)
     expect(!!response.status).toBe(true)
   })
