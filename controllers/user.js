@@ -210,6 +210,6 @@ export const resendNewPassword = async (req, res) => {
       })
     })
   } catch (err) {
-    genericError(res, err)
+    return genericError(res, err)
   }
 }
