@@ -3278,10 +3278,10 @@ husky@^3.1.0:
     run-node "^1.0.0"
     slash "^3.0.0"
 
-i18n@^0.8.4:
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/i18n/-/i18n-0.8.4.tgz#948e1ee7ddefef18b2785969388e097327031bd0"
-  integrity sha512-PvMcG+yqYWXrwgdmCpL+APCGa8lRY0tdlo2cXp9UeR3u4h1bJGqFsgybfmG/MqtL1iDmdaPPPLJebXGrZ1XoMQ==
+i18n@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/i18n/-/i18n-0.8.5.tgz#3ae2db28fa1670e3f5ba30d3e505958b0b62e7ec"
+  integrity sha512-6UgLbhJGgn4XFeuZc/dDdrrri0ij24EK4hxv4Pbi5hloYAZ1B2+0eQchEryBFezLKYOHhVGV/5+H4i0oxng94w==
   dependencies:
     debug "*"
     make-plural "^6.0.1"
