@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  bibleapi:
+    build: ./docker-api
+    command: ["bash","/usr/src/api/start.sh"]
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    container_name: bibleapi
+    volumes:
+      - ../bibleapi:/usr/src/api
+    depends_on:
+      - bibleapi-mongo
+
+  bibleapi-mongo:
+    build: ./docker-mongo
+    container_name: bibleapi-mongo
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+    volumes:
+      - ../mongo-bibleapi/db/data:/data/db
+      - ../mongo-bibleapi/db/log:/var/log/mongodb
