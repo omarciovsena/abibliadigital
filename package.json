@@ -43,7 +43,7 @@
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.2.1",
     "moment": "^2.24.0",
-    "mongoose": "^5.9.2",
+    "mongoose": "^5.9.5",
     "pug": "^2.0.4",
     "supertest": "^4.0.2"
   },
