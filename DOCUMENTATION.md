@@ -124,6 +124,36 @@
 
 <details>
   <summary>
+    <b>Get Random Verse</b> - <i>returns a random verse from a chapter</i>
+  </summary>
+  <br/>
+  
+  <b>Endpoint:</b> `GET https://bibleapi.co/api/verses/:version/random`
+  <br />
+  <b>Authenticated:</b> No
+
+  ```
+  {
+    "book": {
+      "abbrev":{"pt":"gn","en":"gn"},
+      "name":"Gênesis",
+      "author":"Moisés",
+      "group":"Pentateuco",
+      "version":"nvi"
+    },
+    "chapter": {
+      "number": 1,
+      "verses": 31
+    },
+    "chapter": 1,
+    "number": 1,
+    "text": "No princípio Deus criou os céus e a terra."
+  }
+  ```
+</details>
+
+<details>
+  <summary>
     <b>Search by word</b> - <i>returns verses with the searched word</i>
   </summary>
   <br/>
