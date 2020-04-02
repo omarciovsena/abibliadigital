@@ -44,6 +44,7 @@ We believe that we can offer many of these services, free of charge, with the pr
 
 - [Mongodb](https://www.mongodb.com/)
 - [Yarn](https://yarnpkg.com/en/)
+- [Redis](https://formulae.brew.sh/formula/redis)
 - Node.JS - I recommend using [NVM](https://github.com/nvm-sh/nvm)
 
 ### Steps
@@ -56,6 +57,7 @@ We believe that we can offer many of these services, free of charge, with the pr
 MONGODB_URI=mongodb://localhost/bibleapi
 NODE_ENV="development"
 SECRET_KEY=""
+REDIS_URL="redis://127.0.0.1:6379"
 ```
 
 - Run the server using the following command: `yarn dev`
