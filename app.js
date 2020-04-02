@@ -3,6 +3,7 @@ import chalk from 'chalk'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express from 'express'
+import rateLimit from 'express-rate-limit'
 import i18n from 'i18n'
 import mongoose from 'mongoose'
 import path from 'path'
@@ -31,6 +32,12 @@ i18n.configure({
   directory: `${__dirname}/views/locales`
 })
 
+const limiter = rateLimit({
+  windowMs: 1 * 60 * 1000,
+  max: 20
+})
+
+app.use(limiter)
 app.use(cors())
 app.use(i18n.init)
 app.use(express.static(path.join(__dirname, 'public')))
