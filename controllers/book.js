@@ -26,7 +26,7 @@ export const getBook = async (req, res) => {
   }
 }
 
-const getList = async () => {
+export const getList = async () => {
   const books = await Book.aggregate([{ $sort: { order: 1 } }])
   return books.map(book => ({
     abbrev: book.abbrev,
