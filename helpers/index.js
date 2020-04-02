@@ -16,3 +16,8 @@ export const notAuthorized = (res) => {
     msg: 'Not authorized token'
   })
 }
+
+export const randomNumber = (limit) => {
+  const value = Math.round(Math.random() * limit)
+  return value > 0 ? value : 1
+}

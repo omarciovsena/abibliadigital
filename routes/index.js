@@ -5,12 +5,13 @@ import { checkRateLimit } from '../controllers/rateLimit'
 import { getRequests, getRequestsNumber } from '../controllers/request'
 import { setRequiredToken, validToken } from '../controllers/session'
 import { getUser, resendNewPassword, getUserStats, createUser, removeUser, updateToken } from '../controllers/user'
-import { getVerse, getChapter, search } from '../controllers/verse'
+import { getVerse, getRandomVerse, getChapter, search } from '../controllers/verse'
 
 const router = express.Router()
 
 router.get('/verses/:version/:abbrev/:chapter', validToken, checkRateLimit, getChapter)
 router.get('/verses/:version/:abbrev/:chapter/:number', validToken, checkRateLimit, getVerse)
+router.get('/verses/:version/random', validToken, checkRateLimit, getRandomVerse)
 
 router.post('/verses/search', validToken, checkRateLimit, search)
 router.post('/search', validToken, checkRateLimit, search) // deprecated
