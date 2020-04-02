@@ -1053,30 +1053,30 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@sendgrid/client@^6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@sendgrid/client/-/client-6.5.3.tgz#9abbfe2038dd54f8a9a4bffa7da5c1579e299118"
-  integrity sha512-+K4yTMSNChfwKuuMGpnK1Xz7SnBoh3VDT8sILVwSMJRH3s18mOf5Bv/xbAxawqX4Wz50rlSrpbA5A3FwiSDzJA==
+"@sendgrid/client@^6.5.5":
+  version "6.5.5"
+  resolved "https://registry.yarnpkg.com/@sendgrid/client/-/client-6.5.5.tgz#66cf569445d98a795998a894bb432a9939ead7c3"
+  integrity sha512-Nbfgo94gbWSL8PIgJfuHoifyOJJepvV8NQkkglctAEfb1hyozKhrzE6v1kPG/z4j0RodaTtXD5LJj/t0q/VhLA==
   dependencies:
-    "@sendgrid/helpers" "^6.5.3"
+    "@sendgrid/helpers" "^6.5.5"
     "@types/request" "^2.48.4"
     request "^2.88.0"
 
-"@sendgrid/helpers@^6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@sendgrid/helpers/-/helpers-6.5.3.tgz#60545e077857fa13e5fd295b1b03a5ed9a45f9e3"
-  integrity sha512-Cr5lV8H8STg8bzdzU5pEctI/SDQ3TCLiq72Ao2r3tGyusIxJ00C7CrXddhjEdYBsHvJZLaBTfG04yp8303em6w==
+"@sendgrid/helpers@^6.5.5":
+  version "6.5.5"
+  resolved "https://registry.yarnpkg.com/@sendgrid/helpers/-/helpers-6.5.5.tgz#de6de9b94794fbf834b4f66a7d44af84bf736459"
+  integrity sha512-uRFEanalfss5hDsuzVXZ1wm7i7eEXHh1py80piOXjobiQ+MxmtR19EU+gDSXZ+uMcEehBGhxnb7QDNN0q65qig==
   dependencies:
     chalk "^2.0.1"
     deepmerge "^4.2.2"
 
-"@sendgrid/mail@^6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@sendgrid/mail/-/mail-6.5.3.tgz#e8dd9084758f555dfa4de409dd4fccadb8e1b5dc"
-  integrity sha512-ePveau4VFFu8I9ETqgILKZajf577yapepnm3hG2Wj41fokHY6Uqpm3kkYTSWyw4VF+uapJPd9eVDcXWFbafvJw==
+"@sendgrid/mail@^6.5.5":
+  version "6.5.5"
+  resolved "https://registry.yarnpkg.com/@sendgrid/mail/-/mail-6.5.5.tgz#45bef4e4878144304b6688867baa13179deecc4b"
+  integrity sha512-DSu8oTPI0BJFH60jMOG9gM+oeNMoRALFmdAYg2PIXpL+Zbxd7L2GzQZtmf1jLy/8UBImkbB3D74TjiOBiLRK1w==
   dependencies:
-    "@sendgrid/client" "^6.5.3"
-    "@sendgrid/helpers" "^6.5.3"
+    "@sendgrid/client" "^6.5.5"
+    "@sendgrid/helpers" "^6.5.5"
 
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.7"
