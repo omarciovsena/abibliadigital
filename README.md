@@ -63,6 +63,13 @@ REDIS_URL="redis://127.0.0.1:6379"
 - Run the server using the following command: `yarn dev`
 - Visit `localhost:3000/api/check` to see the running api!
 
+## Rate Limit
+
+- Without authentication the limit rate is 20 requests/hour/ip
+- With user token, requests are unlimited (it's free)
+
+<i>Note: The limit rate was created to decrease the effectiveness of the attacks that we have been suffering since 3/29/2020</i>
+
 ## Fair use policy
 
 bibleAPI is free and open to use. The project is primarily an educational tool, and we will not tolerate denial of service attacks preventing people from learning.

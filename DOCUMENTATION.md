@@ -8,8 +8,12 @@
   <br/>
   
   <b>Endpoint:</b> `GET https://bibleapi.co/api/books`
-  <br />
-  <b>Authenticated:</b> No
+  <br /><br />
+  <b>Authenticated:</b> 
+  <ul>
+    <li>No - Limit rate of 20 requests per hour</li>
+    <li>Yes - Unlimited</li>
+  </ul>
 
   ```
   [
@@ -41,8 +45,12 @@
   <br/>
   
   <b>Endpoint:</b> `GET https://bibleapi.co/api/books/:abbrev`
-  <br />
-  <b>Authenticated:</b> No
+  <br /><br />
+  <b>Authenticated:</b> 
+  <ul>
+    <li>No - Limit rate of 20 requests per hour</li>
+    <li>Yes - Unlimited</li>
+  </ul>
 
   ```
   {
@@ -67,8 +75,12 @@
   <br/>
   
   <b>Endpoint:</b> `GET https://bibleapi.co/api/verses/:version/:abbrev/:chapter`
-  <br />
-  <b>Authenticated:</b> No
+  <br /><br />
+  <b>Authenticated:</b> 
+  <ul>
+    <li>No - Limit rate of 20 requests per hour</li>
+    <li>Yes - Unlimited</li>
+  </ul>
 
   ```
   {
@@ -99,8 +111,12 @@
   <br/>
   
   <b>Endpoint:</b> `GET https://bibleapi.co/api/verses/:version/:abbrev/:chapter/:number`
-  <br />
-  <b>Authenticated:</b> No
+  <br /><br />
+  <b>Authenticated:</b> 
+  <ul>
+    <li>No - Limit rate of 20 requests per hour</li>
+    <li>Yes - Unlimited</li>
+  </ul>
 
   ```
   {
@@ -129,8 +145,12 @@
   <br/>
   
   <b>Endpoint:</b> `GET https://bibleapi.co/api/verses/:version/random`
-  <br />
-  <b>Authenticated:</b> No
+  <br /><br />
+  <b>Authenticated:</b> 
+  <ul>
+    <li>No - Limit rate of 20 requests per hour</li>
+    <li>Yes - Unlimited</li>
+  </ul>
 
   ```
   {
@@ -159,8 +179,12 @@
   <br/>
   
   <b>Endpoint:</b> `POST https://bibleapi.co/api/verses/search`
-  <br />
-  <b>Authenticated:</b> No
+  <br /><br />
+  <b>Authenticated:</b> 
+  <ul>
+    <li>No - Limit rate of 20 requests per hour</li>
+    <li>Yes - Unlimited</li>
+  </ul>
   <br />
   <b>Body:</b>
   
