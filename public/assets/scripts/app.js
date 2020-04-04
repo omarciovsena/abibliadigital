@@ -44,7 +44,7 @@ $(document).ready(function() {
     ]
   };
   $("#output").jsonViewer(initData);
-  $("#form").submit(function(event) {
+  $("#form-1").submit(function(event) {
     event.preventDefault();
     const path = $("#path").val();
     $.ajax({
