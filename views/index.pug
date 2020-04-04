@@ -163,13 +163,13 @@ head
           p.font-p.mg-bt-30
             | #{__('options')}: books, books/gn, verses/nvi/gn/1, verses/acf/gn/1/1
             a(href='https://github.com/marciovsena/bibleapi/blob/dev/DOCUMENTATION.md/' target='_blank' title=__("documentation"))= __('andMore')
-        form#form
+        form#form-1
           .request-input.input-group.mb-3
             .input-group-prepend
               label#basic-addon3.input-group-text(for='path') https://bibleapi.co/api/
             input#path.form-control(type='text' aria-describedby='basic-addon3' value='verses/nvi/sl/23' placeholder='verses/{version}/{book}/{chapter}/{number}')
             .input-group-append
-              button#button-addon2.btn.btn-color(type='submit' title=__('search'))
+              button#button-addon1.btn.btn-color(type='submit' title=__('search'))
                 i.fa.fa-search.d-block.d-sm-none
                 span.hidden-sm-down.d-none.d-sm-block= __('search')
           pre#output.pre-scrollable.
