@@ -61,6 +61,6 @@
     "husky": "^3.1.0",
     "mongoose-seed": "^0.6.0",
     "node-mocks-http": "^1.8.1",
-    "nodemon": "^2.0.1"
+    "nodemon": "^2.0.3"
   }
 }
