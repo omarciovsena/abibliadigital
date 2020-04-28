@@ -72,15 +72,17 @@ export const getRequestsNumber = async (req, res) => {
 
 export const saveRequest = async req => {
   try {
-    req.user && updateLastLogin(req.user._id)
-    const request = new Request({
-      ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
-      text: req.body ? req.body.search : null,
-      url: req.originalUrl.replace(/\/$/g, ''),
-      user: req.user ? req.user._id : null,
-      version: req.body ? req.body.version : null
-    })
-    await request.save()
+    if (req.user) {
+      updateLastLogin(req.user._id)
+      const request = new Request({
+        ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
+        text: req.body ? req.body.search : null,
+        url: req.originalUrl.replace(/\/$/g, ''),
+        user: req.user._id,
+        version: req.body ? req.body.version : null
+      })
+      await request.save()
+    }
   } catch (e) {
     console.error('error: saveRequest', e)
   }
