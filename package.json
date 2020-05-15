@@ -27,10 +27,10 @@
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.4",
     "@sendgrid/mail": "^6.5.5",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-env": "^7.9.6",
     "@zeit/next-css": "^1.0.1",
     "body-parser": "^1.19.0",
     "chalk": "^3.0.0",
