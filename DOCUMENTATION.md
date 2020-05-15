@@ -205,11 +205,11 @@
       "name":"Gênesis",
       "author":"Moisés",
       "group":"Pentateuco",
-      "version":"nvi"
-    },
-    "chapter": {
-      "number": 1,
-      "verses": 31
+      "version":"nvi",
+      "chapter": {
+        "number": 1,
+        "verses": 31
+      }
     },
     "chapter": 1,
     "number": 1,

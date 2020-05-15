@@ -14,8 +14,8 @@
     "lint": "eslint ./",
     "dev": "nodemon --exec babel-node app.js",
     "start": "NODE_ENV=production babel-node app.js",
-    "test:db:book": "babel-node __test__/seeders/book.js",
-    "test:db:verse": "babel-node __test__/seeders/verse.js",
+    "seed:book": "babel-node __test__/seeders/book.js",
+    "seed:verse": "babel-node __test__/seeders/verse.js",
     "test": "jest --testTimeout=25000",
     "test:coverage": "jest --coverage --testTimeout=25000",
     "test:watch": "jest --watch --coverage --testTimeout=25000"
