@@ -43,7 +43,7 @@
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.2.1",
     "moment": "^2.25.3",
-    "mongoose": "^5.9.7",
+    "mongoose": "^5.9.14",
     "pug": "^2.0.4",
     "redis": "^3.0.2",
     "supertest": "^4.0.2"
@@ -55,12 +55,12 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-import-helpers": "^1.0.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-jest": "^23.11.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^3.1.0",
     "mongoose-seed": "^0.6.0",
     "node-mocks-http": "^1.8.1",
-    "nodemon": "^2.0.1"
+    "nodemon": "^2.0.4"
   }
 }
