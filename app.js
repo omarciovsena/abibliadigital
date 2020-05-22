@@ -7,6 +7,7 @@ import i18n from 'i18n'
 import mongoose from 'mongoose'
 import path from 'path'
 
+import { startRedis } from './controllers/rateLimit'
 import appRoutes from './routes'
 
 import './models/book'
@@ -14,6 +15,7 @@ import './models/verse'
 import './models/request'
 
 dotenv.config()
+startRedis()
 
 const app = express()
 

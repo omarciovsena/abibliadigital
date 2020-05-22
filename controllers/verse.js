@@ -1,6 +1,6 @@
-import { genericError, notFound } from '../helpers/'
+import { genericError, notFound, randomNumber } from '../helpers/'
 import Verse from '../models/verse'
-import { getItem as getBook } from './book'
+import { getItem as getBook, getList as getBooks } from './book'
 import { saveRequest } from './request'
 
 export const getChapter = async (req, res) => {
@@ -62,6 +62,31 @@ export const getVerse = async (req, res) => {
       number: verse.number,
       text: verse.text
     })
+  } catch (err) {
+    genericError(res, err)
+  }
+}
+
+export const getRandomVerse = async (req, res) => {
+  try {
+    await saveRequest(req)
+    const books = await getBooks()
+    const book = books[randomNumber(books.length)]
+    const { version } = req.params
+    const allVerses = await getList({ version, abbrev: book.abbrev.pt, chapter: randomNumber(book.chapters) })
+    const verse = allVerses[randomNumber(allVerses.length)]
+    return verse ? res.json({
+      book: {
+        abbrev: book.abbrev,
+        name: book.name,
+        author: book.author,
+        group: book.group,
+        version: verse.version
+      },
+      chapter: verse.chapter,
+      number: verse.number,
+      text: verse.text
+    }) : notFound(res, 'Verse')
   } catch (err) {
     genericError(res, err)
   }
