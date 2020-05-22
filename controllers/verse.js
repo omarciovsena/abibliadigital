@@ -96,6 +96,9 @@ export const search = async (req, res) => {
   try {
     await saveRequest(req)
     const { version, search } = req.body
+    const bookList = {}
+    const books = await getBooks()
+    books.map(book => { bookList[book.abbrev.en] = book })
 
     if (!version) {
       return notFound(res, 'Version')
@@ -121,9 +124,7 @@ export const search = async (req, res) => {
       occurrence: verses.length,
       version,
       verses: verses.map(verse => ({
-        book: {
-          abbrev: verse.book.abbrev
-        },
+        book: bookList[verse.book.abbrev.en],
         chapter: verse.chapter,
         number: verse.number,
         text: verse.text
