@@ -203,13 +203,11 @@
     "book": {
       "abbrev":{"pt":"gn","en":"gn"},
       "name":"Gênesis",
-      "author":"Moisés",
-      "group":"Pentateuco",
-      "version":"nvi",
-      "chapter": {
-        "number": 1,
-        "verses": 31
-      }
+      "author": "Moisés",
+      "chapters": 50,
+      "group": "Pentateuco",
+      "name": "Gênesis",
+      "testament": "VT"
     },
     "chapter": 1,
     "number": 1,
