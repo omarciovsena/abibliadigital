@@ -8,6 +8,7 @@ export const getBooks = async (req, res) => {
     const books = await getList()
     return res.json(books)
   } catch (err) {
+    /* istanbul ignore next */
     return genericError(res, err)
   }
 }
@@ -22,6 +23,7 @@ export const getBook = async (req, res) => {
     }
     res.json(book)
   } catch (err) {
+    /* istanbul ignore next */
     return genericError(res, err)
   }
 }

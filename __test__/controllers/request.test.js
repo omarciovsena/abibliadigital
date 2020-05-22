@@ -1,9 +1,9 @@
 import supertest from 'supertest'
 
+import { saveRequest } from '../../controllers/request'
 import Request from '../../models/request'
-import User from '../../models/user'
 import app from '../app'
-import { connect, resetDatabase } from '../utils'
+import { connect, getUser } from '../utils'
 
 jest.mock('axios')
 describe('controllers:request', () => {
@@ -12,8 +12,7 @@ describe('controllers:request', () => {
 
   beforeAll(async () => {
     connection = await connect()
-    await resetDatabase()
-    user = await User.findOne()
+    user = await getUser()
   })
 
   afterAll(async () => {
@@ -48,6 +47,15 @@ describe('controllers:request', () => {
       const { body, statusCode } = await supertest(app).get('/requests/amount/month')
       expect(statusCode).toEqual(403)
       expect(body.msg).toEqual('Not authorized token')
+    })
+  })
+
+  describe('saveRequest', () => {
+    it('should have the same amount of requests saved', async () => {
+      const numberOfRequestsBefore = await Request.countDocuments()
+      await saveRequest(null)
+      const numberOfRequestsAfter = await Request.countDocuments()
+      expect(numberOfRequestsBefore).toEqual(numberOfRequestsAfter)
     })
   })
 })

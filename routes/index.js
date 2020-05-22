@@ -22,10 +22,10 @@ router.get('/books/:abbrev', validToken, checkRateLimit, getBook)
 router.get('/users/stats', setRequiredToken, validToken, getUserStats)
 router.get('/users/:email', setRequiredToken, validToken, getUser)
 
-router.post('/users/password/:email', checkRateLimit, resendNewPassword)
+router.post('/users/password/:email', resendNewPassword)
 router.post('/users', checkRateLimit, createUser)
 
-router.put('/users/token', checkRateLimit, updateToken)
+router.put('/users/token', updateToken)
 router.delete('/users', setRequiredToken, validToken, removeUser)
 
 router.get('/requests/:period', setRequiredToken, validToken, getRequests)
