@@ -33,6 +33,7 @@ export const getChapter = async (req, res) => {
       }))
     })
   } catch (err) {
+    /* istanbul ignore next */
     genericError(res, err)
   }
 }
@@ -63,6 +64,7 @@ export const getVerse = async (req, res) => {
       text: verse.text
     })
   } catch (err) {
+    /* istanbul ignore next */
     genericError(res, err)
   }
 }
@@ -74,8 +76,8 @@ export const getRandomVerse = async (req, res) => {
     const book = books[randomNumber(books.length)]
     const { version } = req.params
     const allVerses = await getList({ version, abbrev: book.abbrev.pt, chapter: randomNumber(book.chapters) })
-    const verse = allVerses[randomNumber(allVerses.length)]
-    return verse ? res.json({
+    const verse = allVerses[randomNumber(allVerses.length) - 1]
+    return res.json({
       book: {
         abbrev: book.abbrev,
         name: book.name,
@@ -86,8 +88,9 @@ export const getRandomVerse = async (req, res) => {
       chapter: verse.chapter,
       number: verse.number,
       text: verse.text
-    }) : notFound(res, 'Verse')
+    })
   } catch (err) {
+    /* istanbul ignore next */
     genericError(res, err)
   }
 }
@@ -131,6 +134,7 @@ export const search = async (req, res) => {
       }))
     })
   } catch (err) {
+    /* istanbul ignore next */
     genericError(res, err)
   }
 }
@@ -140,7 +144,7 @@ const getList = async params => {
   return Verse.aggregate([
     {
       $match: {
-        'book.abbrev.pt': abbrev,
+        $or: [{ 'book.abbrev.pt': abbrev }, { 'book.abbrev.en': abbrev }],
         chapter: parseInt(chapter),
         version
       }
@@ -154,7 +158,7 @@ const getList = async params => {
 const getItem = async params => {
   const { version, abbrev, chapter, number } = params
   return Verse.findOne({
-    'book.abbrev.pt': abbrev,
+    $or: [{ 'book.abbrev.pt': abbrev }, { 'book.abbrev.en': abbrev }],
     chapter: parseInt(chapter),
     number: parseInt(number),
     version

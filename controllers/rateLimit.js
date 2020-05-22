@@ -14,6 +14,7 @@ const cache = redis.createClient(REDIS_URL)
 const getAsync = promisify(cache.get).bind(cache)
 
 export const startRedis = () => {
+  /* istanbul ignore next */
   cache.on('error', function (err) {
     console.log('Redis:error: ' + err)
   })
@@ -39,6 +40,7 @@ export const checkRateLimit = async (req, res, next) => {
     cache.set(ip, JSON.stringify(data), 'EX', 300)
     next()
   }).catch((err) => {
+    /* istanbul ignore next */
     return genericError(res, err)
   })
 }

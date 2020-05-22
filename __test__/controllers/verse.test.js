@@ -2,41 +2,56 @@ import supertest from 'supertest'
 
 import Verse from '../../models/verse'
 import app from '../app'
-import { connect } from '../utils'
+import { connect, getUser } from '../utils'
 
 jest.mock('axios')
 describe('controllers:verse', () => {
-  let connection
+  let connection, user
 
   beforeAll(async () => {
     connection = await connect()
+    user = await getUser()
   })
 
   afterAll(async () => {
     return connection.disconnect()
   })
 
-  it('should have 31.105 verses', async done => {
+  it('should have 837 verses', async done => {
     const count = await Verse.countDocuments()
-    expect(count).toEqual(31105)
+    expect(count).toEqual(837)
     done()
   })
 
   describe('getChapter', () => {
-    it('should return object with 6 verses and with the book of Salmos', async () => {
-      const { body } = await supertest(app).get('/verses/nvi/sl/23')
-      expect(body.verses.length).toBe(6)
-      expect(body.book.name).toBe('Salmos')
+    it('should return object with 27 verses and with the book of Tiago (James)', async () => {
+      const { body } = await supertest(app)
+        .get('/verses/nvi/tg/1')
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.verses.length).toBe(27)
+      expect(body.book.name).toBe('Tiago')
+    })
+
+    it('should return object with 27 verses and with the book of James (Tiago)', async () => {
+      const { body } = await supertest(app)
+        .get('/verses/nvi/jm/1')
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.verses.length).toBe(27)
+      expect(body.book.name).toBe('Tiago')
     })
 
     it('should return error 404 and "Book not found" message', async () => {
-      const { body, statusCode } = await supertest(app).get('/verses/nvi/fake/23')
+      const { body, statusCode } = await supertest(app)
+        .get('/verses/nvi/fake/1')
+        .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toBe('Book not found')
     })
 
     it('should return error 404 and "Chapter not found" message', async () => {
-      const { body, statusCode } = await supertest(app).get('/verses/nvi/sl/160')
+      const { body, statusCode } = await supertest(app)
+        .get('/verses/nvi/tg/10')
+        .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toBe('Chapter not found')
     })
@@ -44,50 +59,79 @@ describe('controllers:verse', () => {
 
   describe('getVerse', () => {
     it('should return error 404 and "Verse not found" message', async () => {
-      const { body, statusCode } = await supertest(app).get('/verses/nvi/sl/23/50')
+      const { body, statusCode } = await supertest(app)
+        .get('/verses/nvi/tg/1/100')
+        .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toBe('Verse not found')
     })
 
     it('should return error 404 and "Book not found" message', async () => {
-      const { body, statusCode } = await supertest(app).get('/verses/nvi/fake/23/1')
+      const { body, statusCode } = await supertest(app)
+        .get('/verses/nvi/fake/23/1')
+        .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toBe('Book not found')
     })
 
-    it('should return object with text and with the book of Mateus', async () => {
-      const { body } = await supertest(app).get('/verses/nvi/mt/28/19')
+    it('should return object with text and with the book of Tiago', async () => {
+      const { body } = await supertest(app)
+        .get('/verses/nvi/tg/1/1')
+        .set('Authorization', `Bearer ${user.token}`)
       expect(body.text).toBe(
-        'Portanto, vão e façam discípulos de todas as nações, batizando-os em nome do Pai e do Filho e do Espírito Santo,'
+        'Tiago, servo de Deus e do Senhor Jesus Cristo, às doze tribos dispersas entre as nações: Saudações.'
       )
-      expect(body.book.name).toBe('Mateus')
+      expect(body.book.name).toBe('Tiago')
+    })
+
+    it('should return object with text and with the book of James', async () => {
+      const { body } = await supertest(app)
+        .get('/verses/nvi/jm/1/1')
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.text).toBe(
+        'Tiago, servo de Deus e do Senhor Jesus Cristo, às doze tribos dispersas entre as nações: Saudações.'
+      )
+      expect(body.book.name).toBe('Tiago')
+    })
+  })
+
+  describe('getRandomVerse', () => {
+    it('should return object with 1 verse', async () => {
+      const { body } = await supertest(app)
+        .get('/verses/nvi/random')
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.text.length > 0).toBeTruthy()
     })
   })
 
   describe('search', () => {
     it('should return error 404 and "Version not found" message', async () => {
-      const { body, statusCode } = await supertest(app).post('/verses/search').send({ search: 'No princípio' })
+      const { body, statusCode } = await supertest(app).post('/verses/search')
+        .send({ search: 'No princípio' })
+        .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toBe('Version not found')
     })
 
-    it('should return 5 occurences', async () => {
+    it('should return 16 occurences', async () => {
       const { body } = await supertest(app)
         .post('/verses/search')
-        .send({ version: 'nvi', search: 'No princípio' })
-      expect(body.occurrence).toBe(5)
+        .send({ version: 'nvi', search: 'luz' })
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.occurrence).toBe(16)
       expect(body.verses[0].text).toBe(
-        'No princípio Deus criou os céus e a terra.'
+        'Então a cobiça, tendo engravidado, dá à luz o pecado; e o pecado, após ter-se consumado, gera a morte.'
       )
     })
 
-    it('should return 5 occurences - deprecated', async () => {
+    it('should return 16 occurences - deprecated', async () => {
       const { body } = await supertest(app)
         .post('/search')
-        .send({ version: 'nvi', search: 'No princípio' })
-      expect(body.occurrence).toBe(5)
+        .send({ version: 'nvi', search: 'luz' })
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.occurrence).toBe(16)
       expect(body.verses[0].text).toBe(
-        'No princípio Deus criou os céus e a terra.'
+        'Então a cobiça, tendo engravidado, dá à luz o pecado; e o pecado, após ter-se consumado, gera a morte.'
       )
     })
 
