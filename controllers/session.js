@@ -32,6 +32,7 @@ export const validToken = async (req, res, next) => {
 
     notAuthorized(res)
   } catch (err) {
+    /* istanbul ignore next */
     genericError(res, err)
   }
 }

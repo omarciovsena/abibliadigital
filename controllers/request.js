@@ -32,6 +32,7 @@ export const getRequests = async (req, res) => {
       }))
     )
   } catch (err) {
+    /* istanbul ignore next */
     genericError(res, err)
   }
 }
@@ -62,10 +63,11 @@ export const getRequestsNumber = async (req, res) => {
     ])
 
     res.json({
-      total: requests.length > 0 ? requests.reduce((a, b) => ({ count: a.count + b.count })).count : 0,
+      total: requests.reduce((a, b) => ({ count: a.count + b.count })).count,
       requests
     })
   } catch (err) {
+    /* istanbul ignore next */
     genericError(res, err)
   }
 }
@@ -84,6 +86,6 @@ export const saveRequest = async req => {
       await request.save()
     }
   } catch (e) {
-    console.error('error: saveRequest', e)
+    console.log('error: saveRequest', e)
   }
 }

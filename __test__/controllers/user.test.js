@@ -5,7 +5,7 @@ import supertest from 'supertest'
 import { generateToken } from '../../controllers/session'
 import User from '../../models/user'
 import app from '../app'
-import { connect, resetDatabase } from '../utils'
+import { connect, getUser } from '../utils'
 
 jest.mock('axios')
 describe('controllers:user', () => {
@@ -14,11 +14,12 @@ describe('controllers:user', () => {
 
   beforeAll(async () => {
     connection = await connect()
-    await resetDatabase()
-    user = await User.findOne()
+    await User.deleteMany({ email: { $in: [/^fake/i] } })
+    user = await getUser()
   })
 
   afterAll(async () => {
+    await User.deleteMany({ email: { $in: [/^fake/i] } })
     return connection.disconnect()
   })
 
