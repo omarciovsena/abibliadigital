@@ -24,6 +24,7 @@
 
 - [Why ?](#why-)
 - [Setup](#setup)
+- [Setup using Docker](#setup-using-docker)
 - [Fair use policy](#fair-use-policy)
 - [Documentation](https://github.com/marciovsena/bibleapi/blob/dev/DOCUMENTATION.md)
 - [Credits and Thanks](#credits-and-thanks)
@@ -61,6 +62,30 @@ REDIS_URL="redis://127.0.0.1:6379"
 ```
 
 - Run the server using the following command: `yarn dev`
+- Visit `localhost:3000/api/check` to see the running api!
+
+
+## Setup using Docker
+
+If you do not want to install Mongo, Node and Yarn, follow these steps.
+
+### Dependencies
+
+- [Docker](https://docs.docker.com/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Steps
+
+- Download this source code into a working directory. (Keep the directory name as "bibleapi")
+- Create `.env` file:
+
+```
+MONGODB_URI=mongodb://bibleapi-mongo/bibleapi
+NODE_ENV="development"
+SECRET_KEY=""
+```
+
+- Run the project using the following command: `docker-compose up`
 - Visit `localhost:3000/api/check` to see the running api!
 
 ## Rate Limit
