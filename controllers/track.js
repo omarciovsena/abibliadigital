@@ -77,10 +77,9 @@ export const trackEvent = async (req, res, next) => {
       requests: generateRequestsEventData(url)
     }
 
+    req.query.index && await analytics.track('how-to-use', { category: action })
     await analytics.track(action, actions[action] || {})
   } catch (e) {
-    console.log('d', req.originalUrl.replace(/\/$/g, '').split('/'))
-
     console.log('error: trackEvent', e)
   } finally {
     next()
