@@ -26,7 +26,7 @@ describe('controllers:verse', () => {
   describe('getChapter', () => {
     it('should return object with 27 verses and with the book of Tiago (James)', async () => {
       const { body } = await supertest(app)
-        .get('/verses/nvi/tg/1')
+        .get('/api/verses/nvi/tg/1')
         .set('Authorization', `Bearer ${user.token}`)
       expect(body.verses.length).toBe(27)
       expect(body.book.name).toBe('Tiago')
@@ -34,7 +34,7 @@ describe('controllers:verse', () => {
 
     it('should return object with 27 verses and with the book of James (Tiago)', async () => {
       const { body } = await supertest(app)
-        .get('/verses/nvi/jm/1')
+        .get('/api/verses/nvi/jm/1')
         .set('Authorization', `Bearer ${user.token}`)
       expect(body.verses.length).toBe(27)
       expect(body.book.name).toBe('Tiago')
@@ -42,7 +42,7 @@ describe('controllers:verse', () => {
 
     it('should return error 404 and "Book not found" message', async () => {
       const { body, statusCode } = await supertest(app)
-        .get('/verses/nvi/fake/1')
+        .get('/api/verses/nvi/fake/1')
         .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toBe('Book not found')
@@ -50,7 +50,7 @@ describe('controllers:verse', () => {
 
     it('should return error 404 and "Chapter not found" message', async () => {
       const { body, statusCode } = await supertest(app)
-        .get('/verses/nvi/tg/10')
+        .get('/api/verses/nvi/tg/10')
         .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toBe('Chapter not found')
@@ -60,7 +60,7 @@ describe('controllers:verse', () => {
   describe('getVerse', () => {
     it('should return error 404 and "Verse not found" message', async () => {
       const { body, statusCode } = await supertest(app)
-        .get('/verses/nvi/tg/1/100')
+        .get('/api/verses/nvi/tg/1/100')
         .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toBe('Verse not found')
@@ -68,7 +68,7 @@ describe('controllers:verse', () => {
 
     it('should return error 404 and "Book not found" message', async () => {
       const { body, statusCode } = await supertest(app)
-        .get('/verses/nvi/fake/23/1')
+        .get('/api/verses/nvi/fake/23/1')
         .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toBe('Book not found')
@@ -76,7 +76,7 @@ describe('controllers:verse', () => {
 
     it('should return object with text and with the book of Tiago', async () => {
       const { body } = await supertest(app)
-        .get('/verses/nvi/tg/1/1')
+        .get('/api/verses/nvi/tg/1/1')
         .set('Authorization', `Bearer ${user.token}`)
       expect(body.text).toBe(
         'Tiago, servo de Deus e do Senhor Jesus Cristo, às doze tribos dispersas entre as nações: Saudações.'
@@ -86,7 +86,7 @@ describe('controllers:verse', () => {
 
     it('should return object with text and with the book of James', async () => {
       const { body } = await supertest(app)
-        .get('/verses/nvi/jm/1/1')
+        .get('/api/verses/nvi/jm/1/1')
         .set('Authorization', `Bearer ${user.token}`)
       expect(body.text).toBe(
         'Tiago, servo de Deus e do Senhor Jesus Cristo, às doze tribos dispersas entre as nações: Saudações.'
@@ -98,7 +98,7 @@ describe('controllers:verse', () => {
   describe('getRandomVerse', () => {
     it('should return object with 1 verse', async () => {
       const { body } = await supertest(app)
-        .get('/verses/nvi/random')
+        .get('/api/verses/nvi/random')
         .set('Authorization', `Bearer ${user.token}`)
       expect(body.text.length > 0).toBeTruthy()
     })
@@ -106,7 +106,7 @@ describe('controllers:verse', () => {
 
   describe('search', () => {
     it('should return error 404 and "Version not found" message', async () => {
-      const { body, statusCode } = await supertest(app).post('/verses/search')
+      const { body, statusCode } = await supertest(app).post('/api/verses/search')
         .send({ search: 'No princípio' })
         .set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
@@ -115,18 +115,7 @@ describe('controllers:verse', () => {
 
     it('should return 16 occurences', async () => {
       const { body } = await supertest(app)
-        .post('/verses/search')
-        .send({ version: 'nvi', search: 'luz' })
-        .set('Authorization', `Bearer ${user.token}`)
-      expect(body.occurrence).toBe(16)
-      expect(body.verses[0].text).toBe(
-        'Então a cobiça, tendo engravidado, dá à luz o pecado; e o pecado, após ter-se consumado, gera a morte.'
-      )
-    })
-
-    it('should return 16 occurences - deprecated', async () => {
-      const { body } = await supertest(app)
-        .post('/search')
+        .post('/api/verses/search')
         .send({ version: 'nvi', search: 'luz' })
         .set('Authorization', `Bearer ${user.token}`)
       expect(body.occurrence).toBe(16)
@@ -138,7 +127,7 @@ describe('controllers:verse', () => {
     describe('verse:not authorized', () => {
       it('should return error 403', async () => {
         const { statusCode } = await supertest(app)
-          .post('/verses/search')
+          .post('/api/verses/search')
           .send({ version: 'nvi', search: 'No princípio' })
           .set('Authorization', 'Bearer Invalid')
         expect(statusCode).toBe(403)

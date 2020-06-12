@@ -40,7 +40,7 @@ app.set('view engine', 'pug')
 
 app.get('/:lang?', (req, res) => {
   res.setLocale(req.params.lang || 'pt')
-  res.render('index')
+  res.render('index', { GA_TRACKING_ID: process.env.GA_TRACKING_ID })
 })
 app.use(bodyParser.json())
 app.use('/api/', appRoutes)

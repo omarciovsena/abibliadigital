@@ -13,6 +13,6 @@ startRedis()
 const app = express()
 
 app.use(express.json())
-app.use('/', appRoutes)
+app.use('/api/', appRoutes)
 
 export default app
