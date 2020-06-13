@@ -6,7 +6,18 @@ const analytics = Analytics({
   version: 100,
   plugins: [
     googleAnalytics({
-      trackingId: process.env.GA_TRACKING_ID
+      trackingId: process.env.GA_TRACKING_ID,
+      customDimensions: {
+        feature: 'dimension1',
+        subfeature: 'dimension2',
+        version: 'dimension3',
+        chapter: 'dimension4',
+        verse: 'dimension5',
+        ip: 'dimension6',
+        isHowToUse: 'dimension7',
+        book: 'dimension8',
+        period: 'dimension9'
+      }
     })
   ]
 })
@@ -19,47 +30,46 @@ const setUser = (user) => {
   })
 }
 
-const generateVersesEventData = (url, body) => {
-  let data = {}
-  const [, , , version, bookOrSubFeature, chapter, verse] = url.split('/')
-  if (!bookOrSubFeature && body) {
+const generateVersesEventData = (req) => {
+  const { version, abbrev, chapter, number } = req.params
+
+  if (!version) {
     // api/verses/search
-    data = {
-      category: body.version,
-      label: version
-    }
-  } else if (!chapter) {
-    // api/verses/:version/random
-    data = {
-      category: bookOrSubFeature
-    }
-  } else {
-    data = {
-      category: version,
-      label: bookOrSubFeature,
-      dimension1: chapter,
-      metric2: verse
+    return {
+      subfeature: 'search',
+      version: req.body.version
     }
   }
-  return data
+
+  if (!abbrev) {
+    // api/verses/:version/random
+    return {
+      subfeature: 'search',
+      version: req.body.version
+    }
+  }
+
+  return {
+    version,
+    book: abbrev,
+    chapter,
+    verse: number
+  }
 }
 
-const generateBooksEventData = (url) => {
-  const [, , , label] = url.split('/')
-  return { label }
+const generateBooksEventData = (req) => {
+  const { abbrev } = req.params
+  return { book: abbrev }
 }
 
 const generateUsersEventData = (url) => {
-  const [, , , category] = url.split('/')
-  return { category }
+  const [, , , subfeature] = url.split('/')
+  return { subfeature }
 }
 
-const generateRequestsEventData = (url) => {
-  const [, , , feature, period] = url.split('/')
-  return {
-    category: period ? feature : '',
-    label: period || feature
-  }
+const generateRequestsEventData = (req) => {
+  const { period } = req.params
+  return { period }
 }
 
 export const trackEvent = async (req, res, next) => {
@@ -71,14 +81,19 @@ export const trackEvent = async (req, res, next) => {
     user && setUser(user)
 
     const actions = {
-      verses: generateVersesEventData(url, req.body),
-      books: generateBooksEventData(url),
+      verses: generateVersesEventData(req),
+      books: generateBooksEventData(req),
       users: generateUsersEventData(url),
-      requests: generateRequestsEventData(url)
+      requests: generateRequestsEventData(req)
     }
 
-    req.query.index && await analytics.track('how-to-use', { category: action })
-    await analytics.track(action, actions[action] || {})
+    const payload = actions[action] || {}
+    await analytics.track('request', {
+      ...payload,
+      feature: action,
+      ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
+      isHowToUse: !!req.query.isHowToUse
+    })
   } catch (e) {
     console.log('error: trackEvent', e)
   } finally {

@@ -48,7 +48,7 @@ $(document).ready(function() {
     event.preventDefault();
     const path = $("#path").val();
     $.ajax({
-      url: "/api/" + path + "?index=true",
+      url: "/api/" + path + "?isHowToUse=true",
       method: "GET",
       contentType: "application/json",
       success: function(data) {

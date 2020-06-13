@@ -13,7 +13,6 @@ const router = express.Router()
 router.get('/verses/:version/:abbrev/:chapter', validToken, checkRateLimit, trackEvent, getChapter)
 router.get('/verses/:version/:abbrev/:chapter/:number', validToken, checkRateLimit, trackEvent, getVerse)
 router.get('/verses/:version/random', validToken, checkRateLimit, trackEvent, getRandomVerse)
-
 router.post('/verses/search', validToken, checkRateLimit, trackEvent, search)
 
 router.get('/books', validToken, checkRateLimit, trackEvent, getBooks)
