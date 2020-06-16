@@ -18,6 +18,7 @@
     <img src="https://badgen.net/badge/license/BSD/blue" alt="BSD License">
   </a>
   <a href="https://codeclimate.com/github/marciovsena/bibleapi/maintainability"><img src="https://api.codeclimate.com/v1/badges/2cf1c4940336ad7911be/maintainability" /></a>
+  <a href="https://discord.gg/Te3fkHg"><img src="https://img.shields.io/discord/722477891102834789.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" /></a>  
 </p>
 
 ## ► Table of Contents
