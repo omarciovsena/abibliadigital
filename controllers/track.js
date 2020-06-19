@@ -80,7 +80,7 @@ export const trackEvent = async (req, res, next) => {
       userId: user ? user._id.toString() : ''
     })
 
-    return visitor.event({ ec: action, ea: 'request', dp: url }, (err) => {
+    return visitor.event({ ec: action, ea: 'request', el: url }, (err) => {
       if (err) throw Error(err)
     }).send()
   } catch (e) {
