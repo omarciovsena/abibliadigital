@@ -7,6 +7,7 @@ import { setRequiredToken, validToken } from '../controllers/session'
 import { trackEvent } from '../controllers/track'
 import { getUser, resendNewPassword, getUserStats, createUser, removeUser, updateToken } from '../controllers/user'
 import { getVerse, getRandomVerse, getChapter, search } from '../controllers/verse'
+import { getVersions } from '../controllers/version'
 
 const router = express.Router()
 
@@ -17,6 +18,8 @@ router.post('/verses/search', validToken, checkRateLimit, trackEvent, search)
 
 router.get('/books', validToken, checkRateLimit, trackEvent, getBooks)
 router.get('/books/:abbrev', validToken, checkRateLimit, trackEvent, getBook)
+
+router.get('/versions', validToken, checkRateLimit, trackEvent, getVersions)
 
 router.get('/users/stats', setRequiredToken, validToken, trackEvent, getUserStats)
 router.get('/users/:email', setRequiredToken, validToken, trackEvent, getUser)
