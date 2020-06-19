@@ -216,6 +216,40 @@
   ```
 </details>
 
+### Versions
+
+<details>
+  <summary>
+    <b>Get Versions</b> - <i>returns all Bible versions and number of verses</i>
+  </summary>
+  <br/>
+  
+  <b>Endpoint:</b> `GET https://bibleapi.co/api/versions`
+  <br /><br />
+  <b>Authenticated:</b> 
+  <ul>
+    <li>No - Limit rate of 20 requests per hour</li>
+    <li>Yes - Unlimited</li>
+  </ul>
+
+  ```
+  [
+    {
+        "version": "acf",
+        "verses": 31106
+    },
+    {
+        "version": "apee",
+        "verses": 30975
+    },
+    {
+        "version": "bbe",
+        "verses": 31104
+    }
+  ]
+  ```
+</details>
+
 
 ### Users
 
