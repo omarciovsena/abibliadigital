@@ -13,6 +13,7 @@ services:
       - ../bibleapi:/usr/src/api
     depends_on:
       - bibleapi-mongo
+      - bibleapi-redis
 
   bibleapi-mongo:
     build: ./docker-mongo
@@ -24,3 +25,14 @@ services:
     volumes:
       - ../mongo-bibleapi/db/data:/data/db
       - ../mongo-bibleapi/db/log:/var/log/mongodb
+
+  bibleapi-redis:
+    image: "redis:alpine"
+    container_name: bibleapi-redis
+    command: redis-server
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+    volumes:
+       - $PWD/redis-data:/var/lib/redis
