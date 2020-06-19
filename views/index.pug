@@ -70,16 +70,17 @@ head
               a.nav-link.section-scroll(data-scroll='' href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('githubTitle'))
                 i.fab.fa-github
             li.nav-item
+              a.nav-link(href='http://twitter.com/bibleapico' target='_blank' title=__('contactTitle'))
+                i.fab.fa-twitter
+            li.nav-item
+              a.nav-link(href='https://t.co/CFSf4CY47T' target='_blank' title=__('contactTitle'))
+                i.fab.fa-discord
+            li.nav-item
               a.nav-link(href='/en' title=__('english'))
                 img.flag(src="/theme/images/en.svg" alt=__('english'))
             li.nav-item
               a.nav-link(href='/pt' title=__('portuguese'))
                 img.flag(src="/theme/images/br.svg" alt=__('portuguese'))
-            li
-              .connect-block
-                a.btn.btn-white(href='http://twitter.com/bibleapico' target='_blank' title=__('contactTitle'))
-                  i.fab.fa-twitter
-                  | &nbsp;&nbsp;#{__('contact')}
   // Header
   // Begin Hero Section
   section#home.hero
@@ -137,9 +138,13 @@ head
           p.font-p= __('manifestDescription1')
           p.font-p.mg-bt-10= __('manifestDescription2')
           p.font-p.mg-bt-30= __('manifestDescription3')
-          a.btn.btn-color(href='http://twitter.com/bibleapico' target='_blank' title=__('buttonContactUs'))
-            i.fab.fa-twitter
-            | &nbsp;&nbsp;#{__('buttonContactUs')}
+          div
+            a(href='http://twitter.com/bibleapico' target='_blank' title=__('buttonContactUs'))
+              i.fab.fa-twitter.primary-color
+            span &nbsp;
+            a(href='https://t.co/CFSf4CY47T' target='_blank' title=__('buttonContactUs'))
+              i.fab.fa-discord.primary-color
+            span &nbsp;&nbsp;#{__('buttonContactUs')}
   // call-to-action
   section#call-to-action.bg-color-1.padd-60
     .container

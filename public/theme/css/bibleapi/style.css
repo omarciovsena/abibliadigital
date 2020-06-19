@@ -17,6 +17,10 @@ body {
   margin: 0;
 }
 
+.primary-color {
+  color: var(--primary-color);
+}
+
 .navbar-header .navbar.sticky,
 .btn-border.color-2 {
   background: var(--bossanova);
@@ -58,6 +62,16 @@ body {
 
 .navbar-header .connect-block .btn-white {
   color: var(--primary-color) !important;
+}
+
+i.fab.fa-twitter,
+i.fab.fa-discord {
+  font-size: 25px;
+}
+
+i.fab.fa-twitter.primary-color,
+i.fab.fa-discord.primary-color {
+  padding: 0 8px;
 }
 
 .copyright p,
@@ -108,6 +122,8 @@ body {
   font-size: 30px;
 }
 
+
+
 @media (max-width: 992px) {
   .text-sm-center {
     display: inline-block;
@@ -131,6 +147,7 @@ body {
 
 .navbar .nav-link {
   padding: 0 16px;
+  display: flex;
 
   @media (max-width: 576px) {
     padding: 0 8px;
