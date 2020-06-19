@@ -12,6 +12,7 @@ const setCustomDimensions = (cd) => {
   visitor.set('cd7', cd.isHowToUse)
   visitor.set('cd8', cd.book)
   visitor.set('cd9', cd.period)
+  visitor.set('cd10', cd.userId)
   visitor.set('uid', cd.userId)
 }
 
