@@ -25,20 +25,19 @@
     }
   },
   "dependencies": {
-    "@analytics/google-analytics": "^0.4.0",
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.2",
     "@babel/node": "^7.10.1",
-    "@sendgrid/mail": "^6.5.5",
     "@babel/preset-env": "^7.10.2",
+    "@sendgrid/mail": "^6.5.5",
     "@zeit/next-css": "^1.0.1",
-    "analytics": "^0.5.1",
     "body-parser": "^1.19.0",
     "chalk": "^3.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "generate-password": "^1.5.1",
+    "googleapis": "^52.1.0",
     "i18n": "^0.8.6",
     "jest": "^24.9.0",
     "jsonwebtoken": "^8.5.1",
@@ -47,7 +46,8 @@
     "mongoose": "^5.9.18",
     "pug": "^2.0.4",
     "redis": "^3.0.2",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "universal-analytics": "^0.4.20"
   },
   "devDependencies": {
     "axios": "^0.19.2",

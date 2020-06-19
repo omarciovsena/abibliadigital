@@ -1,34 +1,20 @@
-import googleAnalytics from '@analytics/google-analytics'
-import Analytics from 'analytics'
+import ua from 'universal-analytics'
 
-const analytics = Analytics({
-  app: 'bibleapi',
-  version: 100,
-  plugins: [
-    googleAnalytics({
-      trackingId: process.env.GA_TRACKING_ID,
-      customDimensions: {
-        feature: 'dimension1',
-        subfeature: 'dimension2',
-        version: 'dimension3',
-        chapter: 'dimension4',
-        verse: 'dimension5',
-        ip: 'dimension6',
-        isHowToUse: 'dimension7',
-        book: 'dimension8',
-        period: 'dimension9'
-      }
-    })
-  ]
-})
+const visitor = ua(process.env.GA_TRACKING_ID, { http: true })
 
-const setUser = (user) => {
-  analytics.user(user._id.toString())
-  analytics.identify(user._id.toString(), {
-    name: user.name,
-    email: user.email
-  })
+const setCustomDimensions = () => {
+  visitor.set('cd1', 'feature')
+  visitor.set('cd2', 'subfeature')
+  visitor.set('cd3', 'version')
+  visitor.set('cd4', 'chapter')
+  visitor.set('cd5', 'verse')
+  visitor.set('cd6', 'ip')
+  visitor.set('cd7', 'isHowToUse')
+  visitor.set('cd8', 'book')
+  visitor.set('cd9', 'period')
 }
+
+setCustomDimensions()
 
 const generateVersesEventData = (req) => {
   const { version, abbrev, chapter, number } = req.params
@@ -75,10 +61,10 @@ const generateRequestsEventData = (req) => {
 export const trackEvent = async (req, res, next) => {
   try {
     const user = req.user
+    visitor.set('uid', user ? user._id.toString() : '')
+
     const url = req.originalUrl.replace(/\/$/g, '')
     const [, , action] = url.split('/')
-
-    user && setUser(user)
 
     const actions = {
       verses: generateVersesEventData(req),
@@ -86,14 +72,18 @@ export const trackEvent = async (req, res, next) => {
       users: generateUsersEventData(url),
       requests: generateRequestsEventData(req)
     }
-
     const payload = actions[action] || {}
-    await analytics.track('request', {
+
+    const data = {
+      ec: action,
+      ea: 'request',
       ...payload,
       feature: action,
       ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
       isHowToUse: !!req.query.isHowToUse
-    })
+    }
+
+    return visitor.event(data).send()
   } catch (e) {
     console.log('error: trackEvent', e)
   } finally {
