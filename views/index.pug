@@ -16,13 +16,12 @@ head
   link(rel='stylesheet' href='/theme/css/responsive.css')
   link(rel='stylesheet' href='/theme/css/bibleapi/style.css')
   link(rel='stylesheet' href='/theme/css/bibleapi/json.css')
-  // Global site tag (gtag.js) - Google Analytics
-  script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-128270174-1')
+  script(async='' src='https://www.googletagmanager.com/gtag/js?id=#{GA_TRACKING_ID}')
   script.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-128270174-1');
+    gtag('config', '#{GA_TRACKING_ID}');
   link(rel='apple-touch-icon' sizes='57x57' href='/theme/images/favicon/apple-icon-57x57.png')
   link(rel='apple-touch-icon' sizes='60x60' href='/theme/images/favicon/apple-icon-60x60.png')
   link(rel='apple-touch-icon' sizes='72x72' href='/theme/images/favicon/apple-icon-72x72.png')
@@ -41,6 +40,7 @@ head
   meta(name='msapplication-TileImage' content='/ms-icon-144x144.png')
   meta(name='theme-color' content='#ffffff')
   script(defer='' src='/theme/js/modernizr.js')
+
   //if lt IE 9
     script(src='/theme/js/html5shiv.min.js')
     script(src='/theme/js/respond.min.js')
