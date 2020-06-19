@@ -25,23 +25,23 @@ describe('controllers:user', () => {
 
   describe('getUser', () => {
     it('should return error 404', async () => {
-      const { statusCode } = await supertest(app).get('/users')
+      const { statusCode } = await supertest(app).get('/api/users')
       expect(statusCode).toBe(404)
     })
 
     it('should return error 403', async () => {
-      const { statusCode } = await supertest(app).get('/users/notfound@email.com')
+      const { statusCode } = await supertest(app).get('/api/users/notfound@email.com')
       expect(statusCode).toBe(403)
     })
 
     it('should return error 404 and "User not found" message', async () => {
-      const { statusCode, body } = await supertest(app).get('/users/notfound@email.com').set('Authorization', `Bearer ${user.token}`)
+      const { statusCode, body } = await supertest(app).get('/api/users/notfound@email.com').set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(404)
       expect(body.msg).toEqual('User not found')
     })
 
     it('should return user', async () => {
-      const { statusCode, body } = await supertest(app).get(`/users/${user.email}`).set('Authorization', `Bearer ${user.token}`)
+      const { statusCode, body } = await supertest(app).get(`/api/users/${user.email}`).set('Authorization', `Bearer ${user.token}`)
       expect(statusCode).toBe(200)
       expect(body.name).toEqual(user.name)
     })
@@ -53,7 +53,7 @@ describe('controllers:user', () => {
     })
 
     const createUser = async (user) => {
-      return supertest(app).post('/users').send(user)
+      return supertest(app).post('/api/users').send(user)
     }
 
     it('should return user', async () => {
@@ -106,7 +106,7 @@ describe('controllers:user', () => {
     })
 
     const removeUser = async (token) => {
-      return supertest(app).delete('/users').send({
+      return supertest(app).delete('/api/users').send({
         email: removedUser.email,
         password: '102030'
       }).set('Authorization', `Bearer ${token}`)
@@ -147,7 +147,7 @@ describe('controllers:user', () => {
     })
 
     const updateToken = async (user) => {
-      return supertest(app).put('/users/token').send(user)
+      return supertest(app).put('/api/users/token').send(user)
     }
 
     it('should return error 404 and "User not found" message', async () => {
@@ -183,13 +183,13 @@ describe('controllers:user', () => {
         lastLogin: new Date()
       })
 
-      await supertest(app).get('/users/stats').set('Authorization', `Bearer ${userStats.token}`)
-      await supertest(app).get('/books/gn').set('Authorization', `Bearer ${userStats.token}`)
-      await supertest(app).get('/books/jo/3/16').set('Authorization', `Bearer ${userStats.token}`)
+      await supertest(app).get('/api/users/stats').set('Authorization', `Bearer ${userStats.token}`)
+      await supertest(app).get('/api/books/gn').set('Authorization', `Bearer ${userStats.token}`)
+      await supertest(app).get('/api/books/jo/3/16').set('Authorization', `Bearer ${userStats.token}`)
     })
 
     const getUserStats = async (token) => {
-      return token ? supertest(app).get('/users/stats').set('Authorization', `Bearer ${token}`) : supertest(app).get('/users/stats')
+      return token ? supertest(app).get('/api/users/stats').set('Authorization', `Bearer ${token}`) : supertest(app).get('/api/users/stats')
     }
 
     it('should return error 403 and "not authorized token" message', async () => {
@@ -223,13 +223,13 @@ describe('controllers:user', () => {
     })
 
     it('should return error 404 and "User not found" message', async () => {
-      const { statusCode, body } = await supertest(app).post('/users/password/notFound@email.com')
+      const { statusCode, body } = await supertest(app).post('/api/users/password/notFound@email.com')
       expect(statusCode).toBe(404)
       expect(body.msg).toEqual('User not found')
     })
 
     it('should return 200 and success message', async () => {
-      const { statusCode, body } = await supertest(app).post(`/users/password/${userStats.email}`)
+      const { statusCode, body } = await supertest(app).post(`/api/users/password/${userStats.email}`)
       expect(statusCode).toBe(200)
       expect(body.msg).toEqual(`New password successfully sent to email ${userStats.email}`)
     })

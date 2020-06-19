@@ -18,6 +18,7 @@
     <img src="https://badgen.net/badge/license/BSD/blue" alt="BSD License">
   </a>
   <a href="https://codeclimate.com/github/marciovsena/bibleapi/maintainability"><img src="https://api.codeclimate.com/v1/badges/2cf1c4940336ad7911be/maintainability" /></a>
+  <a href="https://discord.gg/Te3fkHg"><img src="https://img.shields.io/discord/722477891102834789.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" /></a>  
 </p>
 
 ## ► Table of Contents
@@ -67,7 +68,7 @@ REDIS_URL="redis://127.0.0.1:6379"
 
 ## Setup using Docker
 
-If you do not want to install Mongo, Node and Yarn, follow these steps.
+If you do not want to install Mongo, Redis, Node and Yarn, follow these steps.
 
 ### Dependencies
 
@@ -83,6 +84,7 @@ If you do not want to install Mongo, Node and Yarn, follow these steps.
 MONGODB_URI=mongodb://bibleapi-mongo/bibleapi
 NODE_ENV="development"
 SECRET_KEY=""
+REDIS_URL="redis://bibleapi-redis"
 ```
 
 - Run the project using the following command: `docker-compose up`
