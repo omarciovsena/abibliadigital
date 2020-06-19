@@ -1,6 +1,6 @@
 import ua from 'universal-analytics'
 
-const visitor = ua(process.env.GA_TRACKING_ID, { http: true })
+const visitor = ua(process.env.GA_TRACKING_ID)
 
 const setCustomDimensions = () => {
   visitor.set('cd1', 'feature')
