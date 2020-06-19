@@ -2,19 +2,18 @@ import ua from 'universal-analytics'
 
 const visitor = ua(process.env.GA_TRACKING_ID)
 
-const setCustomDimensions = () => {
-  visitor.set('cd1', 'feature')
-  visitor.set('cd2', 'subfeature')
-  visitor.set('cd3', 'version')
-  visitor.set('cd4', 'chapter')
-  visitor.set('cd5', 'verse')
-  visitor.set('cd6', 'ip')
-  visitor.set('cd7', 'isHowToUse')
-  visitor.set('cd8', 'book')
-  visitor.set('cd9', 'period')
+const setCustomDimensions = (cd) => {
+  visitor.set('cd1', cd.action)
+  visitor.set('cd2', cd.subfeature)
+  visitor.set('cd3', cd.version)
+  visitor.set('cd4', cd.chapter)
+  visitor.set('cd5', cd.verse)
+  visitor.set('cd6', cd.ip)
+  visitor.set('cd7', cd.isHowToUse)
+  visitor.set('cd8', cd.book)
+  visitor.set('cd9', cd.period)
+  visitor.set('uid', cd.userId)
 }
-
-setCustomDimensions()
 
 const generateVersesEventData = (req) => {
   const { version, abbrev, chapter, number } = req.params
@@ -61,8 +60,6 @@ const generateRequestsEventData = (req) => {
 export const trackEvent = async (req, res, next) => {
   try {
     const user = req.user
-    visitor.set('uid', user ? user._id.toString() : '')
-
     const url = req.originalUrl.replace(/\/$/g, '')
     const [, , action] = url.split('/')
 
@@ -74,16 +71,17 @@ export const trackEvent = async (req, res, next) => {
     }
     const payload = actions[action] || {}
 
-    const data = {
-      ec: action,
-      ea: 'request',
+    setCustomDimensions({
       ...payload,
-      feature: action,
+      action,
       ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
-      isHowToUse: !!req.query.isHowToUse
-    }
+      isHowToUse: !!req.query.isHowToUse,
+      userId: user ? user._id.toString() : ''
+    })
 
-    return visitor.event(data).send()
+    return visitor.event({ ec: action, ea: 'request', dp: url }, (err) => {
+      if (err) throw Error(err)
+    }).send()
   } catch (e) {
     console.log('error: trackEvent', e)
   } finally {
