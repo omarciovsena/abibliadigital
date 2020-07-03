@@ -27,7 +27,7 @@
 - [Setup](#setup)
 - [Setup using Docker](#setup-using-docker)
 - [Fair use policy](#fair-use-policy)
-- [Documentation](https://github.com/marciovsena/bibleapi/blob/dev/DOCUMENTATION.md)
+- [Documentation](https://github.com/marciovsena/bibleapi/blob/master/DOCUMENTATION.md)
 - [Credits and Thanks](#credits-and-thanks)
 - [Contributing](#contributing)
 - [Contributor](#contributor)
