@@ -102,6 +102,13 @@ describe('controllers:verse', () => {
         .set('Authorization', `Bearer ${user.token}`)
       expect(body.text.length > 0).toBeTruthy()
     })
+
+    it('should return object with 1 verse of specific book', async () => {
+      const { body } = await supertest(app)
+        .get('/api/verses/nvi/tg/random')
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.text.length > 0 && body.book.name === 'Tiago').toBeTruthy()
+    })
   })
 
   describe('search', () => {

@@ -161,9 +161,35 @@
       "group":"Pentateuco",
       "version":"nvi"
     },
-    "chapter": {
-      "number": 1,
-      "verses": 31
+    "chapter": 1,
+    "number": 1,
+    "text": "No princípio Deus criou os céus e a terra."
+  }
+  ```
+</details>
+
+<details>
+  <summary>
+    <b>Get Random Verse Book</b> - <i>return a verse from a specific book</i>
+  </summary>
+  <br/>
+  
+  <b>Endpoint:</b> `GET https://bibleapi.co/api/verses/:version/:abbrev/random`
+  <br /><br />
+  <b>Authenticated:</b> 
+  <ul>
+    <li>No - Limit rate of 20 requests per hour</li>
+    <li>Yes - Unlimited</li>
+  </ul>
+
+  ```
+  {
+    "book": {
+      "abbrev":{"pt":"gn","en":"gn"},
+      "name":"Gênesis",
+      "author":"Moisés",
+      "group":"Pentateuco",
+      "version":"nvi"
     },
     "chapter": 1,
     "number": 1,
