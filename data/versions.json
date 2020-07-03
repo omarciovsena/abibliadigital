@@ -1,0 +1,253 @@
+{
+  "aa":{
+     "version":"aa",
+     "name":"Almeida Revisada Imprensa Bíblica",
+     "language":"pt-BR"
+  },
+  "acf":{
+     "version":"acf",
+     "name":"Almeida Corrigida Fiel (ACF)",
+     "language":"pt-BR",
+     "copyright":"Sociedade Bíblica Trinitariana do Brasil",
+     "yearOfPublication":1994,
+     "yearsOfRevisions":[
+        2007,
+        2011
+     ]
+  },
+  "acv":{
+     "version":"acv",
+     "name":"A Conservative Version",
+     "language":"en-US"
+  },
+  "akjv":{
+     "version":"akjv",
+     "name":"The King James Version",
+     "language":"en-US",
+     "copyright":"Public domain",
+     "yearOfPublication":1611
+  },
+  "ara":{
+     "version":"ara",
+     "name":"Almeida Revista e Atualizada",
+     "language":"pt-BR",
+     "copyright":"Sociedade Bíblica do Brasil",
+     "yearOfPublication":1959,
+     "yearsOfRevisions":[
+        1993
+     ]
+  },
+  "arc":{
+     "version":"arc",
+     "name":"Almeida Revista e Corrigida",
+     "language":"pt-BR",
+     "copyright":"Sociedade Bíblica do Brasil",
+     "yearOfPublication":1750,
+     "yearsOfRevisions":[
+        1949,
+        1969,
+        1995,
+        2009
+     ]
+  },
+  "asv":{
+     "version":"asv",
+     "name":"American Standard Version",
+     "language":"en-US",
+     "copyright":"Public domain",
+     "yearOfPublication":1901,
+     "yearsOfRevisions":[
+        1929
+     ]
+  },
+  "bbe":{
+     "version":"bbe",
+     "name":"Bible In Basic English",
+     "language":"en-US",
+     "copyright":"S. H. Hooke",
+     "yearOfPublication":1965
+  },
+  "bwe":{
+     "version":"bwe",
+     "name":"Bible in Worldwide English NT",
+     "language":"en-US",
+     "copyright":"version",
+     "yearOfPublication":1969
+  },
+  "darby":{
+     "version":"darby",
+     "name": "Darby's Translation 1890",
+     "language":"en-US",
+     "copyright":"British &amp; Foreign Bible Society",
+     "yearOfPublication":1890
+  },
+  "diaglott":{
+     "version":"diaglott",
+     "name":"The Emphatic Diaglott",
+     "language":"en-US",
+     "copyright":"name",
+     "yearOfPublication":1864
+  },
+  "drb":{
+     "version":"drb",
+     "name":"Douay Rheims",
+     "language":"en-US",
+     "copyright":"Public domain",
+     "yearOfPublication":1609
+  },
+  "emtv":{
+     "version":"emtv",
+     "name":"English Majority Text Translation",
+     "language":"en-US",
+     "copyright":"Paul W. Esposito",
+     "yearOfPublication":2011
+  },
+  "gnv":{
+     "version":"gnv",
+     "name":"Geneva Bible",
+     "language":"en-US",
+     "copyright":"eBible.org",
+     "yearOfPublication":1560
+  },
+  "isv":{
+     "version":"isv",
+     "name":"International Standard Version",
+     "language":"en-US",
+     "copyright":"The ISV Foundation",
+     "yearOfPublication":2011
+  },
+  "jps":{
+     "version":"jps",
+     "name":"Jewish Publication Society of America Version",
+     "language":"en-US",
+     "copyright":"The Jewish Publication Society",
+     "yearOfPublication":1917
+  },
+  "jubl2000":{
+     "version":"jubl2000",
+     "name":"name",
+     "language":"lang",
+     "copyright":"name",
+     "yearOfPublication":"name"
+  },
+  "kj2000":{
+     "version":"kj2000",
+     "name": "King James 2000",
+     "language":"en-US",
+     "copyright":"Crown Copyright in UK",
+     "yearOfPublication":2000
+  },
+  "kjv":{
+     "version":"kjv",
+     "name":"King James Version",
+     "language":"en-US",
+     "copyright":"Crown Copyright in UK",
+     "yearOfPublication":1611
+  },
+  "leeser":{
+     "version":"leeser",
+     "name":"Leeser Old Testament",
+     "language":"en-US"
+  },
+  "lont":{
+     "version":"lont",
+     "name":"Living Oracles",
+     "language":"en-US"
+  },
+  "naa":{
+     "version":"naa",
+     "name":"name",
+     "language":"pt-BR",
+     "copyright":"name",
+     "yearOfPublication":"name"
+  },
+  "nheb":{
+     "version":"nheb",
+     "name":"New Heart English Bible",
+     "language":"en-US",
+     "copyright":"Biblica",
+     "yearOfPublication":1993
+  },
+  "neb":{
+     "version":"neb",
+     "name":"New English Bible",
+     "language":"en-US",
+     "copyright":"Oxford University Press and Cambridge University Press",
+     "yearOfPublication":1970
+  },
+  "niv":{
+     "version":"niv",
+     "name":"New International Version",
+     "language":"en-US",
+     "copyright":"Biblica",
+     "yearOfPublication":1973,
+     "yearsOfRevisions":[
+        1978,
+        1984,
+        2011
+     ]
+  },
+  "nvi":{
+     "version":"nvi",
+     "name":"Nova Versão Internacional",
+     "language":"pt-BR",
+     "copyright":"Biblica",
+     "yearOfPublication":1993
+  },
+  "nvt":{
+     "version":"nvt",
+     "name":"Nova Versão Transformadora",
+     "language":"pt-BR",
+     "copyright":"Editora Mundo Cristao",
+     "yearOfPublication":2016
+  },
+  "ol":{
+     "version":"ol",
+     "name":"O Livro",
+     "language":"pt",
+     "copyright":"Biblica"
+  },
+  "rc69":{
+     "version":"rc69",
+     "name": "Bíblia Sagrada ARC 1969",
+     "language":"pt-BR",
+     "copyright":"Sociedade Bíblica do Brasil",
+     "yearOfPublication":1969
+  },
+  "rv":{
+     "version":"rv",
+     "name":"Reina Valera",
+     "language":"es-ES",
+     "copyright":"United Bible Societies",
+     "yearOfPublication":1602
+  },
+  "sev":{
+     "version":"sev",
+     "name":"Las Sagradas Escrituras",
+     "language":"es-ES",
+     "copyright":"El Candelero de Luz Inc.",
+     "yearOfPublication":2012
+  },
+  "tb":{
+     "version":"tb",
+     "name":"Tradução Brasileira",
+     "language":"pt-BR",
+     "copyright":"Sociedade Bíblica do Brasil",
+     "yearOfPublication":1917,
+     "yearsOfRevisions":[
+        2010
+     ]
+  },
+  "vc":{
+     "version":"vc",
+     "name":"Versão Católica",
+     "language":"pt-BR"
+  },
+  "wycliffe":{
+     "version":"wycliffe",
+     "name":"John Wycliffe Bible",
+     "language":"lang",
+     "copyright":"name",
+     "yearOfPublication":1382
+  }
+}
