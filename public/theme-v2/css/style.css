@@ -1,0 +1,113 @@
+@font-face {
+  font-display: block;
+  font-family: 'icomoon';
+  font-style: normal;
+  font-weight: normal;
+  src: url("/theme-v2/fonts/icomoon.eot?n9ntun");
+  src: url("/theme-v2/fonts/icomoon.eot?n9ntun#iefix") format("embedded-opentype"), url("/theme-v2/fonts/icomoon.ttf?n9ntun") format("truetype"), url("/theme-v2/fonts/icomoon.woff?n9ntun") format("woff"), url("/theme-v2/fonts/icomoon.svg?n9ntun#icomoon") format("svg");
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-discord:before {
+  content: "\e901";
+}
+
+.icon-github:before {
+  content: "\e902";
+}
+
+.icon-patreon:before {
+  content: "\e900";
+}
+
+.icon-twitter:before {
+  content: "\e903";
+}
+
+a {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-weight: bold;
+  text-decoration: none;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1040px;
+  padding: 0 20px;
+  width: calc(100% - 40px);
+}
+
+header {
+  background-color: #ffffff;
+  border-bottom: 0;
+  border: solid 60px #fcf8e3;
+  height: calc(100vh - 60px);
+}
+
+nav {
+  background-color: #ffffff;
+  border-radius: 0px 0px 6px 6px;
+  -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+nav .container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 60px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav .container ul li {
+  display: inline-block;
+}
+
+nav .container ul li a {
+  color: #16324E;
+  font-size: 18px;
+  padding: 2px 10px;
+  vertical-align: middle;
+}
+
+nav .container ul li a[class^="icon-"] {
+  font-size: 24px;
+}
+
+nav .container ul li a[class^="icon-"]:hover {
+  color: #254699;
+}
+
+nav .container ul li a.text {
+  margin-bottom: 20px;
+}
+
+nav .container ul li a.text:hover {
+  background-color: #fcf8e3;
+}
+
+nav .container ul li a img {
+  width: 24px;
+}

@@ -1,0 +1,125 @@
+$alabaster: #fafafa;
+$firefly: #0a1a29;
+$nile: #16324E;
+$pearl: #fcf8e3;
+$silver: #cccccc;
+$solid-white: #ffffff;
+$tropaz: #254699;
+
+@mixin playfair {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+$opensans: 'Open Sans',
+sans-serif;
+
+@font-face {
+  font-display: block;
+  font-family: 'icomoon';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/theme-v2/fonts/icomoon.eot?n9ntun');
+  src: url('/theme-v2/fonts/icomoon.eot?n9ntun#iefix') format('embedded-opentype'),
+    url('/theme-v2/fonts/icomoon.ttf?n9ntun') format('truetype'),
+    url('/theme-v2/fonts/icomoon.woff?n9ntun') format('woff'),
+    url('/theme-v2/fonts/icomoon.svg?n9ntun#icomoon') format('svg');
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-discord:before {
+  content: "\e901";
+}
+
+.icon-github:before {
+  content: "\e902";
+}
+
+.icon-patreon:before {
+  content: "\e900";
+}
+
+.icon-twitter:before {
+  content: "\e903";
+}
+
+
+a {
+  @include playfair;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .4s;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1040px;
+  padding: 0 20px;
+  width: calc(100% - 40px);
+}
+
+header {
+  background-color: $solid-white;
+  border-bottom: 0;
+  border: solid 60px $pearl;
+  height: calc(100vh - 60px);
+}
+
+nav {
+  background-color: $solid-white;
+  border-radius: 0px 0px 6px 6px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
+  position: fixed;
+  top: 0px;
+  width: 100%;
+
+  .container {
+    align-items: center;
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+
+    ul li {
+      display: inline-block;
+
+      a {
+        color: $nile;
+        font-size: 18px;
+        padding: 2px 10px;
+        vertical-align: middle;
+
+        &[class^="icon-"] {
+          font-size: 24px;
+
+          &:hover {
+            color: $tropaz;
+          }
+        }
+
+        &.text {
+          margin-bottom: 20px;
+
+          &:hover {
+            background-color: $pearl;
+          }
+        }
+
+        img {
+          width: 24px;
+        }
+      }
+    }
+  }
+}
