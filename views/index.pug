@@ -10,16 +10,64 @@ head
   link(rel='stylesheet' href='/theme-v2/css/normalize.css')
   link(rel='stylesheet' href='/theme-v2/css/style.css')
 body
+  // Fixed Navigation
   nav
     .container
-      a(href='/'): img(src='/theme-v2/images/logo-symbol-a-biblia-digital.svg')
+      a(href='/'): img(src='/theme-v2/images/logo-symbol-a-biblia-digital.svg' alt='A Bíblia Digital')
       ul
         li: a.text(href='#about' title=__('aboutTitle'))= __('about')
         li: a.text(href='#howToUse' title=__('howToUseTitle'))= __('howToUse')
         li: a.text(href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('documentationTitle'))= __('documentation')
         li: a.text(href='#donate' title=__('donateTitle'))= __('donate')
-        li: a.icon-github(data-scroll='' href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('githubTitle'))
+        li: a.icon-github(href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('githubTitle'))
         li: a.icon-twitter(href='http://twitter.com/bibleapico' target='_blank' title=__('contactTitle'))
         li: a.icon-discord(href='https://t.co/CFSf4CY47T' target='_blank' title=__('contactTitle'))
-        li: a(href=__('changeLanguageLink')): img(src=__('changeLanguageImage'))
+        li: a(href=__('changeLanguageLink') title=__('changeLanguageTitle')): img(src=__('changeLanguageImage') alt=__('changeLanguageTitle'))
+  // Header
   header
+    a(href='/'): img(src='/theme-v2/images/logo-a-biblia-digital.svg' alt='A Bíblia Digital')
+    .container
+      #hero
+        .row
+          .col
+            h1= __('heroTitle')
+            h3= __('heroSubtitle')
+            .bg
+          .col
+            #counter= __('counterTitle')
+              small= __('counterSubtitle')
+              .bg
+              .bg
+    ul#social-links
+      li: a.icon-github(href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('githubTitle'))
+      li: a.icon-twitter(href='http://twitter.com/bibleapico' target='_blank' title=__('contactTitle'))
+      li: a.icon-discord(href='https://t.co/CFSf4CY47T' target='_blank' title=__('contactTitle'))
+      li: a.icon-patreon(href='https://www.patreon.com/join/bibleapi' target="_blank" title=__('donate'))
+  // About Section
+  section#about
+    .container
+      .row
+        .col
+          h2= __('manifestTitle')
+          h5= __('manifestSubtitle')
+          p= __('manifestDescription1')
+          p= __('manifestDescription2')
+          p= __('manifestDescription3')
+        .col
+          h4= __('content')
+          p= __('contentDescription')
+          h4= __('doc')
+          p= __('docDescription')
+          h4= __('availability')
+          p= __('availabilityDescription')
+          h4= __('search')
+          p= __('searchDescription')
+  section
+      .container
+        .banner
+          .row
+            .col
+              h2= __('bannerTitle')
+              p= __('bannerDescription')
+            .col
+              a.btn-primary(href='https://github.com/marciovsena/bibleapi/blob/master/DOCUMENTATION.md' target='_blank' title=__('documentationTitle'))= __('bannerButton')
