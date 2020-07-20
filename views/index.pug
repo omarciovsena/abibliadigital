@@ -15,10 +15,10 @@ body
     .container
       a(href='/'): img(src='/theme-v2/images/logo-symbol-a-biblia-digital.svg' alt='A Bíblia Digital')
       ul
-        li: a.text(href='#about' title=__('aboutTitle'))= __('about')
-        li: a.text(href='#howToUse' title=__('howToUseTitle'))= __('howToUse')
+        li: a.text.section-scroll(href='#about' title=__('aboutTitle'))= __('about')
+        li: a.text.section-scroll(href='#howToUse' title=__('howToUseTitle'))= __('howToUse')
         li: a.text(href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('documentationTitle'))= __('documentation')
-        li: a.text(href='#donate' title=__('donateTitle'))= __('donate')
+        li: a.text.section-scroll(href='#donate' title=__('donateTitle'))= __('donate')
         li: a.icon-github(href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('githubTitle'))
         li: a.icon-twitter(href='http://twitter.com/bibleapico' target='_blank' title=__('contactTitle'))
         li: a.icon-discord(href='https://t.co/CFSf4CY47T' target='_blank' title=__('contactTitle'))
@@ -71,3 +71,26 @@ body
               p= __('bannerDescription')
             .col
               a.btn-primary(href='https://github.com/marciovsena/bibleapi/blob/master/DOCUMENTATION.md' target='_blank' title=__('documentationTitle'))= __('bannerButton')
+  section#howToUse
+    .container
+      h2= __('howToUse')
+      p.font-p.mg-bt-30
+            | #{__('options')}: books, books/gn, verses/nvi/gn/1, verses/acf/gn/1/1
+            a(href='https://github.com/marciovsena/bibleapi/blob/master/DOCUMENTATION.md/' target='_blank' title=__("documentation"))= __('andMore')
+      form#form-1
+        label(for='path') https://bibleapi.co/api/
+        input(type='text' aria-describedby='basic-addon3' value='verses/nvi/sl/23' placeholder='verses/{version}/{book}/{chapter}/{number}')
+        button(type='submit' title=__('search'))= __('search')
+      pre#output
+  section#donate
+    .container
+      h2= __('contributeTitle')
+      p.font-p.mg-bt-30
+          | #{__('contributeDescription')}
+      a(href='https://www.patreon.com/join/bibleapi' target='_blank')
+        img(src='https://cdn-std.dprcdn.net/files/acc_649651/plrSCT' style='height: 80px;' alt='Patreon')
+  footer
+    .container
+      .row
+        .col: p= __('credits')
+        .col: a.btn-small(href='https://stats.uptimerobot.com/5PXmCNLM' target='_blank' title=__("statusPage"))= __("statusPage")

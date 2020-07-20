@@ -1,10 +1,23 @@
 $alabaster: #fafafa;
+$charade:#2A2734;
+$dolphin: #6B677A;
 $firefly: #0a1a29;
 $nile: #16324E;
 $pearl: #fcf8e3;
 $silver: #cccccc;
 $solid-white: #ffffff;
 $tropaz: #254699;
+
+$monaco: 'monaco',
+"Courier New",
+Courier,
+"Lucida Sans Typewriter",
+"Lucida Typewriter",
+monospace;
+$open: 'Open Sans',
+sans-serif;
+
+
 
 $desktop: 1024px;
 $phone: 640px;
@@ -14,8 +27,8 @@ $shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
 
 @mixin playfair($size) {
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
   font-size: $size;
+  font-weight: 700;
 }
 
 @font-face {
@@ -28,6 +41,11 @@ $shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
     url('/theme-v2/fonts/icomoon.ttf?n9ntun') format('truetype'),
     url('/theme-v2/fonts/icomoon.woff?n9ntun') format('woff'),
     url('/theme-v2/fonts/icomoon.svg?n9ntun#icomoon') format('svg');
+}
+
+@font-face {
+  font-family: 'monaco';
+  src: url('/theme-v2/fonts/monaco.ttf')
 }
 
 [class^="icon-"],
@@ -70,16 +88,8 @@ $shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
   background-color: $alabaster;
-}
-
-
-a {
-  @include playfair(18px);
-  font-weight: bold;
-  text-decoration: none;
-  transition: .4s;
+  font-family: $open;
 }
 
 ul {
@@ -99,9 +109,9 @@ h1 {
 
 h2 {
   @include playfair(42px);
+  color: $nile;
   line-height: 56px;
   margin: 0 0 16px;
-  color: $nile;
 }
 
 h3 {
@@ -113,39 +123,56 @@ h3 {
 
 h4 {
   @include playfair(18px);
-  padding: 2px 10px;
   background-color: $pearl;
   color: $nile;
   display: inline-block;
   margin: 16px 0 0;
+  padding: 2px 10px;
 }
 
 h5 {
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 400;
   color: $alabaster;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
   margin-bottom: 60px;
+  text-transform: uppercase;
 }
 
 p {
-  font-size: 16px;
-  line-height: 22px;
   color: $nile;
+  font-size: 16px;
   line-height: 180%;
+  line-height: 22px;
   margin-bottom: 30px;
 }
 
-.btn-primary {
-  font-family: 'Open Sans', sans-serif;
-  padding: 20px 40px;
+a {
+  @include playfair(18px);
+  color: $tropaz;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .4s;
+}
+
+a[class^="btn-"] {
   border-radius: 40px;
+  color: $alabaster;
+  font-family: $open;
+}
+
+.btn-primary {
   background-color: $tropaz;
   font-size: 18px;
   letter-spacing: 0.1em;
+  padding: 20px 40px;
   text-transform: uppercase;
-  color: $alabaster;
+}
+
+.btn-small {
+  border: 1px solid $alabaster;
+  font-size: 16px;
+  padding: 2px 12px 6px;
 }
 
 .container {
@@ -167,22 +194,26 @@ p {
 }
 
 .col {
-  padding: 10px;
   margin: 0 auto;
+  padding: 10px;
 }
 
 header {
-  position: relative;
-  z-index: 1;
   align-items: center;
   background-color: $solid-white;
   border-bottom: 0;
   border: solid 60px $pearl;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 180px);
   justify-content: space-between;
+  min-height: calc(100vh - 180px);
   padding: 60px;
+  position: relative;
+  z-index: 1;
+
+  h3 {
+    max-width: 600px;
+  }
 
   img {
     max-width: 415px;
@@ -262,7 +293,6 @@ nav {
   padding: 60px;
   position: relative;
 
-
   small {
     display: block;
     font-size: 36px;
@@ -333,9 +363,9 @@ nav {
   &>.container {
     background-color: $firefly;
     margin-top: -60px;
+    padding-bottom: 140px;
     position: relative;
     z-index: 2;
-    padding-bottom: 140px;
 
 
 
@@ -343,22 +373,22 @@ nav {
 
       &::before,
       &::after {
-        content: '';
-        position: absolute;
         background-color: $firefly;
+        content: '';
+        height: 60px;
+        position: absolute;
         top: -60px;
         width: 50%;
-        height: 60px;
       }
 
       &::before {
-        left: 0;
         border-top-right-radius: 40px;
+        left: 0;
       }
 
       &::after {
-        right: 0;
         border-top-left-radius: 40px;
+        right: 0;
       }
     }
   }
@@ -368,7 +398,6 @@ nav {
     padding-top: 60px;
 
     &:first-of-type {
-
       p:first-of-type:first-letter {
         @include playfair(40px);
       }
@@ -383,33 +412,166 @@ nav {
 }
 
 .banner {
-  margin: 0 auto;
-  width: calc(100% - 180px);
+  background-color: $solid-white;
+  border-radius: 6px;
   box-shadow: $shadow;
+  margin: 0 auto;
   padding: 20px 10px;
   position: relative;
-  z-index: 2;
-  background-color: $solid-white;
   transform: translateY(-50%);
-  border-radius: 6px;
+  width: calc(100% - 180px);
+  z-index: 2;
 
   p {
     max-width: 400px;
   }
 }
 
-@media (hover: hover) {
 
-  #social-links li a:hover,
-  nav ul li a[class^="icon-"]:hover {
-    color: $tropaz;
+#howToUse {
+  background: linear-gradient(180deg, $alabaster 0%, $alabaster 65%, $pearl 65%, $pearl 100%);
+  padding-bottom: 20px;
+
+  h2,
+  p {
+    text-align: center;
+  }
+
+  form {
+    border-radius: 6px;
+    border: 1px solid $silver;
+    color: $nile;
+    margin: 20px auto 40px;
+
+
+    label {
+      background-color: transparentize($silver, .8);
+      border-right: 1px solid $silver;
+      display: inline-block;
+      font-family: $monaco;
+      padding: 16px 20px;
+      width: 230px;
+    }
+
+    input {
+      border: none;
+      color: $nile;
+      font-family: $monaco;
+      outline: none;
+      padding: 16px 12px;
+      width: calc(100% - 409px);
+    }
+
+    button {
+      background-color: $tropaz;
+      border-bottom-right-radius: 6px;
+      border-top-right-radius: 6px;
+      border: none;
+      color: $alabaster;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 30px;
+      transition: .4s;
+      width: 114px;
+    }
+  }
+}
+
+pre {
+  background-color: $charade;
+  border-radius: 6px;
+  box-shadow: $shadow;
+  color: $silver;
+  max-height: 400px;
+  overflow-y: scroll;
+  padding: 40px;
+  text-align: left;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+
+  &::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-corner {
+    background: $charade;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $dolphin;
+    border-radius: 6px;
+  }
+
+
+}
+
+
+footer {
+  background-color: $firefly;
+  padding: 30px 0;
+  position: relative;
+
+  p {
+    color: $alabaster;
+  }
+
+  .row {
+    justify-content: space-between;
+  }
+
+  .col,
+  p {
+    margin: 0;
+  }
+
+  &::after {
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='18' height='4' viewBox='0 0 18 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0L0 4H18L9 0Z' fill='%230A1A29'/%3E%3C/svg%3E%0A");
+    content: '';
+    height: 4px;
+    position: absolute;
+    top: -4px;
+    width: 100%;
+  }
+}
+
+#donate {
+  background-color: $pearl;
+  padding: 80px 100px;
+  text-align: center;
+
+  p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 550px;
+  }
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: $nile;
+  }
+
+  .btn-primary:hover,
+  #howToUse form button:hover {
+    background-color: $nile;
+    color: $solid-white;
+  }
+
+  .btn-small:hover {
+    background-color: $alabaster;
+    color: $firefly;
   }
 
   nav ul li a.text:hover {
     background-color: $pearl;
   }
 
-  .btn-primary:hover {
-    background-color: $nile;
+  #social-links li a:hover,
+  nav ul li a[class^="icon-"]:hover {
+    color: $tropaz;
   }
 }
