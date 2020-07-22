@@ -95,7 +95,7 @@ REDIS_URL="redis://bibleapi-redis"
 - Without authentication the limit rate is 20 requests/hour/ip
 - With user token, requests are unlimited (it's free)
 
-<i>Note: The limit rate was created to decrease the effectiveness of the attacks that we have been suffering since 3/29/2020</i>
+<i>Note: The limit rate was created to decrease the effectiveness of the attacks that we have been suffering from since 3/29/2020</i>
 
 ## Fair use policy
 
