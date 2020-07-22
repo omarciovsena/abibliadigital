@@ -110,7 +110,7 @@ bibleAPI is free and open to use. The project is primarily an educational tool, 
 Contributions, issues and feature requests are very welcome.
 Please make sure to read the [Contributing Guide](/CONTRIBUTING.md) before making a pull request.
 
-Visite our [trello](https://trello.com/b/VPGRzM36/biblieapi) board
+Visit our [trello](https://trello.com/b/VPGRzM36/biblieapi) board
 
 ## Contributor
 
