@@ -38,7 +38,7 @@ Application and site development is still a complex process for churches and rel
 
 We know that creating unique content ends up competing with basic tasks such as making devotions, verses, comments, social networking nurture, and so many other day-to-day tasks available.
 
-We believe that we can offer many of these services, free of charge, with the professional quality and focused on the word of God.
+We believe that we can offer many of these services free of charge, with the professional quality and focused on the word of God.
 
 ## Setup
 
