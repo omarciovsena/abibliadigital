@@ -61,6 +61,7 @@
   "searchDescription": "Busca por palavras chaves, estatísticas e informações completamentares",
   "statusPage": "Página de status",
   "subtitle": "Uma API RESTful da Bíblia",
+  "thisLanguage": "/pt",
   "title": "RESTful API da Bíblia",
   "year": "ano",
   "yearly": "Anual"

@@ -61,6 +61,7 @@
   "searchDescription": "Search for key words with statistics and comments in verses.",
   "statusPage": "Status page",
   "subtitle": "A RESTful API for Bible ",
+  "thisLanguage": "/en",
   "title": "A RESTful API for Bible",
   "year": "Year",
   "yearly": "Yearly"

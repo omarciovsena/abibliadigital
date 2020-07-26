@@ -5,6 +5,7 @@ head
   title bibleAPI | #{__("title")}
   meta(name='author' content='@bibleapico')
   meta(name='description' content=__("description"))
+  script(defer='' src='/theme-v2/js/jquery-1.12.4.min.js')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap")
   link(rel='stylesheet' href='/theme-v2/css/normalize.css')
@@ -13,8 +14,10 @@ body
   // Fixed Navigation
   nav
     .container
-      a(href='/'): img(src='/theme-v2/images/logo-symbol-a-biblia-digital.svg' alt='A Bíblia Digital')
+      a(href=__('thisLanguage')): img(src='/theme-v2/images/logo-symbol-a-biblia-digital.svg' alt=__('title'))
+      button.icon-menu.menu-toggle
       ul
+        li: button.icon-close.menu-toggle
         li: a.text.section-scroll(href='#about' title=__('aboutTitle'))= __('about')
         li: a.text.section-scroll(href='#howToUse' title=__('howToUseTitle'))= __('howToUse')
         li: a.text(href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('documentationTitle'))= __('documentation')
@@ -25,7 +28,7 @@ body
         li: a(href=__('changeLanguageLink') title=__('changeLanguageTitle')): img(src=__('changeLanguageImage') alt=__('changeLanguageTitle'))
   // Header
   header
-    a(href='/'): img(src='/theme-v2/images/logo-a-biblia-digital.svg' alt='A Bíblia Digital')
+    a(href=__('thisLanguage')): img(src='/theme-v2/images/logo-a-biblia-digital.svg' alt=__('title'))
     .container
       #hero
         .row
@@ -94,3 +97,5 @@ body
       .row
         .col: p= __('credits')
         .col: a.btn-small(href='https://stats.uptimerobot.com/5PXmCNLM' target='_blank' title=__("statusPage"))= __("statusPage")
+  // Main js
+  script(defer='' src='/theme-v2/js/main.js')
