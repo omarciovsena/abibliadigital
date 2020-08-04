@@ -55,6 +55,17 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+body.menuOpen {
+  height: 100%;
+  overflow: hidden;
+}
+
+body.menuOpen nav {
+  height: calc(100% + 10px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -130,9 +141,9 @@ a {
 }
 
 button {
+  background-color: transparent;
   border: none;
   cursor: pointer;
-  background-color: transparent;
   outline: none;
 }
 
@@ -222,15 +233,15 @@ header h3 {
 }
 
 header img {
+  margin: 30px;
   max-width: 300px;
   width: calc(100% - 60px);
-  margin: 30px;
 }
 
 @media (min-width: 768px) {
   header {
-    padding: 40px 0 30px;
     border: solid 40px #fcf8e3;
+    padding: 40px 0 30px;
   }
 }
 
@@ -240,8 +251,8 @@ header img {
     padding: 60px 30px;
   }
   header img {
-    max-width: 435px;
     margin: 0 30px;
+    max-width: 435px;
   }
 }
 
@@ -271,29 +282,29 @@ nav .container {
 
 @media (max-width: 1024px) {
   nav .container button {
-    padding: 10px 0 10px 10px;
     margin-top: 0;
+    padding: 10px 0 10px 10px;
   }
   nav .container ul {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     background-color: #0a1a29;
+    left: 0;
     opacity: 0;
-    visibility: hidden;
+    padding-bottom: 100%;
+    padding-right: 20px;
     pointer-events: none;
-    -webkit-transition: 1s;
-    transition: 1s;
+    position: absolute;
+    text-align: right;
+    top: 0;
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
-    text-align: right;
-    padding-right: 20px;
-    padding-bottom: 100%;
+    -webkit-transition: 1s;
+    transition: 1s;
+    visibility: hidden;
+    width: 100%;
   }
   nav .container ul li {
-    opacity: 0;
     margin: 15px 30px 30px;
+    opacity: 0;
   }
   nav .container ul li:first-of-type {
     font-size: 24px;
@@ -311,11 +322,11 @@ nav .container {
     width: 44px;
   }
   nav .container ul.on {
+    opacity: 1;
+    pointer-events: auto;
     -webkit-transform: rotateY(0);
             transform: rotateY(0);
-    opacity: 1;
     visibility: visible;
-    pointer-events: auto;
   }
   nav .container ul.on li {
     opacity: 1;
@@ -358,17 +369,17 @@ nav .container {
 #hero .bg {
   background-image: url("/theme-v2/images/bg-header.svg");
   background-size: 8px;
+  display: none;
   height: 80px;
   position: absolute;
   width: 80px;
-  display: none;
 }
 
 @media (min-width: 640px) {
   #hero .bg {
+    display: block;
     height: 120px;
     width: 120px;
-    display: block;
   }
 }
 
@@ -404,9 +415,9 @@ nav .container {
   font-size: 48px;
   font-weight: 700;
   margin: 0;
+  min-width: 200px;
   padding: 40px 20px;
   position: relative;
-  min-width: 200px;
 }
 
 #counter small {
@@ -419,6 +430,7 @@ nav .container {
 #counter .bg {
   right: -100px;
   top: -120px;
+  z-index: -1;
 }
 
 #counter .bg + .bg {
@@ -458,8 +470,8 @@ nav .container {
 
 @media (min-width: 640px) {
   #counter {
-    padding: 60px;
     font-size: 72px;
+    padding: 60px;
   }
   #counter small {
     font-size: 36px;
@@ -539,8 +551,8 @@ nav .container {
 
 @media (min-width: 1025px) {
   #about .col {
-    padding: 0 80px;
     max-width: 360px;
+    padding: 0 80px;
   }
 }
 
@@ -570,12 +582,13 @@ nav .container {
 
 @media (max-width: 1024px) {
   .banner {
-    width: calc(100% - 40px);
-    max-width: 600px;
     margin-bottom: -100px;
+    max-width: 600px;
+    width: calc(100% - 40px);
   }
   .banner .btn-primary {
     margin-bottom: 20px;
+    padding: 20px 30px;
   }
 }
 
@@ -640,9 +653,9 @@ nav .container {
     width: calc(100% - 40px);
   }
   #howToUse form button {
-    width: 100%;
-    border-top-right-radius: 0;
     border-bottom-left-radius: 6px;
+    border-top-right-radius: 0;
+    width: 100%;
   }
   #howToUse form label {
     border-top-right-radius: 6px;
@@ -655,6 +668,8 @@ pre {
   -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
           box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
   color: #cccccc;
+  font-family: "monaco", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  line-height: 160%;
   max-height: 400px;
   overflow-y: scroll;
   padding: 40px;
@@ -662,6 +677,13 @@ pre {
   white-space: pre;
   word-break: break-all;
   word-wrap: break-word;
+}
+
+pre a {
+  color: #cccccc;
+  font-family: "monaco", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 16px;
+  opacity: .5;
 }
 
 pre::-webkit-scrollbar {
@@ -676,6 +698,53 @@ pre::-webkit-scrollbar-track, pre::-webkit-scrollbar-corner {
 pre::-webkit-scrollbar-thumb {
   background: #6b677a;
   border-radius: 6px;
+}
+
+/* Syntax highlighting for JSON objects */
+ul.json-dict,
+ol.json-array {
+  border-left: 1px dotted #cccccc;
+  list-style-type: none;
+  margin: 0 0 0 1px;
+  padding-left: 2em;
+}
+
+.json-literal {
+  font-weight: bold;
+}
+
+/* Toggle button */
+a.json-toggle {
+  color: inherit;
+  display: inline-block;
+  min-height: 13px;
+  padding-left: 10px;
+  position: relative;
+  text-decoration: none;
+}
+
+a.json-toggle:focus {
+  outline: none;
+}
+
+a.json-toggle:before {
+  color: #cccccc;
+  content: "\25BC";
+  display: inline-block;
+  left: -3px;
+  position: absolute;
+  width: 10px;
+}
+
+a.json-toggle.collapsed:before {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+a.json-placeholder {
+  opacity: 1;
+  padding: 0 1em;
+  text-decoration: none;
 }
 
 footer {
@@ -741,6 +810,10 @@ footer::after {
   }
   #social-links li a:hover {
     color: #254699;
+  }
+  pre a:hover {
+    color: #cccccc;
+    text-decoration: underline;
   }
 }
 

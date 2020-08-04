@@ -18,7 +18,7 @@ $(document).ready(function ($) {
         event.preventDefault()
         $('html,body').animate(
           {
-            scrollTop: target.offset().top
+            scrollTop: target.offset().top - 100
           },
           750
         )
@@ -32,6 +32,7 @@ $(document).ready(function ($) {
      --------------------------------------------- */
   $('button.menu-toggle').click(function () {
     $('nav ul').toggleClass('on')
+    $('body').toggleClass('menuOpen')
   });
 
 

@@ -6,10 +6,36 @@ head
   meta(name='author' content='@bibleapico')
   meta(name='description' content=__("description"))
   script(defer='' src='/theme-v2/js/jquery-1.12.4.min.js')
+  script(defer='' src='/theme-v2/js/jquery.json-viewer.js')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/theme-v2/css/jquery.json-viewer.css')
   link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap")
   link(rel='stylesheet' href='/theme-v2/css/normalize.css')
   link(rel='stylesheet' href='/theme-v2/css/style.css')
+  script(async='' src='https://www.googletagmanager.com/gtag/js?id=#{GA_TRACKING_ID}')
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '#{GA_TRACKING_ID}');
+  link(rel='apple-touch-icon' sizes='57x57' href='/theme-v2/images/favicon/apple-icon-57x57.png')
+  link(rel='apple-touch-icon' sizes='60x60' href='/theme-v2/images/favicon/apple-icon-60x60.png')
+  link(rel='apple-touch-icon' sizes='72x72' href='/theme-v2/images/favicon/apple-icon-72x72.png')
+  link(rel='apple-touch-icon' sizes='76x76' href='/theme-v2/images/favicon/apple-icon-76x76.png')
+  link(rel='apple-touch-icon' sizes='114x114' href='/theme-v2/images/favicon/apple-icon-114x114.png')
+  link(rel='apple-touch-icon' sizes='120x120' href='/theme-v2/images/favicon/apple-icon-120x120.png')
+  link(rel='apple-touch-icon' sizes='144x144' href='/theme-v2/images/favicon/apple-icon-144x144.png')
+  link(rel='apple-touch-icon' sizes='152x152' href='/theme-v2/images/favicon/apple-icon-152x152.png')
+  link(rel='apple-touch-icon' sizes='180x180' href='/theme-v2/images/favicon/apple-icon-180x180.png')
+  link(rel='icon' type='image/png' sizes='192x192' href='/theme-v2/images/favicon/android-icon-192x192.png')
+  link(rel='icon' type='image/png' sizes='32x32' href='/theme-v2/images/favicon/favicon-32x32.png')
+  link(rel='icon' type='image/png' sizes='96x96' href='/theme-v2/images/favicon/favicon-96x96.png')
+  link(rel='icon' type='image/png' sizes='16x16' href='/theme-v2/images/favicon/favicon-16x16.png')
+  link(rel='manifest' href='/theme-v2/images/favicon/manifest.json')
+  meta(name='msapplication-TileColor' content='#ffffff')
+  meta(name='msapplication-TileImage' content='/ms-icon-144x144.png')
+  meta(name='theme-color' content='#ffffff')
+
 body
   // Fixed Navigation
   nav
@@ -65,6 +91,7 @@ body
           p= __('availabilityDescription')
           h4= __('search')
           p= __('searchDescription')
+  // Banner CTA
   section
       .container
         .banner
@@ -74,6 +101,7 @@ body
               p= __('bannerDescription')
             .col
               a.btn-primary(href='https://github.com/marciovsena/bibleapi/blob/master/DOCUMENTATION.md' target='_blank' title=__('documentationTitle'))= __('bannerButton')
+  // How To Use
   section#howToUse
     .container
       h2= __('howToUse')
@@ -81,10 +109,11 @@ body
             | #{__('options')}: books, books/gn, verses/nvi/gn/1, verses/acf/gn/1/1
             a(href='https://github.com/marciovsena/bibleapi/blob/master/DOCUMENTATION.md/' target='_blank' title=__("documentation"))= __('andMore')
       form#form-1
-        label(for='path') https://bibleapi.co/api/
-        input(type='text' aria-describedby='basic-addon3' value='verses/nvi/sl/23' placeholder='verses/{version}/{book}/{chapter}/{number}')
-        button(type='submit' title=__('search'))= __('search')
+        label#basic-addon3(for='path') https://bibleapi.co/api/
+        input#path(type='text' aria-describedby='basic-addon3' value='verses/nvi/sl/23' placeholder='verses/{version}/{book}/{chapter}/{number}')
+        button#button-addon1(type='submit' title=__('search'))= __('search')
       pre#output
+  // Donate
   section#donate
     .container
       h2= __('contributeTitle')
@@ -92,6 +121,7 @@ body
           | #{__('contributeDescription')}
       a(href='https://www.patreon.com/join/bibleapi' target='_blank')
         img(src='https://cdn-std.dprcdn.net/files/acc_649651/plrSCT' style='height: 80px;' alt='Patreon')
+  // Footer
   footer
     .container
       .row
@@ -99,3 +129,4 @@ body
         .col: a.btn-small(href='https://stats.uptimerobot.com/5PXmCNLM' target='_blank' title=__("statusPage"))= __("statusPage")
   // Main js
   script(defer='' src='/theme-v2/js/main.js')
+  script(defer='' src='/assets/scripts/app.js')

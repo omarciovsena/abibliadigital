@@ -8,9 +8,14 @@ $silver: #cccccc;
 $solid-white: #ffffff;
 $tropaz: #254699;
 
-$monaco: "monaco", "Courier New", Courier, "Lucida Sans Typewriter",
-  "Lucida Typewriter", monospace;
-$open: "Open Sans", sans-serif;
+$monaco: "monaco",
+"Courier New",
+Courier,
+"Lucida Sans Typewriter",
+"Lucida Typewriter",
+monospace;
+$open: "Open Sans",
+sans-serif;
 
 $desktop: 1025px;
 $phone: 640px;
@@ -30,8 +35,7 @@ $shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
   font-style: normal;
   font-weight: normal;
   src: url("/theme-v2/fonts/icomoon.eot?n9ntun");
-  src: url("/theme-v2/fonts/icomoon.eot?n9ntun#iefix")
-      format("embedded-opentype"),
+  src: url("/theme-v2/fonts/icomoon.eot?n9ntun#iefix") format("embedded-opentype"),
     url("/theme-v2/fonts/icomoon.ttf?n9ntun") format("truetype"),
     url("/theme-v2/fonts/icomoon.woff?n9ntun") format("woff"),
     url("/theme-v2/fonts/icomoon.svg?n9ntun#icomoon") format("svg");
@@ -84,6 +88,17 @@ $shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
 body {
   background-color: $alabaster;
   font-family: $open;
+
+  &.menuOpen {
+    height: 100%;
+    overflow: hidden;
+
+    nav {
+      height: calc(100% + 10px);
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+  }
 }
 
 ul {
@@ -150,9 +165,9 @@ a {
 }
 
 button {
+  background-color: transparent;
   border: none;
   cursor: pointer;
-  background-color: transparent;
   outline: none;
 }
 
@@ -218,22 +233,23 @@ header {
   }
 
   img {
+    margin: 30px;
     max-width: 300px;
     width: calc(100% - 60px);
-    margin: 30px;
   }
 
   @media (min-width: $tablet) {
-    padding: 40px 0 30px;
     border: solid 40px $pearl;
+    padding: 40px 0 30px;
   }
 
   @media (min-width: $desktop) {
     border: solid 60px $pearl;
     padding: 60px 30px;
+
     img {
-      max-width: 435px;
       margin: 0 30px;
+      max-width: 435px;
     }
   }
 }
@@ -255,27 +271,28 @@ nav {
 
     @media (max-width: $desktop - 1) {
       button {
-        padding: 10px 0 10px 10px;
         margin-top: 0;
+        padding: 10px 0 10px 10px;
       }
+
       ul {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
         background-color: $firefly;
+        left: 0;
         opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: 1s;
-        transform: rotateY(180deg);
-        text-align: right;
-        padding-right: 20px;
         padding-bottom: 100%;
+        padding-right: 20px;
+        pointer-events: none;
+        position: absolute;
+        text-align: right;
+        top: 0;
+        transform: rotateY(180deg);
+        transition: 1s;
+        visibility: hidden;
+        width: 100%;
 
         li {
-          opacity: 0;
           margin: 15px 30px 30px;
+          opacity: 0;
 
           &:first-of-type {
             font-size: 24px;
@@ -298,10 +315,10 @@ nav {
         }
 
         &.on {
-          transform: rotateY(0);
           opacity: 1;
-          visibility: visible;
           pointer-events: auto;
+          transform: rotateY(0);
+          visibility: visible;
 
           li {
             opacity: 1;
@@ -314,12 +331,15 @@ nav {
       button {
         display: none;
       }
+
       ul {
         li {
           display: inline-block;
+
           &:first-of-type {
             display: none;
           }
+
           a {
             color: $nile;
             padding: 2px 10px;
@@ -350,15 +370,15 @@ nav {
   .bg {
     background-image: url("/theme-v2/images/bg-header.svg");
     background-size: 8px;
+    display: none;
     height: 80px;
     position: absolute;
     width: 80px;
-    display: none;
 
     @media (min-width: $phone) {
+      display: block;
       height: 120px;
       width: 120px;
-      display: block;
     }
 
     @media (min-width: $desktop) {
@@ -390,9 +410,9 @@ nav {
   font-size: 48px;
   font-weight: 700;
   margin: 0;
+  min-width: 200px;
   padding: 40px 20px;
   position: relative;
-  min-width: 200px;
 
   small {
     display: block;
@@ -404,9 +424,10 @@ nav {
   .bg {
     right: -100px;
     top: -120px;
+    z-index: -1;
   }
 
-  .bg + .bg {
+  .bg+.bg {
     bottom: -80px;
     left: -40px;
     right: auto;
@@ -442,8 +463,8 @@ nav {
   }
 
   @media (min-width: $phone) {
-    padding: 60px;
     font-size: 72px;
+    padding: 60px;
 
     small {
       font-size: 36px;
@@ -478,20 +499,18 @@ nav {
 }
 
 #about {
-  background: linear-gradient(
-    180deg,
-    $pearl 0%,
-    $pearl 50%,
-    $alabaster 50%,
-    $alabaster 100%
-  );
+  background: linear-gradient(180deg,
+      $pearl 0%,
+      $pearl 50%,
+      $alabaster 50%,
+      $alabaster 100%);
 
   h2,
   p {
     color: $alabaster;
   }
 
-  & > .container {
+  &>.container {
     background-color: $firefly;
     margin-top: -60px;
     padding-bottom: 180px;
@@ -499,6 +518,7 @@ nav {
     z-index: 2;
 
     @media (min-width: $desktop) {
+
       &::before,
       &::after {
         background-color: $firefly;
@@ -526,8 +546,8 @@ nav {
     padding: 40px 0 0;
 
     @media (min-width: $desktop) {
-      padding: 0 80px;
       max-width: 360px;
+      padding: 0 80px;
     }
 
     &:first-of-type {
@@ -554,12 +574,13 @@ nav {
   }
 
   @media (max-width: $desktop - 1) {
-    width: calc(100% - 40px);
-    max-width: 600px;
     margin-bottom: -100px;
+    max-width: 600px;
+    width: calc(100% - 40px);
 
     .btn-primary {
       margin-bottom: 20px;
+      padding: 20px 30px;
     }
   }
 
@@ -569,13 +590,11 @@ nav {
 }
 
 #howToUse {
-  background: linear-gradient(
-    180deg,
-    $alabaster 0%,
-    $alabaster 65%,
-    $pearl 65%,
-    $pearl 100%
-  );
+  background: linear-gradient(180deg,
+      $alabaster 0%,
+      $alabaster 65%,
+      $pearl 65%,
+      $pearl 100%);
   padding-bottom: 20px;
 
   h2,
@@ -620,15 +639,18 @@ nav {
     }
 
     @media (max-width: $phone - 1) {
+
       label,
       input {
         width: calc(100% - 40px);
       }
+
       button {
-        width: 100%;
-        border-top-right-radius: 0;
         border-bottom-left-radius: 6px;
+        border-top-right-radius: 0;
+        width: 100%;
       }
+
       label {
         border-top-right-radius: 6px;
       }
@@ -641,6 +663,8 @@ pre {
   border-radius: 6px;
   box-shadow: $shadow;
   color: $silver;
+  font-family: $monaco;
+  line-height: 160%;
   max-height: 400px;
   overflow-y: scroll;
   padding: 40px;
@@ -648,6 +672,13 @@ pre {
   white-space: pre;
   word-break: break-all;
   word-wrap: break-word;
+
+  a {
+    color: $silver;
+    font-family: $monaco;
+    font-size: 16px;
+    opacity: .5;
+  }
 
   &::-webkit-scrollbar {
     height: 10px;
@@ -664,6 +695,54 @@ pre {
     border-radius: 6px;
   }
 }
+
+/* Syntax highlighting for JSON objects */
+ul.json-dict,
+ol.json-array {
+  border-left: 1px dotted $silver;
+  list-style-type: none;
+  margin: 0 0 0 1px;
+  padding-left: 2em;
+}
+
+.json-literal {
+  font-weight: bold;
+}
+
+/* Toggle button */
+a.json-toggle {
+  color: inherit;
+  display: inline-block;
+  min-height: 13px;
+  padding-left: 10px;
+  position: relative;
+  text-decoration: none;
+}
+
+a.json-toggle:focus {
+  outline: none;
+}
+
+a.json-toggle:before {
+  color: $silver;
+  content: "\25BC";
+  display: inline-block;
+  left: -3px;
+  position: absolute;
+  width: 10px;
+}
+
+a.json-toggle.collapsed:before {
+  transform: rotate(-90deg);
+}
+
+a.json-placeholder {
+  opacity: 1;
+  padding: 0 1em;
+  text-decoration: none;
+}
+
+
 
 footer {
   background-color: $firefly;
@@ -729,10 +808,16 @@ footer {
     color: $tropaz;
   }
 
+  pre a:hover {
+    color: $silver;
+    text-decoration: underline;
+  }
+
   @media (min-width: $desktop) {
     nav ul li a.text:hover {
       background-color: $pearl;
     }
+
     nav ul li a[class^="icon-"]:hover {
       color: $tropaz;
     }
