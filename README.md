@@ -38,7 +38,7 @@ Application and site development is still a complex process for churches and rel
 
 We know that creating unique content ends up competing with basic tasks such as making devotions, verses, comments, social networking nurture, and so many other day-to-day tasks available.
 
-We believe that we can offer many of these services, free of charge, with the professional quality and focused on the word of God.
+We believe that we can offer many of these services free of charge, with professional quality and focused on the word of God.
 
 ## Setup
 
@@ -95,7 +95,7 @@ REDIS_URL="redis://bibleapi-redis"
 - Without authentication the limit rate is 20 requests/hour/ip
 - With user token, requests are unlimited (it's free)
 
-<i>Note: The limit rate was created to decrease the effectiveness of the attacks that we have been suffering since 3/29/2020</i>
+<i>Note: The limit rate was created to decrease the effectiveness of the attacks that we have been suffering from since 3/29/2020</i>
 
 ## Fair use policy
 
@@ -110,7 +110,7 @@ bibleAPI is free and open to use. The project is primarily an educational tool, 
 Contributions, issues and feature requests are very welcome.
 Please make sure to read the [Contributing Guide](/CONTRIBUTING.md) before making a pull request.
 
-Visite our [trello](https://trello.com/b/VPGRzM36/biblieapi) board
+Visit our [trello](https://trello.com/b/VPGRzM36/biblieapi) board
 
 ## Contributor
 
