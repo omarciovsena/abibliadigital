@@ -4837,10 +4837,10 @@ node-int64@^0.4.0:
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
   integrity sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs=
 
-node-mocks-http@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/node-mocks-http/-/node-mocks-http-1.8.1.tgz#f149345992618e4d631dfdf77546025d8526b2bb"
-  integrity sha512-qtd9YwXzCTdLfqjP7XSOtFei3TggwnjFIppmYEneQBaDIuknwgJTpItLskC5/pWOpU3lsK5aqdo+5CfIKHkXLg==
+node-mocks-http@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/node-mocks-http/-/node-mocks-http-1.9.0.tgz#6000c570fc4b809603782309be81c73a71d85b71"
+  integrity sha512-ILf7Ws8xyX9Rl2fLZ7xhZBovrRwgaP84M13esndP6V17M/8j25TpwNzb7Im8U9XCo6fRhdwqiQajWXpsas/E6w==
   dependencies:
     accepts "^1.3.7"
     depd "^1.1.0"
