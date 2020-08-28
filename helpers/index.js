@@ -1,7 +1,7 @@
 export const genericError = (res, err) => {
   console.error('err', err)
   return res.status(500).json({
-    msg: 'Oops! An unexpected error has occurred, create an [issue](https://github.com/marciovsena/bibleapi/issues/new) with the information of this request.',
+    msg: 'Oops! An unexpected error has occurred, create an [issue](https://github.com/marciovsena/abibliadigital/issues/new) with the information of this request.',
     err
   })
 }
