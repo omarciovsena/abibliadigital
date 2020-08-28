@@ -2,8 +2,8 @@ doctype html
 head
   meta(charset='utf-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  title bibleAPI | #{__("title")}
-  meta(name='author' content='@bibleapico')
+  title ABíbliaDigital | #{__("title")}
+  meta(name='author' content='@abibliadigital')
   meta(name='description' content=__("description"))
   script(defer='' src='/theme-v2/js/jquery-1.12.4.min.js')
   script(defer='' src='/theme-v2/js/jquery.json-viewer.js')
@@ -46,10 +46,10 @@ body
         li: button.icon-close.menu-toggle
         li: a.text.section-scroll(href='#about' title=__('aboutTitle'))= __('about')
         li: a.text.section-scroll(href='#howToUse' title=__('howToUseTitle'))= __('howToUse')
-        li: a.text(href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('documentationTitle'))= __('documentation')
+        li: a.text(href='http://github.com/marciovsena/abibliadigital' target='_blank' title=__('documentationTitle'))= __('documentation')
         li: a.text.section-scroll(href='#donate' title=__('donateTitle'))= __('donate')
-        li: a.icon-github(href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('githubTitle'))
-        li: a.icon-twitter(href='http://twitter.com/bibleapico' target='_blank' title=__('contactTitle'))
+        li: a.icon-github(href='http://github.com/marciovsena/abibliadigital' target='_blank' title=__('githubTitle'))
+        li: a.icon-twitter(href='http://twitter.com/abibliadigital_' target='_blank' title=__('contactTitle'))
         li: a.icon-discord(href='https://t.co/CFSf4CY47T' target='_blank' title=__('contactTitle'))
         li: a(href=__('changeLanguageLink') title=__('changeLanguageTitle')): img(src=__('changeLanguageImage') alt=__('changeLanguageTitle'))
   // Header
@@ -68,10 +68,10 @@ body
               .bg
               .bg
     ul#social-links
-      li: a.icon-github(href='http://github.com/marciovsena/bibleapi' target='_blank' title=__('githubTitle'))
-      li: a.icon-twitter(href='http://twitter.com/bibleapico' target='_blank' title=__('contactTitle'))
+      li: a.icon-github(href='http://github.com/marciovsena/abibliadigital' target='_blank' title=__('githubTitle'))
+      li: a.icon-twitter(href='http://twitter.com/abibliadigital_' target='_blank' title=__('contactTitle'))
       li: a.icon-discord(href='https://t.co/CFSf4CY47T' target='_blank' title=__('contactTitle'))
-      li: a.icon-patreon(href='https://www.patreon.com/join/bibleapi' target="_blank" title=__('donate'))
+      li: a.icon-patreon(href='https://www.patreon.com/marciovsena' target="_blank" title=__('donate'))
   // About Section
   section#about
     .container
@@ -100,16 +100,16 @@ body
               h2= __('bannerTitle')
               p= __('bannerDescription')
             .col
-              a.btn-primary(href='https://github.com/marciovsena/bibleapi/blob/master/DOCUMENTATION.md' target='_blank' title=__('documentationTitle'))= __('bannerButton')
+              a.btn-primary(href='https://github.com/marciovsena/abibliadigital/blob/master/DOCUMENTATION.md' target='_blank' title=__('documentationTitle'))= __('bannerButton')
   // How To Use
   section#howToUse
     .container
       h2= __('howToUse')
       p.font-p.mg-bt-30
             | #{__('options')}: books, books/gn, verses/nvi/gn/1, verses/acf/gn/1/1
-            a(href='https://github.com/marciovsena/bibleapi/blob/master/DOCUMENTATION.md/' target='_blank' title=__("documentation"))= __('andMore')
+            a(href='https://github.com/marciovsena/abibliadigital/blob/master/DOCUMENTATION.md/' target='_blank' title=__("documentation"))= __('andMore')
       form#form-1
-        label#basic-addon3(for='path') https://bibleapi.co/api/
+        label#basic-addon3(for='path') https://www.abibliadigital.com.br/api/
         input#path(type='text' aria-describedby='basic-addon3' value='verses/nvi/sl/23' placeholder='verses/{version}/{book}/{chapter}/{number}')
         button#button-addon1(type='submit' title=__('search'))= __('search')
       pre#output
@@ -119,7 +119,7 @@ body
       h2= __('contributeTitle')
       p.font-p.mg-bt-30
           | #{__('contributeDescription')}
-      a(href='https://www.patreon.com/join/bibleapi' target='_blank')
+      a(href='https://www.patreon.com/marciovsena' target='_blank')
         img(src='https://cdn-std.dprcdn.net/files/acc_649651/plrSCT' style='height: 80px;' alt='Patreon')
   // Footer
   footer
