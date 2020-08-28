@@ -127,10 +127,6 @@
       "group":"Pentateuco",
       "version":"nvi"
     },
-    "chapter": {
-      "number": 1,
-      "verses": 31
-    },
     "chapter": 1,
     "number": 1,
     "text": "No princípio Deus criou os céus e a terra."
