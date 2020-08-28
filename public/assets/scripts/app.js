@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   const initData = {
     book: {
       abbrev: "sl",
@@ -44,17 +44,18 @@ $(document).ready(function() {
     ]
   };
   $("#output").jsonViewer(initData);
-  $("#form-1").submit(function(event) {
+  $("#form-1").submit(function (event) {
     event.preventDefault();
     const path = $("#path").val();
     $.ajax({
       url: "/api/" + path + "?isHowToUse=true",
       method: "GET",
       contentType: "application/json",
-      success: function(data) {
+      success: function (data) {
+
         $("#output").jsonViewer(data);
       },
-      error: function(e) {
+      error: function (e) {
         $("#output").jsonViewer(
           e.status === 429 ? { error: e.statusText } : e.responseJSON
         );
