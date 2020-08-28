@@ -226,19 +226,25 @@
 
   ```
   {
-    "book": {
-      "abbrev":{"pt":"gn","en":"gn"},
-      "name":"Gênesis",
-      "author": "Moisés",
-      "chapters": 50,
-      "group": "Pentateuco",
-      "name": "Gênesis",
-      "testament": "VT"
+    "occurrence": 2102,
+    "version": "nvi",
+    "verses": [
+      {
+        "book": {
+          "abbrev":{"pt":"gn","en":"gn"},
+          "name":"Gênesis",
+          "author": "Moisés",
+          "chapters": 50,
+          "group": "Pentateuco",
+          "name": "Gênesis",
+          "testament": "VT"
+      },
+      "chapter": 1,
+      "number": 1,
+      "text": "No princípio Deus criou os céus e a terra."
     },
-    "chapter": 1,
-    "number": 1,
-    "text": "No princípio Deus criou os céus e a terra."
-  }
+    ...
+}
   ```
 </details>
 
