@@ -1,9 +1,9 @@
 {
-  "name": "bibleapi",
+  "name": "abibliadigital",
   "version": "0.3.1",
   "description": "A RESTful API for Bible (nvi, ra, acf, kjv, bbe)",
   "main": "index.js",
-  "repository": "https://github.com/marciovsena/bibleapi",
+  "repository": "https://github.com/marciovsena/abibliadigital",
   "author": "Márcio Sena <contato@marciosena.com.br>",
   "license": "MIT",
   "private": false,
