@@ -1,4 +1,4 @@
-# bibleApi Contributing Guide
+# ABibliaDigital Contributing Guide
 
 Before submitting your contribution please read the guidelines.
 

@@ -202,8 +202,8 @@ export const resendNewPassword = async (req, res) => {
       const msg = {
         to: email,
         from: 'contato@marciosena.com.br',
-        subject: 'Bibleapi.co - Resend Password',
-        html: `Hello.<br /><br />As you requested, follow the new password for access to bibleAPI: <ul><li><strong>Password:</strong> ${newPassword}</li></ul><br /><br />Thank you for using bibleAPI.`,
+        subject: 'ABibliaDigital.com.br - Resend Password',
+        html: `Hello.<br /><br />As you requested, follow the new password for access to ABibliaDigital: <ul><li><strong>Password:</strong> ${newPassword}</li></ul><br /><br />Thank you for using ABibliaDigital.`,
         mail_settings: {
           sandbox_mode: {
             enable: NODE_ENV !== 'production'
