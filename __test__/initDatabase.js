@@ -8,7 +8,7 @@ import books from './mock/books'
 import verses from './mock/verses'
 
 export const connect = async () => {
-  return mongoose.connect('mongodb://localhost/bibleapi_test', {
+  return mongoose.connect('mongodb://localhost/abibliadigital_test', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -40,7 +40,7 @@ const createUser = async () => {
   return new User({
     token: '1234567890',
     name: 'Fake User',
-    email: 'root@bibleapi.co',
+    email: 'root@abibliadigital.com.br',
     password: '123456',
     notifications: false
   }).save()

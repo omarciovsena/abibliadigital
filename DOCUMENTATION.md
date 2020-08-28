@@ -7,7 +7,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/books`
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/books`
   <br /><br />
   <b>Authenticated:</b> 
   <ul>
@@ -44,7 +44,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/books/:abbrev`
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/books/:abbrev`
   <br /><br />
   <b>Authenticated:</b> 
   <ul>
@@ -74,7 +74,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/verses/:version/:abbrev/:chapter`
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/verses/:version/:abbrev/:chapter`
   <br /><br />
   <b>Authenticated:</b> 
   <ul>
@@ -110,7 +110,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/verses/:version/:abbrev/:chapter/:number`
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/verses/:version/:abbrev/:chapter/:number`
   <br /><br />
   <b>Authenticated:</b> 
   <ul>
@@ -144,7 +144,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/verses/:version/random`
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/verses/:version/random`
   <br /><br />
   <b>Authenticated:</b> 
   <ul>
@@ -174,7 +174,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/verses/:version/:abbrev/random`
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/verses/:version/:abbrev/random`
   <br /><br />
   <b>Authenticated:</b> 
   <ul>
@@ -204,7 +204,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `POST https://bibleapi.co/api/verses/search`
+  <b>Endpoint:</b> `POST https://www.abibliadigital.com.br/api/verses/search`
   <br /><br />
   <b>Authenticated:</b> 
   <ul>
@@ -256,7 +256,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/versions`
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/versions`
   <br /><br />
   <b>Authenticated:</b> 
   <ul>
@@ -293,7 +293,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `POST https://bibleapi.co/api/users`
+  <b>Endpoint:</b> `POST https://www.abibliadigital.com.br/api/users`
   <br />
   <b>Authenticated:</b> No
   <br />
@@ -304,7 +304,7 @@
     "name": "Name",
     "email": "email@email.com",
     "password": "102030", // minimum size 6 digits
-    "notifications": true // receive update emails from bibleapi.co
+    "notifications": true // receive update emails from www.abibliadigital.com.br
   }
   ```
 
@@ -327,7 +327,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/users/:email`
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/users/:email`
   <br />
   <b>Authenticated:</b> Yes
   <br />
@@ -359,7 +359,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/users/stats`
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/users/stats`
   <br />
   <b>Authenticated:</b> Yes
   <br />
@@ -395,7 +395,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `PUT https://bibleapi.co/api/users/token`
+  <b>Endpoint:</b> `PUT https://www.abibliadigital.com.br/api/users/token`
   <br />
   <b>Authenticated:</b> No
   <br />
@@ -425,7 +425,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `DELETE https://bibleapi.co/api/users`
+  <b>Endpoint:</b> `DELETE https://www.abibliadigital.com.br/api/users`
   <br />
   <b>Authenticated:</b> Yes
   <br/>
@@ -462,7 +462,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `POST https://bibleapi.co/api/users/password/:email`
+  <b>Endpoint:</b> `POST https://www.abibliadigital.com.br/api/users/password/:email`
   <br />
   <b>Authenticated:</b> No
   <br />
@@ -486,7 +486,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/requests/:range` (month, week, day)
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/requests/:range` (month, week, day)
   <br />
   <b>Authenticated:</b> Yes
   <br />
@@ -512,7 +512,7 @@
   </summary>
   <br/>
   
-  <b>Endpoint:</b> `GET https://bibleapi.co/api/requests/amount/:range` (month, week, day)
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/requests/amount/:range` (month, week, day)
   <br />
   <b>Authenticated:</b> Yes
   <br />
