@@ -1,34 +1,34 @@
 version: '3'
 
 services:
-  bibleapi:
+  abibliadigital:
     build: ./docker-api
     command: ["bash","/usr/src/api/start.sh"]
     ports:
       - "3000:3000"
     expose:
       - "3000"
-    container_name: bibleapi
+    container_name: abibliadigital
     volumes:
-      - ../bibleapi:/usr/src/api
+      - ../abibliadigital:/usr/src/api
     depends_on:
-      - bibleapi-mongo
-      - bibleapi-redis
+      - abibliadigital-mongo
+      - abibliadigital-redis
 
-  bibleapi-mongo:
+  abibliadigital-mongo:
     build: ./docker-mongo
-    container_name: bibleapi-mongo
+    container_name: abibliadigital-mongo
     ports:
       - "27017:27017"
     expose:
       - "27017"
     volumes:
-      - ../mongo-bibleapi/db/data:/data/db
-      - ../mongo-bibleapi/db/log:/var/log/mongodb
+      - ../mongo-abibliadigital/db/data:/data/db
+      - ../mongo-abibliadigital/db/log:/var/log/mongodb
 
-  bibleapi-redis:
+  abibliadigital-redis:
     image: "redis:alpine"
-    container_name: bibleapi-redis
+    container_name: abibliadigital-redis
     command: redis-server
     ports:
       - "6379:6379"
