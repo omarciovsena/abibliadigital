@@ -25,8 +25,8 @@
     }
   },
   "dependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/core": "^7.12.3",
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
     "@babel/node": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@sendgrid/mail": "^6.5.5",
