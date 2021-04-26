@@ -25,8 +25,8 @@
     }
   },
   "dependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/core": "^7.12.3",
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
     "@babel/node": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@sendgrid/mail": "^6.5.5",
@@ -36,31 +36,31 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "generate-password": "^1.5.1",
+    "generate-password": "^1.6.0",
     "i18n": "^0.8.6",
     "jest": "^24.9.0",
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.3.0",
     "moment": "^2.29.1",
-    "mongoose": "^5.10.11",
+    "mongoose": "^5.12.3",
     "pug": "^2.0.4",
     "redis": "^3.0.2",
     "supertest": "^4.0.2",
     "universal-analytics": "^0.4.23"
   },
   "devDependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-import-helpers": "^1.1.0",
     "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.2",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^4.1.0",
     "husky": "^3.1.0",
     "mongoose-seed": "^0.6.0",
-    "node-mocks-http": "^1.9.0",
+    "node-mocks-http": "^1.10.1",
     "nodemon": "^2.0.6"
   }
 }
