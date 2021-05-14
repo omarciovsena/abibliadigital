@@ -43,7 +43,7 @@
     "md5": "^2.3.0",
     "moment": "^2.29.1",
     "mongoose": "^5.12.8",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "redis": "^3.1.2",
     "supertest": "^4.0.2",
     "universal-analytics": "^0.4.23"
