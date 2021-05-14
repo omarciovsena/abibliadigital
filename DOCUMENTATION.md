@@ -293,6 +293,14 @@
   <br />
   <b>Authenticated:</b> No
   <br />
+  <b>Header:</b>
+  
+  ```
+    { 
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  ```
   <b>Body:</b>
   
   ```
