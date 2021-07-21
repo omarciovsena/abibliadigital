@@ -25,10 +25,10 @@
     }
   },
   "dependencies": {
-    "@babel/cli": "^7.13.14",
-    "@babel/core": "^7.14.2",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.2",
-    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-env": "^7.14.8",
     "@sendgrid/mail": "^6.5.5",
     "@zeit/next-css": "^1.0.1",
     "body-parser": "^1.19.0",
