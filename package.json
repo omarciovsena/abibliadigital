@@ -36,7 +36,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
-    "generate-password": "^1.6.0",
+    "generate-password": "^1.6.1",
     "i18n": "^0.8.6",
     "jest": "^24.9.0",
     "jsonwebtoken": "^8.5.1",
