@@ -49,7 +49,7 @@
     "universal-analytics": "^0.4.23"
   },
   "devDependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.3",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
