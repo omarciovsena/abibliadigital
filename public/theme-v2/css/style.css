@@ -621,7 +621,8 @@ nav .container {
   border-right: 1px solid #cccccc;
   display: inline-block;
   font-family: "monaco", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  padding: 16px 20px;
+  font-size: 12px;
+  padding: 18px 20px;
   width: 230px;
 }
 
