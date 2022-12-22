@@ -39,7 +39,7 @@
     "generate-password": "^1.6.0",
     "i18n": "^0.8.6",
     "jest": "^24.9.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "md5": "^2.3.0",
     "moment": "^2.29.1",
     "mongoose": "^5.12.8",
