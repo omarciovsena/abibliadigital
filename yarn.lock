@@ -3694,10 +3694,10 @@ functions-have-names@^1.2.2:
   resolved "https://registry.yarnpkg.com/functions-have-names/-/functions-have-names-1.2.3.tgz#0404fe4ee2ba2f607f0e0ec3c80bae994133b834"
   integrity sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==
 
-generate-password@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/generate-password/-/generate-password-1.6.0.tgz#9dff4fcca7f831e6832d464509910fab333d0323"
-  integrity sha512-YUJTQkApkLT/fru0QdYWP0lVZdPKhF5kXCP24sgI4gR/vFMJFopCj5t1+9FAKIYcML/nxzx2PMkA1ymO1FC+tQ==
+generate-password@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/generate-password/-/generate-password-1.7.0.tgz#00ba4eb1e71f89a72307b0d6604ee0d4e7f5770c"
+  integrity sha512-WPCtlfy0jexf7W5IbwxGUgpIDvsZIohbI2DAq2Q6TSlKKis+G4GT9sxvPxrZUGL8kP6WUXMWNqYnxY6DDKAdFA==
 
 gensync@^1.0.0-beta.1:
   version "1.0.0-beta.1"
