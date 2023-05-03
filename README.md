@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.patreon.com/join/marciovsena" target="_blank">
+  <a href="https://www.patreon.com/join/omarciovsena" target="_blank">
     <img src="https://cdn-std.dprcdn.net/files/acc_649651/plrSCT" height="80" alt="Patreon">
   </a>
 </p>
@@ -14,10 +14,10 @@
   <a href="https://stats.uptimerobot.com/5PXmCNLM" title="Uptimerobot">
     <img src="https://img.shields.io/uptimerobot/ratio/m778918918-3e92c097147760ee39d02d36.svg" alt="Uptimerobot">
   </a>
-  <a href="https://github.com/marciovsena/abibliadigital/blob/dev/LICENSE" title="license">
+  <a href="https://github.com/omarciovsena/abibliadigital/blob/dev/LICENSE" title="license">
     <img src="https://badgen.net/badge/license/BSD/blue" alt="BSD License">
   </a>
-  <a href="https://codeclimate.com/github/marciovsena/abibliadigital/maintainability"><img src="https://api.codeclimate.com/v1/badges/2cf1c4940336ad7911be/maintainability" /></a>
+  <a href="https://codeclimate.com/github/omarciovsena/abibliadigital/maintainability"><img src="https://api.codeclimate.com/v1/badges/2cf1c4940336ad7911be/maintainability" /></a>
   <a href="https://discord.gg/Te3fkHg"><img src="https://img.shields.io/discord/722477891102834789.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" /></a>  
 </p>
 
@@ -27,7 +27,7 @@
 - [Setup](#setup)
 - [Setup using Docker](#setup-using-docker)
 - [Fair use policy](#fair-use-policy)
-- [Documentation](https://github.com/marciovsena/abibliadigital/blob/master/DOCUMENTATION.md)
+- [Documentation](https://github.com/omarciovsena/abibliadigital/blob/master/DOCUMENTATION.md)
 - [Credits and Thanks](#credits-and-thanks)
 - [Contributing](#contributing)
 - [Contributor](#contributor)
@@ -117,5 +117,5 @@ Visit our [trello](https://trello.com/b/VPGRzM36/biblieapi) board
 Created and maintained by:
 
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/3450717?s=460&v=4" width="60px;"/><br /><sub><b>Márcio Sena</b></sub>](https://github.com/marciovsena)<br />[💻](https://github.com/marciovsena/abibliadigital/commits?author=marciovsena "Code") [📖](https://github.com/marciovsena/abibliadigital/commits?author=marciovsena "Documentation") [🐛](https://github.com/marciovsena/abibliadigital/issues?q=author%3Amarciovsena "Bug reports")
+| [<img src="https://avatars0.githubusercontent.com/u/3450717?s=460&v=4" width="60px;"/><br /><sub><b>Márcio Sena</b></sub>](https://github.com/omarciovsena)<br />[💻](https://github.com/omarciovsena/abibliadigital/commits?author=marciovsena "Code") [📖](https://github.com/omarciovsena/abibliadigital/commits?author=omarciovsena "Documentation") [🐛](https://github.com/omarciovsena/abibliadigital/issues?q=author%3Aomarciovsena "Bug reports")
 | :---: |
