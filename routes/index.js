@@ -1,12 +1,12 @@
 import express from 'express'
 
-import { getBooks, getBook } from '../controllers/book'
+import { getBook, getBooks } from '../controllers/book'
 import { checkRateLimit } from '../controllers/rateLimit'
 import { getRequests, getRequestsNumber } from '../controllers/request'
 import { setRequiredToken, validToken } from '../controllers/session'
 import { trackEvent } from '../controllers/track'
-import { getUser, resendNewPassword, getUserStats, createUser, removeUser, updateToken } from '../controllers/user'
-import { getVerse, getRandomVerse, getChapter, search } from '../controllers/verse'
+import { createUser, getUser, getUserStats, removeUser, resendNewPassword, updateToken } from '../controllers/user'
+import { getChapter, getRandomVerse, getVerse, getVersesInRange, search } from '../controllers/verse'
 import { getVersions } from '../controllers/version'
 
 const router = express.Router()
@@ -15,6 +15,7 @@ router.get('/verses/:version/random', validToken, checkRateLimit, trackEvent, ge
 router.get('/verses/:version/:abbrev/random', validToken, checkRateLimit, trackEvent, getRandomVerse)
 router.get('/verses/:version/:abbrev/:chapter', validToken, checkRateLimit, trackEvent, getChapter)
 router.get('/verses/:version/:abbrev/:chapter/:number', validToken, checkRateLimit, trackEvent, getVerse)
+router.get('/verses/:version/:abbrev/:chapter/:range', validToken, checkRateLimit, trackEvent, getVersesInRange)
 router.post('/verses/search', validToken, checkRateLimit, trackEvent, search)
 
 router.get('/books', validToken, checkRateLimit, trackEvent, getBooks)
