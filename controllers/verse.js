@@ -158,10 +158,10 @@ export const getVersesInRange = async (req, res) => {
       return notFound(res, 'Book')
     }
 
-    const { chapter, range } = req.params
+    const { chapter, range, version } = req.params
     const [startVerse, endVerse] = range.split('-')
 
-    const verses = await getVerses(abbrev, chapter, startVerse, endVerse)
+    const verses = await getVerses(version, abbrev, chapter, startVerse, endVerse)
 
     if (verses.length === 0) {
       return notFound(res, 'Verses')
@@ -190,7 +190,8 @@ const getVerses = async (abbrev, chapter, startVerse, endVerse) => {
   return Verse.find({
     $or: [{ 'book.abbrev.pt': abbrev }, { 'book.abbrev.en': abbrev }],
     chapter: parseInt(chapter),
-    number: { $gte: parseInt(startVerse), $lte: parseInt(endVerse) }
+    number: { $gte: parseInt(startVerse), $lte: parseInt(endVerse) },
+    version
   })
 }
 
