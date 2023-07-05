@@ -1,0 +1,733 @@
+openapi: '3.0.0'
+
+info:
+  title: ABíbliaDigital | A RESTful API for Bible
+  description:
+    Do not worry about managing the multiple versions of the Bible
+    RESTful Bible API with 7 versions, 4 languages and multiple features to simplify your day to day.
+  contact:
+    name: Contact us
+    url: https://www.abibliadigital.com.br/
+  license:
+    name: BSD 2-Clause "Simplified" License
+    url: https://github.com/omarciovsena/abibliadigital/blob/master/LICENSE.md
+  version: 0.3.2
+
+servers:
+  - url: https://www.abibliadigital.com.br/api
+    description: Production server
+
+  - url: http://localhost:3000/api
+    description: Local server
+
+tags:
+  - name: Books
+
+  - name: Verses
+
+  - name: Versions
+
+  - name: Users
+    description:
+      The project will always be open source. Authentication is only to identify how many users are using the project and to inform about new updates.
+
+  - name: Requests
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: >
+        Without authentication the limit rate is 20 requests/hour/ip;
+        With user token, requests are unlimited (it's free).
+
+        To create a new user, see the API endpoint `POST /users` for more details.
+        Note The limit rate was created to decrease the effectiveness of the attacks that we have been suffering from since 3/29/2020
+
+  schemas:
+    Book:
+      type: object
+      properties:
+        abbrev:
+          type: object
+          properties:
+            pt:
+              type: string
+            en:
+              type: string
+        author:
+          type: string
+        chapters:
+          type: number
+        comment:
+          type: string
+        group:
+          type: string
+        name:
+          type: string
+        testament:
+          type: string
+        version:
+          type: string
+      required:
+        - abbrev
+        - author
+        - chapters
+        - comment
+        - group
+        - name
+        - testament
+
+    Chapter:
+      oneOf:
+        - type: object
+          properties:
+            number:
+              type: integer
+            verses:
+              type: integer
+          required:
+            - number
+            - verses
+        - type: integer
+
+    Verse:
+      type: object
+      properties:
+        book:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            abbrev:
+              type: object
+              properties:
+                pt:
+                  type: string
+                en:
+                  type: string
+          required:
+            - id
+            - abbrev
+        chapter:
+          "$ref": "#/components/schemas/Chapter"
+        number:
+          type: number
+        text:
+          type: string
+        version:
+          type: string
+        comment:
+          type: string
+      required:
+        - book
+        - chapter
+        - number
+        - text
+        - version
+
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+        token:
+          type: string
+        notifications:
+          type: boolean
+      required:
+        - name
+        - email
+        - password
+        - token
+        - notifications
+      additionalProperties: false
+
+    Version:
+      type: object
+      properties:
+        version:
+          type: string
+        verses:
+          type: integer
+      required:
+        - version
+        - verses
+
+    SearchResponse:
+      type: object
+      properties:
+        occurrence:
+          type: integer
+        version:
+          type: string
+        verses:
+          type: array
+          items:
+            $ref: "#/components/schemas/Verse"
+      required:
+        - occurrence
+        - version
+        - verses
+
+    RateLimitResponse:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: Too many accounts created from this IP, please try again after an hour or login
+      required:
+        - msg
+
+security:
+  - bearerAuth: []
+
+paths:
+  /books:
+    get:
+      summary: Get Books
+      description: Returns a list of 66 bible books
+      operationId: getBooks
+      tags:
+        - Books
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
+        '409':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+  /books/{abbrev}:
+    get:
+      summary: Get Book
+      description: Returns details of a bible book
+      operationId: getBook
+      parameters:
+        - in: path
+          name: abbrev
+          description: The abbreviation of the book
+          schema:
+            type: string
+          required: true
+      tags:
+        - Books
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+
+        '409':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+  /verses/{version}/{abbrev}/{chapter}:
+    get:
+      summary: Get all verses and details of a chapter
+      operationId: getChapter
+      parameters:
+        - name: version
+          in: path
+          required: true
+          description: The version of the Bible (e.g., "nvi")
+          schema:
+            type: string
+        - name: abbrev
+          in: path
+          required: true
+          description: The abbreviation of the book (e.g., "gn" for Genesis)
+          schema:
+            type: string
+        - name: chapter
+          in: path
+          required: true
+          description: The chapter number
+          schema:
+            type: integer
+      tags:
+        - Verses
+      responses:
+        '200':
+          description: Successful response containing the chapter details and verses
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  book:
+                    $ref: "#/components/schemas/Book"
+                  chapter:
+                    $ref: "#/components/schemas/Chapter"
+                  verses:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Verse"
+
+        '409':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+  /verses/{version}/{abbrev}/{chapter}/{number}:
+    get:
+      summary: Get a verse from a chapter
+      operationId: getVerse
+      parameters:
+        - name: version
+          in: path
+          required: true
+          description: The version of the Bible (e.g., "nvi")
+          schema:
+            type: string
+        - name: abbrev
+          in: path
+          required: true
+          description: The abbreviation of the book (e.g., "gn" for Genesis)
+          schema:
+            type: string
+        - name: chapter
+          in: path
+          required: true
+          description: The chapter number
+          schema:
+            type: integer
+        - name: number
+          in: path
+          required: true
+          description: The verse number
+          schema:
+            type: integer
+      tags:
+        - Verses
+      responses:
+        '200':
+          description: Successful response containing the verse
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Verse"
+        '409':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+  /verses/{version}/random:
+    get:
+      summary: Get a random verse
+      operationId: getRandomVerse
+      parameters:
+        - name: version
+          in: path
+          required: true
+          description: The version of the Bible (e.g., "nvi")
+          schema:
+            type: string
+      tags:
+        - Verses
+      responses:
+        '200':
+          description: Successful response containing the random verse
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Verse"
+
+        '409':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+  /verses/{version}/{abbrev}/random:
+    get:
+      summary: Get a random verse from a specific book
+      operationId: getRandomVerseFromBook
+      parameters:
+        - name: version
+          in: path
+          required: true
+          description: The version of the Bible (e.g., "nvi")
+          schema:
+            type: string
+        - name: abbrev
+          in: path
+          required: true
+          description: The abbreviation of the book (e.g., "gn" for Genesis)
+          schema:
+            type: string
+      tags:
+        - Verses
+      responses:
+        '200':
+          description: Successful response containing the random verse from the specified book
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Verse"
+
+        '409':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+
+  /verses/search:
+    post:
+      summary: Search verses by word
+      operationId: search
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                version:
+                  type: string
+                search:
+                  type: string
+              required:
+                - version
+                - search
+
+      tags:
+        - Verses
+      responses:
+        '200':
+          description: Successful response containing the search results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SearchResponse"
+
+        '409':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+  /versions:
+    get:
+      summary: Get Bible Versions
+      description: Returns all Bible versions and the number of verses in each version.
+      operationId: getVersions
+      tags:
+        - Versions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Version'
+
+        '409':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+  /users:
+    post:
+      security: []
+      summary: Create a new user
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 6
+                notifications:
+                  type: boolean
+              required:
+                - name
+                - email
+                - password
+                - notifications
+      tags:
+        - Users
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+                    format: email
+                  token:
+                    type: string
+                  notifications:
+                    type: boolean
+    delete:
+      summary: Delete user
+      operationId: removeUser
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 6
+              required:
+                - email
+                - password
+      tags:
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+
+  /users/{email}:
+    get:
+      summary: Get a user
+      operationId: getUser
+      parameters:
+        - name: email
+          in: path
+          description: User email address
+          required: true
+          schema:
+            type: string
+            format: email
+      tags:
+        - Users
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+                    format: email
+                  token:
+                    type: string
+                  notifications:
+                    type: boolean
+                  lastLogin:
+                    type: string
+                    format: date-time
+  /users/stats:
+    get:
+      summary: Get user statistics
+      operationId: getUserStats
+      security:
+        - bearerAuth: []
+      tags:
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lastLogin:
+                    type: string
+                    format: date-time
+                  requestsPerMonth:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        range:
+                          type: string
+                        total:
+                          type: integer
+
+  /users/token:
+    put:
+      summary: Update token
+      operationId: updateToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 6
+              required:
+                - email
+                - password
+      tags:
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+                    format: email
+                  token:
+                    type: string
+
+  /users/password/{email}:
+    post:
+      summary: Resend user password
+      operationId: resendNewPassword
+      parameters:
+        - name: email
+          in: path
+          description: User email address
+          required: true
+          schema:
+            type: string
+            format: email
+      tags:
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+
+  /requests/{range}:
+    get:
+      summary: Get requests for a specific period
+      operationId: getRequests
+      parameters:
+        - name: range
+          in: path
+          description: Period range (month, week, day)
+          required: true
+          schema:
+            type: string
+      tags:
+        - Requests
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                    date:
+                      type: string
+                      format: date-time
+
+  /requests/amount/{range}:
+    get:
+      summary: Get number of requisitions for a specific period
+      operationId: getRequestsNumber
+      parameters:
+        - name: range
+          in: path
+          description: Period range (month, week, day)
+          required: true
+          schema:
+            type: string
+      tags:
+        - Requests
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  requests:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                        count:
+                          type: integer
