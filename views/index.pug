@@ -101,6 +101,10 @@ body
               p= __('bannerDescription')
             .col
               a.btn-primary(href='https://github.com/omarciovsena/abibliadigital/blob/master/DOCUMENTATION.md' target='_blank' title=__('documentationTitle'))= __('bannerButton')
+              ul#documentation-links
+                li: a.doc-icon.icon-svg(href='https://insomnia.rest/run/?label=AB%C3%ADbliaDigital%20API&uri=https%3A%2F%2Fraw%2Egithubusercontent%2Ecom%2Fomarciovsena%2Fabibliadigital%2Fmaster%2Fdocs%2Finsomnia.json' target='_blank' title=__('bannerDocInsomniaTitle')): img(src='/theme-v2/images/ic-insomnia.svg' alt=__('bannerDocInsomniaTitle'))
+                li: a.doc-icon.icon-svg(href='https://www.postman.com/nathabonfim59/workspace/github-contributions/api/c9a09e38-b0ca-41f4-85bb-d7cea69d4866' target='_blank' title=__('bannerDocPostmanTitle')): img(src='/theme-v2/images/ic-postman.svg' alt=__('bannerDocPostmanTitle'))
+                li: a.doc-icon.icon-svg(href='https://editor.swagger.io/?url=https%3A%2F%2Fraw%2Egithubusercontent%2Ecom%2Fomarciovsena%2Fabibliadigital%2Fmaster%2Fdocs%2Fopenapi.yaml' target='_blank' title=__('bannerDocSwaggerTitle')): img(src='/theme-v2/images/ic-swagger.svg' alt=__('bannerDocSwaggerTitle'))
   // How To Use
   section#howToUse
     .container
