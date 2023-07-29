@@ -6,7 +6,7 @@ import { getRequests, getRequestsNumber } from '../controllers/request'
 import { setRequiredToken, validToken } from '../controllers/session'
 import { trackEvent } from '../controllers/track'
 import { getUser, resendNewPassword, getUserStats, createUser, removeUser, updateToken } from '../controllers/user'
-import { getVerse, getRandomVerse, getChapter, search } from '../controllers/verse'
+import { getVerse, getVerseRange, getRandomVerse, getChapter, search } from '../controllers/verse'
 import { getVersions } from '../controllers/version'
 
 const router = express.Router()
@@ -14,6 +14,7 @@ const router = express.Router()
 router.get('/verses/:version/random', validToken, checkRateLimit, trackEvent, getRandomVerse)
 router.get('/verses/:version/:abbrev/random', validToken, checkRateLimit, trackEvent, getRandomVerse)
 router.get('/verses/:version/:abbrev/:chapter', validToken, checkRateLimit, trackEvent, getChapter)
+router.get('/verses/:version/:abbrev/:chapter/:from-:to', validToken, checkRateLimit, trackEvent, getVerseRange)
 router.get('/verses/:version/:abbrev/:chapter/:number', validToken, checkRateLimit, trackEvent, getVerse)
 router.post('/verses/search', validToken, checkRateLimit, trackEvent, search)
 
