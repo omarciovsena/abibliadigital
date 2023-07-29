@@ -95,6 +95,41 @@ describe('controllers:verse', () => {
     })
   })
 
+  describe('getVerseRange', () => {
+    it('should return error 404 and "Verses not found" message', async () => {
+      const { body, statusCode } = await supertest(app)
+        .get('/api/verses/nvi/jm/1/28-100')
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(statusCode).toBe(404)
+      expect(body.msg).toBe('Verses not found')
+    })
+
+    it('should return object with the first 5 verses of the book of James', async () => {
+      const { body } = await supertest(app)
+        .get('/api/verses/nvi/jm/1/1-5')
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.verses.length === 5).toBeTruthy()
+      expect(body.verses[0].number && body.verses[0].text).toBeTruthy()
+    })
+
+    it('should return object with all of the verses of the book of James', async () => {
+      const { body } = await supertest(app)
+        .get('/api/verses/nvi/jm/1/1-99')
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.verses.length === 27).toBeTruthy()
+    })
+
+    it('should return object with the first verse of the book of James', async () => {
+      const { body } = await supertest(app)
+        .get('/api/verses/nvi/jm/1/1-1')
+        .set('Authorization', `Bearer ${user.token}`)
+      expect(body.verses.length === 1).toBeTruthy()
+      expect(body.verses[0].text).toBe(
+        'Tiago, servo de Deus e do Senhor Jesus Cristo, às doze tribos dispersas entre as nações: Saudações.'
+      )
+    })
+  })
+
   describe('getRandomVerse', () => {
     it('should return object with 1 verse', async () => {
       const { body } = await supertest(app)
