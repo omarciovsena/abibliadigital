@@ -78,15 +78,6 @@ If you do not want to install Mongo, Redis, Node and Yarn, follow these steps.
 ### Steps
 
 - Download this source code into a working directory. (Keep the directory name as "abibliadigital")
-- Create `.env` file:
-
-```
-MONGODB_URI=mongodb://abibliadigital-mongo/abibliadigital
-NODE_ENV="development"
-SECRET_KEY=""
-REDIS_URL="redis://abibliadigital-redis"
-```
-
 - Run the project using the following command: `docker-compose up`
 - Visit `localhost:3000/api/check` to see the running api!
 
