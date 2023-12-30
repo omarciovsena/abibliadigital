@@ -114,9 +114,10 @@ export const search = async (req, res) => {
     var expression = new RegExp(
       '' +
         search
+          .toLowerCase()
           .split(' ')
           .map(function (word) {
-            return '(?=.*\\b' + word + '\\b)'
+            return '(?=.*' + diacriticSensitiveRegex(word) + ')'
           })
           .join('') +
         '.+'
@@ -124,7 +125,7 @@ export const search = async (req, res) => {
 
     const verses = await Verse.find({
       version,
-      text: expression
+      text: {$regex: expression, $options: 'i' }
     })
 
     res.json({
@@ -167,4 +168,13 @@ const getItem = async params => {
     number: parseInt(number),
     version
   })
+}
+
+const diacriticSensitiveRegex = (string = '') => {
+  return string
+    .replace(/a/g, '[a,á,à,ä,â]')
+    .replace(/e/g, '[e,é,ë,è]')
+    .replace(/i/g, '[i,í,ï,ì]')
+    .replace(/o/g, '[o,ó,ö,ò]')
+    .replace(/u/g, '[u,ü,ú,ù]')
 }
