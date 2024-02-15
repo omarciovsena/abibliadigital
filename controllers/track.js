@@ -17,7 +17,6 @@ const trackeEventGA4 = async (params) => {
 
   try {
     await axios.post(`https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}`, eventData)
-    console.log({ eventData })
   } catch (error) {
     console.error('Erro ao enviar evento para o GA4:', error)
   }

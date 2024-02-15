@@ -11,8 +11,8 @@ services:
     container_name: abibliadigital
     environment:
       - MONGODB_URI=mongodb://abibliadigital-mongo/abibliadigital
-      - NODE_ENV="development"
-      - SECRET_KEY=""
+      - NODE_ENV=development
+      - SECRET_KEY=19B2AFFC3B287A4E41FA7C1158A8A
       - REDIS_URL=redis://abibliadigital-redis
     volumes:
       - ../abibliadigital:/usr/src/api

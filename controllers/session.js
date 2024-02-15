@@ -38,10 +38,5 @@ export const validToken = async (req, res, next) => {
 }
 
 export const generateToken = (str) => {
-  return jwt.sign(
-    {
-      id: str
-    },
-    process.env.SECRET_KEY
-  )
+  return jwt.sign({ str }, process.env.SECRET_KEY)
 }

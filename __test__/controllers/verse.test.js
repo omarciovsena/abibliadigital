@@ -120,12 +120,12 @@ describe('controllers:verse', () => {
       expect(body.msg).toBe('Version not found')
     })
 
-    it('should return 16 occurences', async () => {
+    it('should return 18 occurences', async () => {
       const { body } = await supertest(app)
         .post('/api/verses/search')
         .send({ version: 'nvi', search: 'luz' })
         .set('Authorization', `Bearer ${user.token}`)
-      expect(body.occurrence).toBe(16)
+      expect(body.occurrence).toBe(18)
       expect(body.verses[0].text).toBe(
         'Então a cobiça, tendo engravidado, dá à luz o pecado; e o pecado, após ter-se consumado, gera a morte.'
       )
