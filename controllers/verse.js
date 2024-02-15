@@ -113,19 +113,19 @@ export const search = async (req, res) => {
 
     var expression = new RegExp(
       '' +
-        search
-          .toLowerCase()
-          .split(' ')
-          .map(function (word) {
-            return '(?=.*' + diacriticSensitiveRegex(word) + ')'
-          })
-          .join('') +
-        '.+'
+      search
+        .toLowerCase()
+        .split(' ')
+        .map(function (word) {
+          return '(?=.*' + diacriticSensitiveRegex(word) + ')'
+        })
+        .join('') +
+      '.+'
     )
 
     const verses = await Verse.find({
       version,
-      text: {$regex: expression, $options: 'i' }
+      text: { $regex: expression, $options: 'i' }
     })
 
     res.json({
