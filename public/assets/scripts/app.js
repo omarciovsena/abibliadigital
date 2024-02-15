@@ -1,7 +1,10 @@
 $(document).ready(function () {
   const initData = {
     book: {
-      abbrev: "sl",
+      abbrev: {
+        pt: "sl",
+        en: "ps"
+      },
       name: "Salmos",
       author: "David, Moisés, Salomão",
       group: "Poéticos",
