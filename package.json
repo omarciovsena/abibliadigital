@@ -45,8 +45,7 @@
     "mongoose": "^5.13.20",
     "pug": "^3.0.2",
     "redis": "^3.1.2",
-    "supertest": "^4.0.2",
-    "universal-analytics": "^0.4.23"
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "axios": "^0.21.2",

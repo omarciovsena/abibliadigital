@@ -1,26 +1,32 @@
-import ua from 'universal-analytics'
 
-const visitor = ua(process.env.GA_TRACKING_ID)
+import axios from 'axios'
 
-const setCustomDimensions = (cd) => {
-  visitor.set('cd1', cd.action)
-  visitor.set('cd2', cd.subfeature)
-  visitor.set('cd3', cd.version)
-  visitor.set('cd4', cd.chapter)
-  visitor.set('cd5', cd.verse)
-  visitor.set('cd6', cd.ip)
-  visitor.set('cd7', cd.isHowToUse)
-  visitor.set('cd8', cd.book)
-  visitor.set('cd9', cd.period)
-  visitor.set('cd10', cd.userId)
-  visitor.set('uid', cd.userId)
+const trackeEventGA4 = async (params) => {
+  const { user, category, action, label, value } = params
+  const { GA_MEASUREMENT_ID } = process.env
+
+  const eventData = {
+    client_id: user,
+    events: [{
+      name: 'request', // Nome do evento
+      params: {
+        category, action, label, value
+      }
+    }]
+  }
+
+  try {
+    await axios.post(`https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}`, eventData)
+    console.log({ eventData })
+  } catch (error) {
+    console.error('Erro ao enviar evento para o GA4:', error)
+  }
 }
 
 const generateVersesEventData = (req) => {
   const { version, abbrev, chapter, number } = req.params
 
   if (!version) {
-    // api/verses/search
     return {
       subfeature: 'search',
       version: req.body.version
@@ -28,7 +34,6 @@ const generateVersesEventData = (req) => {
   }
 
   if (!abbrev) {
-    // api/verses/:version/random
     return {
       subfeature: 'search',
       version: req.body.version
@@ -72,17 +77,17 @@ export const trackEvent = async (req, res, next) => {
     }
     const payload = actions[action] || {}
 
-    setCustomDimensions({
-      ...payload,
+    const data = {
+      user: user ? user._id.toString() : 'anonymous',
+      category: 'request',
       action,
-      ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
-      isHowToUse: !!req.query.isHowToUse,
-      userId: user ? user._id.toString() : ''
-    })
+      label: url,
+      value: payload.toString()
+    }
 
-    return visitor.event({ ec: action, ea: 'request', el: url }, (err) => {
-      if (err) throw Error(err)
-    }).send()
+    await trackeEventGA4(
+      data
+    )
   } catch (e) {
     console.log('error: trackEvent', e)
   } finally {

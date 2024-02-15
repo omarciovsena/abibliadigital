@@ -12,12 +12,6 @@ head
   link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap")
   link(rel='stylesheet' href='/theme-v2/css/normalize.css')
   link(rel='stylesheet' href='/theme-v2/css/style.css')
-  script(async='' src='https://www.googletagmanager.com/gtag/js?id=#{GA_TRACKING_ID}')
-  script.
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '#{GA_TRACKING_ID}');
   link(rel='apple-touch-icon' sizes='57x57' href='/theme-v2/images/favicon/apple-icon-57x57.png')
   link(rel='apple-touch-icon' sizes='60x60' href='/theme-v2/images/favicon/apple-icon-60x60.png')
   link(rel='apple-touch-icon' sizes='72x72' href='/theme-v2/images/favicon/apple-icon-72x72.png')
@@ -35,8 +29,20 @@ head
   meta(name='msapplication-TileColor' content='#ffffff')
   meta(name='msapplication-TileImage' content='/ms-icon-144x144.png')
   meta(name='theme-color' content='#ffffff')
+  script.
+    (function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true; 
+    j.src = /"https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', '#{GA_TRACKING_ID}');
 
 body
+  // Google Tag Manager (noscript)
+  noscript
+    iframe(src='https://www.googletagmanager.com/ns.html?id=' + GA_TRACKING_ID, height='0', width='0', style='display:none;visibility:hidden')
+  // End Google Tag Manager (noscript)
   // Fixed Navigation
   nav
     .container
