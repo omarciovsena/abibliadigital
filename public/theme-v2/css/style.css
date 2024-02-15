@@ -507,6 +507,30 @@ nav .container {
   }
 }
 
+#documentation-links {
+  margin-top: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+}
+
+#documentation-links img {
+  margin: 0 10px;
+  width: 24px;
+}
+
+#documentation-links img {
+  filter: invert(16%) sepia(7%) saturate(7485%) hue-rotate(175deg) brightness(88%) contrast(90%);
+}
+
+#documentation-links img:hover {
+  filter: invert(19%) sepia(55%) saturate(2547%) hue-rotate(212deg) brightness(95%) contrast(89%);
+}
+
 #about {
   background: -webkit-gradient(linear, left top, left bottom, from(#fcf8e3), color-stop(50%, #fcf8e3), color-stop(50%, #fafafa), to(#fafafa));
   background: linear-gradient(180deg, #fcf8e3 0%, #fcf8e3 50%, #fafafa 50%, #fafafa 100%);
