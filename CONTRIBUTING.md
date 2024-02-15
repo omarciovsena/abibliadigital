@@ -12,7 +12,7 @@ Commit messages should follow the [commit message convention](https://www.conven
 
 ## Issue Reporting Guidelines
 
-- Do not create questions. The issue list is exclusively for reports, bugs and feature requests. Use the [Twitter](https://twitter.com/marciovsena) instead.
+- Do not create questions. The issue list is exclusively for reports, bugs and feature requests. Use the [Twitter](https://twitter.com/omarciovsena) instead.
 
 - Always search for your issue first. It may have already been answered, planned or fixed in some branch. New features will be planned on [Trello](https://trello.com/b/VPGRzM36).
 
