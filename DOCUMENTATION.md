@@ -136,6 +136,57 @@
 
 <details>
   <summary>
+    <b>Get Verse Range</b> - <i>returns a range of verses from a chapter</i>
+  </summary>
+  <br/>
+  
+  <b>Endpoint:</b> `GET https://www.abibliadigital.com.br/api/verses/:version/:abbrev/:chapter/:from-:to`
+  <br /><br />
+  <b>Authenticated:</b> 
+  <ul>
+    <li>No - Limit rate of 20 requests per hour</li>
+    <li>Yes - Unlimited</li>
+  </ul>
+
+  ```
+  {
+    "book": {
+      "abbrev": {
+        "pt": "tg",
+        "en": "jm"
+      },
+      "name": "Tiago",
+      "version": "nvi"
+    },
+    "chapter": "1",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Tiago, servo de Deus e do Senhor Jesus Cristo, às doze tribos dispersas entre as nações: Saudações."
+      },
+      {
+        "number": 2,
+        "text": "Meus irmãos, considerem motivo de grande alegria o fato de passarem por diversas provações,"
+      },
+      {
+        "number": 3,
+        "text": "pois vocês sabem que a prova da sua fé produz perseverança."
+      },
+      {
+        "number": 4,
+        "text": "E a perseverança deve ter ação completa, a fim de que vocês sejam maduros e íntegros, sem lhes faltar coisa alguma."
+      },
+      {
+        "number": 5,
+        "text": "Se algum de vocês tem falta de sabedoria, peça-a a Deus, que a todos dá livremente, de boa vontade; e lhe será concedida."
+      }
+    ]
+  }
+  ```
+</details>
+
+<details>
+  <summary>
     <b>Get Random Verse</b> - <i>returns a random verse from a chapter</i>
   </summary>
   <br/>
