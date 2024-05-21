@@ -30,11 +30,11 @@
 }
 
 .icon-whatsapp:before {
-  content: "\e809";
+  content: "\e96d";
 }
 
 .icon-github:before {
-  content: "\e902";
+  content: "\e903";
 }
 
 .icon-menu:before {
@@ -43,11 +43,11 @@
 }
 
 .icon-patreon:before {
-  content: "\e900";
+  content: "\e901";
 }
 
 .icon-twitter:before {
-  content: "\e903";
+  content: "\e904";
 }
 
 body {
