@@ -9,13 +9,13 @@ $solid-white: #ffffff;
 $tropaz: #254699;
 
 $monaco: "monaco",
-"Courier New",
-Courier,
-"Lucida Sans Typewriter",
-"Lucida Typewriter",
-monospace;
+  "Courier New",
+  Courier,
+  "Lucida Sans Typewriter",
+  "Lucida Typewriter",
+  monospace;
 $open: "Open Sans",
-sans-serif;
+  sans-serif;
 
 $desktop: 1025px;
 $phone: 640px;
@@ -64,7 +64,7 @@ $shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
   color: $pearl;
 }
 
-.icon-discord:before {
+.icon-whatsapp:before {
   content: "\e901";
 }
 

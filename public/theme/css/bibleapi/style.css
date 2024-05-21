@@ -65,12 +65,12 @@ body {
 }
 
 i.fab.fa-twitter,
-i.fab.fa-discord {
+i.fab.fa-whatsapp {
   font-size: 25px;
 }
 
 i.fab.fa-twitter.primary-color,
-i.fab.fa-discord.primary-color {
+i.fab.fa-whatsapp.primary-color {
   padding: 0 8px;
 }
 
