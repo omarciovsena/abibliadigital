@@ -19,7 +19,7 @@ jobs:
       
       - name: Copy project files to the server
         run: |
-          echo 'MONGODB_URI=${{ secrets.SECRET_KEY }}
+          echo 'SECRET_KEY=${{ secrets.SECRET_KEY }}'
           rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ ${{ secrets.DROPLET_IP }}:/root/abibliadigital/
       
       - name: Build container
