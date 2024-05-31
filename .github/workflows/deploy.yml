@@ -20,16 +20,16 @@ jobs:
       - name: Copy project files to the server
         run: |
           echo 'SECRET_KEY=${{ secrets.SECRET_KEY }}'
-          rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ ${{ secrets.DROPLET_IP }}:/root/abibliadigital/
+          rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ root@${{ secrets.DROPLET_IP }}:/root/abibliadigital/
       
       - name: Build container
-        run: ssh ${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose up -d --build"
+        run: ssh root@${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose up -d --build"
 
       - name: Environment setup
         run: |
-          ssh ${{ secrets.DROPLET_IP }} "echo 'MONGODB_URI=${{ secrets.MONGODB_URI }}' >> /root/abibliadigital/.env"
-          ssh ${{ secrets.DROPLET_IP }} "echo 'SECRET_KEY=${{ secrets.SECRET_KEY }}' >> /root/abibliadigital/.env"
-          ssh ${{ secrets.DROPLET_IP }} "echo 'SENDGRID_KEY=${{ secrets.SENDGRID_KEY }}' >> /root/abibliadigital/.env"
+          ssh root@${{ secrets.DROPLET_IP }} "echo 'MONGODB_URI=${{ secrets.MONGODB_URI }}' >> /root/abibliadigital/.env"
+          ssh root@${{ secrets.DROPLET_IP }} "echo 'SECRET_KEY=${{ secrets.SECRET_KEY }}' >> /root/abibliadigital/.env"
+          ssh root@${{ secrets.DROPLET_IP }} "echo 'SENDGRID_KEY=${{ secrets.SENDGRID_KEY }}' >> /root/abibliadigital/.env"
 
       - name: Restart the application
-        run: ssh ${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose down && docker-compose up -d"
+        run: ssh root@${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose down && docker-compose up -d"
