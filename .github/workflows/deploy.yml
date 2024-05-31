@@ -18,7 +18,9 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       
       - name: Copy project files to the server
-        run: rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ root@157.245.81.39:/root/abibliadigital/
+        run: |
+          echo 'MONGODB_URI=${{ secrets.SECRET_KEY }}
+          rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ ${{ secrets.DROPLET_IP }}:/root/abibliadigital/
       
       - name: Build container
         run: ssh ${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose up -d --build"
