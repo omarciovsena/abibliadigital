@@ -1,35 +1,18 @@
 version: '3'
 
 services:
-  abibliadigital:
+  abibliadigital-app:
     build: ./docker-api
     command: [ "bash", "/usr/src/api/start.sh" ]
     ports:
       - "3000:3000"
     expose:
       - "3000"
-    container_name: abibliadigital
-    environment:
-      - MONGODB_URI=mongodb://abibliadigital-mongo/abibliadigital
-      - NODE_ENV=development
-      - SECRET_KEY=19B2AFFC3B287A4E41FA7C1158A8A
-      - REDIS_URL=redis://abibliadigital-redis
+    container_name: abibliadigital-app
     volumes:
       - ../abibliadigital:/usr/src/api
     depends_on:
-      - abibliadigital-mongo
       - abibliadigital-redis
-
-  abibliadigital-mongo:
-    build: ./docker-mongo
-    container_name: abibliadigital-mongo
-    ports:
-      - "27017:27017"
-    expose:
-      - "27017"
-    volumes:
-      - ../mongo-abibliadigital/db/data:/data/db
-      - ../mongo-abibliadigital/db/log:/var/log/mongodb
 
   abibliadigital-redis:
     image: "redis:alpine"

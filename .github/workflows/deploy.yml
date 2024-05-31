@@ -1,0 +1,33 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - config/digital-ocean
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup SSH and known hosts
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Copy project files to the server
+        run: |
+          rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ ${{ secrets.DROPLET_IP }}:/root/abibliadigital/
+          ssh ${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose up -d --build"
+
+      - name: Environment setup
+        run: |
+          ssh ${{ secrets.DROPLET_IP }} "echo 'MONGODB_URI=${{ secrets.MONGODB_URI }}' >> /root/abibliadigital/.env"
+          ssh ${{ secrets.DROPLET_IP }} "echo 'SECRET_KEY=${{ secrets.SECRET_KEY }}' >> /root/abibliadigital/.env"
+          ssh ${{ secrets.DROPLET_IP }} "echo 'SENDGRID_KEY=${{ secrets.SENDGRID_KEY }}' >> /root/abibliadigital/.env"
+
+      - name: Restart the application
+        run: |
+          ssh ${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose down && docker-compose up -d"

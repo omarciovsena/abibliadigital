@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": ">=10.14.0"
+    "node": ">=16.20.1"
   },
   "scripts": {
     "dev": "nodemon --exec babel-node app.js",
