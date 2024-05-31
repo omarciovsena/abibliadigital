@@ -16,11 +16,12 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
+      
       - name: Copy project files to the server
-        run: |
-          rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ ${{ secrets.DROPLET_IP }}:/root/abibliadigital/
-          ssh ${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose up -d --build"
+        run: rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ root@157.245.81.39:/root/abibliadigital/
+      
+      - name: Build container
+        run: ssh ${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose up -d --build"
 
       - name: Environment setup
         run: |
@@ -29,5 +30,4 @@ jobs:
           ssh ${{ secrets.DROPLET_IP }} "echo 'SENDGRID_KEY=${{ secrets.SENDGRID_KEY }}' >> /root/abibliadigital/.env"
 
       - name: Restart the application
-        run: |
-          ssh ${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose down && docker-compose up -d"
+        run: ssh ${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose down && docker-compose up -d"
