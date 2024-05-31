@@ -17,10 +17,11 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       
+      - name: Add DigitalOcean droplet to known_hosts
+        run: ssh-keyscan ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
+      
       - name: Copy project files to the server
-        run: |
-          echo 'SECRET_KEY=${{ secrets.SECRET_KEY }}'
-          rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ root@${{ secrets.DROPLET_IP }}:/root/abibliadigital/
+        run: rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ root@${{ secrets.DROPLET_IP }}:/root/abibliadigital/
       
       - name: Build container
         run: ssh root@${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose up -d --build"
