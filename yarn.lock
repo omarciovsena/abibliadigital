@@ -5368,10 +5368,10 @@ node-int64@^0.4.0:
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
   integrity sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==
 
-node-mocks-http@^1.10.1:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/node-mocks-http/-/node-mocks-http-1.14.1.tgz#6a387ce09229fe545dcc0154d16bc3480618e013"
-  integrity sha512-mfXuCGonz0A7uG1FEjnypjm34xegeN5+HI6xeGhYKecfgaZhjsmYoLE9LEFmT+53G1n8IuagPZmVnEL/xNsFaA==
+node-mocks-http@^1.15.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/node-mocks-http/-/node-mocks-http-1.15.0.tgz#fe7bb1efa4ab395739f4097b44f745440326a1b3"
+  integrity sha512-3orGBAxXrnwz3ixU8AZpa0x8srAvVSHvbWanAqd5F0zVCVA2QstxaVcTSarFcjz4+pFSnR1zm28MsV83s/BtmA==
   dependencies:
     "@types/express" "^4.17.21"
     "@types/node" "^20.10.6"
