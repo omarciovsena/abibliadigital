@@ -26,7 +26,7 @@ router.get('/users/stats', setRequiredToken, validToken, trackEvent, getUserStat
 router.get('/users/:email', setRequiredToken, validToken, trackEvent, getUser)
 
 router.post('/users/password/:email', trackEvent, resendNewPassword)
-router.post('/users', checkRateLimit, trackEvent, createUser)
+router.post('/users', trackEvent, createUser)
 
 router.put('/users/token', trackEvent, updateToken)
 router.delete('/users', setRequiredToken, validToken, trackEvent, removeUser)
