@@ -22,25 +22,29 @@ export const startRedis = () => {
 
 export const checkRateLimit = async (req, res, next) => {
   if (req.user) return next()
-  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-  await getAsync(ip).then((response) => {
+  const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(',')[0].trim()
+  try {
+    const response = await getAsync(ip)
     const data = {
-      lastTime: moment(),
+      lastTime: moment().toISOString(),
       count: 1
     }
+
     if (response) {
       const current = JSON.parse(response)
       data.count = current.count + 1
-      if (current.count > 20 && moment().diff(current.lastTime, 'hour') < 1) {
+
+      if (current.count > 20 && moment().diff(moment(current.lastTime), 'minutes') < 1) {
         return res.status(409).json({
           msg: 'Too many accounts created from this IP, please try again after an hour or login'
         })
       }
     }
-    cache.set(ip, JSON.stringify(data), 'EX', 300)
+
+    cache.set(ip, JSON.stringify(data), 'EX', 60)
     next()
-  }).catch((err) => {
+  } catch (err) {
     /* istanbul ignore next */
     return genericError(res, err)
-  })
+  }
 }
