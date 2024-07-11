@@ -23,9 +23,6 @@ jobs:
       - name: Copy project files to the server
         run: rsync -avz --exclude '/node_modules/' --exclude '/.git/' ./ root@${{ secrets.DROPLET_IP }}:/root/abibliadigital/
       
-      - name: Build container
-        run: ssh root@${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose up -d --build"
-
       - name: Environment setup
         run: |
           ssh root@${{ secrets.DROPLET_IP }} "echo 'MONGODB_URI=${{ secrets.MONGODB_URI }}' >> /root/abibliadigital/.env"
