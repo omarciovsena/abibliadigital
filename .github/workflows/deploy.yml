@@ -31,6 +31,7 @@ jobs:
           ssh root@${{ secrets.DROPLET_IP }} "echo 'MONGODB_URI=${{ secrets.MONGODB_URI }}' >> /root/abibliadigital/.env"
           ssh root@${{ secrets.DROPLET_IP }} "echo 'SECRET_KEY=${{ secrets.SECRET_KEY }}' >> /root/abibliadigital/.env"
           ssh root@${{ secrets.DROPLET_IP }} "echo 'SENDGRID_KEY=${{ secrets.SENDGRID_KEY }}' >> /root/abibliadigital/.env"
+          ssh root@${{ secrets.DROPLET_IP }} "echo 'REDIS_URL=${{ secrets.REDIS_URL }}' >> /root/abibliadigital/.env"
 
       - name: Restart the application
         run: ssh root@${{ secrets.DROPLET_IP }} "cd /root/abibliadigital/ && docker-compose down && docker-compose up -d"
