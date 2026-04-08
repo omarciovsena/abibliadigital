@@ -1,4 +1,3 @@
-
 import axios from 'axios'
 
 const trackeEventGA4 = async (params) => {
