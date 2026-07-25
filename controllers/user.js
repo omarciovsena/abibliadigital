@@ -3,11 +3,11 @@ import generatePassword from 'generate-password'
 import md5 from 'md5'
 import moment from 'moment'
 
-import { saveRequest } from '../controllers/request'
-import { notFound, genericError } from '../helpers/'
-import Request from '../models/request'
-import User from '../models/user'
-import { generateToken } from './session'
+import { saveRequest } from '../controllers/request.js'
+import { notFound, genericError } from '../helpers/index.js'
+import Request from '../models/request.js'
+import User from '../models/user.js'
+import { generateToken } from './session.js'
 
 export const updateLastLogin = async (_id) => {
   User.findOne({ _id }, (user) => {

@@ -1,8 +1,8 @@
 import dotenv from 'dotenv'
 import jwt from 'jsonwebtoken'
 
-import { genericError, notAuthorized } from '../helpers/'
-import User from '../models/user'
+import { genericError, notAuthorized } from '../helpers/index.js'
+import User from '../models/user.js'
 
 dotenv.config()
 

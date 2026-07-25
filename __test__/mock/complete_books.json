@@ -1,0 +1,530 @@
+[
+  {
+    "abbrev": {
+      "pt": "gn",
+      "en": "gn"
+    },
+    "name": "Gênesis",
+    "chapters": 50
+  },
+  {
+    "abbrev": {
+      "pt": "ex",
+      "en": "ex"
+    },
+    "name": "Êxodo",
+    "chapters": 40
+  },
+  {
+    "abbrev": {
+      "pt": "lv",
+      "en": "lv"
+    },
+    "name": "Levítico",
+    "chapters": 27
+  },
+  {
+    "abbrev": {
+      "pt": "nm",
+      "en": "nm"
+    },
+    "name": "Números",
+    "chapters": 36
+  },
+  {
+    "abbrev": {
+      "pt": "dt",
+      "en": "dt"
+    },
+    "name": "Deuteronômio",
+    "chapters": 34
+  },
+  {
+    "abbrev": {
+      "pt": "js",
+      "en": "jos"
+    },
+    "name": "Josué",
+    "chapters": 24
+  },
+  {
+    "abbrev": {
+      "pt": "jz",
+      "en": "jdg"
+    },
+    "name": "Juízes",
+    "chapters": 21
+  },
+  {
+    "abbrev": {
+      "pt": "rt",
+      "en": "rt"
+    },
+    "name": "Rute",
+    "chapters": 4
+  },
+  {
+    "abbrev": {
+      "pt": "1sm",
+      "en": "1sm"
+    },
+    "name": "1 Samuel",
+    "chapters": 31
+  },
+  {
+    "abbrev": {
+      "pt": "2sm",
+      "en": "2sm"
+    },
+    "name": "2 Samuel",
+    "chapters": 24
+  },
+  {
+    "abbrev": {
+      "pt": "1rs",
+      "en": "1ki"
+    },
+    "name": "1 Reis",
+    "chapters": 22
+  },
+  {
+    "abbrev": {
+      "pt": "2rs",
+      "en": "2ki"
+    },
+    "name": "2 Reis",
+    "chapters": 25
+  },
+  {
+    "abbrev": {
+      "pt": "1cr",
+      "en": "1ch"
+    },
+    "name": "1 Crônicas",
+    "chapters": 29
+  },
+  {
+    "abbrev": {
+      "pt": "2cr",
+      "en": "2ch"
+    },
+    "name": "2 Crônicas",
+    "chapters": 36
+  },
+  {
+    "abbrev": {
+      "pt": "ed",
+      "en": "ezr"
+    },
+    "name": "Esdras",
+    "chapters": 10
+  },
+  {
+    "abbrev": {
+      "pt": "ne",
+      "en": "ne"
+    },
+    "name": "Neemias",
+    "chapters": 13
+  },
+  {
+    "abbrev": {
+      "pt": "et",
+      "en": "est"
+    },
+    "name": "Ester",
+    "chapters": 10
+  },
+  {
+    "abbrev": {
+      "pt": "jó",
+      "en": "job"
+    },
+    "name": "Jó",
+    "chapters": 42
+  },
+  {
+    "abbrev": {
+      "pt": "sl",
+      "en": "ps"
+    },
+    "name": "Salmos",
+    "chapters": 150
+  },
+  {
+    "abbrev": {
+      "pt": "pv",
+      "en": "prv"
+    },
+    "name": "Provérbios",
+    "chapters": 31
+  },
+  {
+    "abbrev": {
+      "pt": "ec",
+      "en": "ecc"
+    },
+    "name": "Eclesiastes",
+    "chapters": 12
+  },
+  {
+    "abbrev": {
+      "pt": "ct",
+      "en": "sg"
+    },
+    "name": "Cânticos",
+    "chapters": 8
+  },
+  {
+    "abbrev": {
+      "pt": "is",
+      "en": "is"
+    },
+    "name": "Isaías",
+    "chapters": 66
+  },
+  {
+    "abbrev": {
+      "pt": "jr",
+      "en": "jr"
+    },
+    "name": "Jeremias",
+    "chapters": 52
+  },
+  {
+    "abbrev": {
+      "pt": "lm",
+      "en": "lm"
+    },
+    "name": "Lamentações",
+    "chapters": 5
+  },
+  {
+    "abbrev": {
+      "pt": "ez",
+      "en": "ez"
+    },
+    "name": "Ezequiel",
+    "chapters": 48
+  },
+  {
+    "abbrev": {
+      "pt": "dn",
+      "en": "dn"
+    },
+    "name": "Daniel",
+    "chapters": 12
+  },
+  {
+    "abbrev": {
+      "pt": "os",
+      "en": "hs"
+    },
+    "name": "Oseias",
+    "chapters": 14
+  },
+  {
+    "abbrev": {
+      "pt": "jl",
+      "en": "jl"
+    },
+    "name": "Joel",
+    "chapters": 3
+  },
+  {
+    "abbrev": {
+      "pt": "am",
+      "en": "am"
+    },
+    "name": "Amós",
+    "chapters": 9
+  },
+  {
+    "abbrev": {
+      "pt": "ob",
+      "en": "ob"
+    },
+    "name": "Obadias",
+    "chapters": 1
+  },
+  {
+    "abbrev": {
+      "pt": "jn",
+      "en": "jon"
+    },
+    "name": "Jonas",
+    "chapters": 4
+  },
+  {
+    "abbrev": {
+      "pt": "mq",
+      "en": "mic"
+    },
+    "name": "Miqueias",
+    "chapters": 7
+  },
+  {
+    "abbrev": {
+      "pt": "na",
+      "en": "nam"
+    },
+    "name": "Naum",
+    "chapters": 3
+  },
+  {
+    "abbrev": {
+      "pt": "hc",
+      "en": "hab"
+    },
+    "name": "Habacuque",
+    "chapters": 3
+  },
+  {
+    "abbrev": {
+      "pt": "sf",
+      "en": "zep"
+    },
+    "name": "Sofonias",
+    "chapters": 3
+  },
+  {
+    "abbrev": {
+      "pt": "ag",
+      "en": "hag"
+    },
+    "name": "Ageu",
+    "chapters": 2
+  },
+  {
+    "abbrev": {
+      "pt": "zc",
+      "en": "zc"
+    },
+    "name": "Zacarias",
+    "chapters": 14
+  },
+  {
+    "abbrev": {
+      "pt": "ml",
+      "en": "ml"
+    },
+    "name": "Malaquias",
+    "chapters": 4
+  },
+  {
+    "abbrev": {
+      "pt": "mt",
+      "en": "mt"
+    },
+    "name": "Mateus",
+    "chapters": 28
+  },
+  {
+    "abbrev": {
+      "pt": "mc",
+      "en": "mk"
+    },
+    "name": "Marcos",
+    "chapters": 16
+  },
+  {
+    "abbrev": {
+      "pt": "lc",
+      "en": "lk"
+    },
+    "name": "Lucas",
+    "chapters": 24
+  },
+  {
+    "abbrev": {
+      "pt": "jo",
+      "en": "jn"
+    },
+    "name": "João",
+    "chapters": 21
+  },
+  {
+    "abbrev": {
+      "pt": "at",
+      "en": "ac"
+    },
+    "name": "Atos",
+    "chapters": 28
+  },
+  {
+    "abbrev": {
+      "pt": "rm",
+      "en": "rm"
+    },
+    "name": "Romanos",
+    "chapters": 16
+  },
+  {
+    "abbrev": {
+      "pt": "1co",
+      "en": "1co"
+    },
+    "name": "1 Coríntios",
+    "chapters": 16
+  },
+  {
+    "abbrev": {
+      "pt": "2co",
+      "en": "2co"
+    },
+    "name": "2 Coríntios",
+    "chapters": 13
+  },
+  {
+    "abbrev": {
+      "pt": "gl",
+      "en": "gal"
+    },
+    "name": "Gálatas",
+    "chapters": 6
+  },
+  {
+    "abbrev": {
+      "pt": "ef",
+      "en": "eph"
+    },
+    "name": "Efésios",
+    "chapters": 6
+  },
+  {
+    "abbrev": {
+      "pt": "fp",
+      "en": "php"
+    },
+    "name": "Filipenses",
+    "chapters": 4
+  },
+  {
+    "abbrev": {
+      "pt": "cl",
+      "en": "col"
+    },
+    "name": "Colossenses",
+    "chapters": 4
+  },
+  {
+    "abbrev": {
+      "pt": "1ts",
+      "en": "1th"
+    },
+    "name": "1 Tessalonicenses",
+    "chapters": 5
+  },
+  {
+    "abbrev": {
+      "pt": "2ts",
+      "en": "2th"
+    },
+    "name": "2 Tessalonicenses",
+    "chapters": 3
+  },
+  {
+    "abbrev": {
+      "pt": "1tm",
+      "en": "1tm"
+    },
+    "name": "1 Timóteo",
+    "chapters": 6
+  },
+  {
+    "abbrev": {
+      "pt": "2tm",
+      "en": "2tm"
+    },
+    "name": "2 Timóteo",
+    "chapters": 4
+  },
+  {
+    "abbrev": {
+      "pt": "tt",
+      "en": "tt"
+    },
+    "name": "Tito",
+    "chapters": 3
+  },
+  {
+    "abbrev": {
+      "pt": "fm",
+      "en": "phm"
+    },
+    "name": "Filemom",
+    "chapters": 1
+  },
+  {
+    "abbrev": {
+      "pt": "hb",
+      "en": "heb"
+    },
+    "name": "Hebreus",
+    "chapters": 13
+  },
+  {
+    "abbrev": {
+      "pt": "tg",
+      "en": "jm"
+    },
+    "name": "Tiago",
+    "chapters": 5
+  },
+  {
+    "abbrev": {
+      "pt": "1pe",
+      "en": "1pe"
+    },
+    "name": "1 Pedro",
+    "chapters": 5
+  },
+  {
+    "abbrev": {
+      "pt": "2pe",
+      "en": "2pe"
+    },
+    "name": "2 Pedro",
+    "chapters": 3
+  },
+  {
+    "abbrev": {
+      "pt": "1jo",
+      "en": "1jo"
+    },
+    "name": "1 João",
+    "chapters": 5
+  },
+  {
+    "abbrev": {
+      "pt": "2jo",
+      "en": "2jo"
+    },
+    "name": "2 João",
+    "chapters": 1
+  },
+  {
+    "abbrev": {
+      "pt": "3jo",
+      "en": "3jo"
+    },
+    "name": "3 João",
+    "chapters": 1
+  },
+  {
+    "abbrev": {
+      "pt": "jd",
+      "en": "jd"
+    },
+    "name": "Judas",
+    "chapters": 1
+  },
+  {
+    "abbrev": {
+      "pt": "ap",
+      "en": "re"
+    },
+    "name": "Apocalipse",
+    "chapters": 22
+  }
+]

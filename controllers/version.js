@@ -1,6 +1,6 @@
-import { genericError } from '../helpers/'
-import Verse from '../models/verse'
-import { saveRequest } from './request'
+import { genericError } from '../helpers/index.js'
+import Verse from '../models/verse.js'
+import { saveRequest } from './request.js'
 
 export const getVersions = async (req, res) => {
   try {

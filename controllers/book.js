@@ -1,6 +1,6 @@
-import { saveRequest } from '../controllers/request'
-import { genericError, notFound } from '../helpers/'
-import Book from '../models/book'
+import { saveRequest } from '../controllers/request.js'
+import { genericError, notFound } from '../helpers/index.js'
+import Book from '../models/book.js'
 
 export const getBooks = async (req, res) => {
   try {

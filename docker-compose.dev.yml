@@ -32,7 +32,7 @@ services:
       - ../mongo-abibliadigital/db/log:/var/log/mongodb
 
   abibliadigital-redis:
-    image: "redis:alpine"
+    image: redis:alpine
     container_name: abibliadigital-redis
     command: redis-server
     ports:
@@ -42,3 +42,28 @@ services:
     restart: always
     volumes:
       - ../redis-data:/var/lib/redis
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=abibliadigital-mongo
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+    depends_on:
+      - abibliadigital-mongo
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: redis-commander
+    restart: always
+    ports:
+      - "8082:8081"
+    environment:
+      - REDIS_HOSTS=local:abibliadigital-redis:6379
+    depends_on:
+      - abibliadigital-redis

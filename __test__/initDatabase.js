@@ -1,11 +1,11 @@
 import mongoose from 'mongoose'
 
-import Book from '../models/book'
-import Request from '../models/request'
-import User from '../models/user'
-import Verse from '../models/verse'
-import books from './mock/books'
-import verses from './mock/verses'
+import Book from '../models/book.js'
+import Request from '../models/request.js'
+import User from '../models/user.js'
+import Verse from '../models/verse.js'
+import books from './mock/books.json'
+import verses from './mock/verses.json'
 
 export const connect = async () => {
   return mongoose.connect('mongodb://localhost/abibliadigital_test', {

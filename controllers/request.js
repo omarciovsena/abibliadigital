@@ -1,8 +1,8 @@
 import moment from 'moment'
 
-import { genericError } from '../helpers/'
-import Request from '../models/request'
-import { updateLastLogin } from './user'
+import { genericError } from '../helpers/index.js'
+import Request from '../models/request.js'
+import { updateLastLogin } from './user.js'
 
 const getPeriod = period => {
   switch (period) {

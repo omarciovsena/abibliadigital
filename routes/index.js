@@ -1,13 +1,13 @@
 import express from 'express'
 
-import { getBooks, getBook } from '../controllers/book'
-import { checkRateLimit } from '../controllers/rateLimit'
-import { getRequests, getRequestsNumber } from '../controllers/request'
-import { setRequiredToken, validToken } from '../controllers/session'
-import { trackEvent } from '../controllers/track'
-import { getUser, resendNewPassword, getUserStats, createUser, removeUser, updateToken } from '../controllers/user'
-import { getVerse, getRandomVerse, getChapter, search } from '../controllers/verse'
-import { getVersions } from '../controllers/version'
+import { getBooks, getBook } from '../controllers/book.js'
+import { checkRateLimit } from '../controllers/rateLimit.js'
+import { getRequests, getRequestsNumber } from '../controllers/request.js'
+import { setRequiredToken, validToken } from '../controllers/session.js'
+import { trackEvent } from '../controllers/track.js'
+import { getUser, resendNewPassword, getUserStats, createUser, removeUser, updateToken } from '../controllers/user.js'
+import { getVerse, getRandomVerse, getChapter, search } from '../controllers/verse.js'
+import { getVersions } from '../controllers/version.js'
 
 const router = express.Router()
 

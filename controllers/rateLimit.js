@@ -3,7 +3,7 @@ import moment from 'moment'
 import redis from 'redis'
 import { promisify } from 'util'
 
-import { genericError } from '../helpers/index'
+import { genericError } from '../helpers/index.js'
 
 dotenv.config()
 

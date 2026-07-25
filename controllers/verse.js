@@ -1,7 +1,7 @@
-import { genericError, notFound, randomNumber } from '../helpers/'
-import Verse from '../models/verse'
-import { getItem as getBook, getList as getBooks } from './book'
-import { saveRequest } from './request'
+import { genericError, notFound, randomNumber } from '../helpers/index.js'
+import Verse from '../models/verse.js'
+import { getItem as getBook, getList as getBooks } from './book.js'
+import { saveRequest } from './request.js'
 
 export const getChapter = async (req, res) => {
   try {

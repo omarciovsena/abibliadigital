@@ -6,13 +6,17 @@ import express from 'express'
 import i18n from 'i18n'
 import mongoose from 'mongoose'
 import path from 'path'
+import { fileURLToPath } from 'url'
 
-import { startRedis } from './controllers/rateLimit'
-import appRoutes from './routes'
+import { startRedis } from './controllers/rateLimit.js'
+import appRoutes from './routes/index.js'
 
-import './models/book'
-import './models/verse'
-import './models/request'
+import './models/book.js'
+import './models/verse.js'
+import './models/request.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 dotenv.config()
 startRedis()
