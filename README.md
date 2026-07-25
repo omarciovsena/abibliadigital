@@ -1,3 +1,7 @@
+## Status
+Site e APIs desativados desde 01/08/2026.
+Após praticamente 8 anos de projeto, e diante dos custos de manutenção da API e da falta de tempo para evoluir o produto, chegou o momento de desativar o site e, consequentemente, as APIs. Agradeço a todos pelo apoio ao longo desse período.
+
 <p align="center">
   <a href="https://www.patreon.com/join/omarciovsena" target="_blank">
     <img src="https://cdn-std.dprcdn.net/files/acc_649651/plrSCT" height="80" alt="Patreon">
