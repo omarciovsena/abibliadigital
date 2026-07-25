@@ -105,13 +105,15 @@ export const search = async (req, res) => {
     const { version, search } = req.body
     const bookList = {}
     const books = await getBooks()
+
+    // eslint-disable-next-line
     books.map(book => { bookList[book.abbrev.en] = book })
 
     if (!version) {
       return notFound(res, 'Version')
     }
 
-    var expression = new RegExp(
+    const expression = new RegExp(
       '' +
       search
         .toLowerCase()

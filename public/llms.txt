@@ -1,0 +1,53 @@
+# A Bíblia Digital API
+
+> A free, open-source RESTful API that serves Bible verses, chapters, and books in multiple Portuguese and English translations.
+
+A Bíblia Digital provides programmatic access to the full text of the Bible (Old and New Testaments, 66 books) across multiple versions including NVI, RA, ACF, KJV, and BBE. Authentication is optional — unauthenticated requests are rate-limited to 20 per hour; authenticated users have unlimited access.
+
+Base URL: `https://www.abibliadigital.com.br/api`
+
+Authentication: Pass a Bearer token in the `Authorization` header (`Authorization: Bearer <token>`).
+
+## Docs
+
+- [Full documentation](https://www.abibliadigital.com.br): Interactive API docs and examples
+- [OpenAPI spec](https://www.abibliadigital.com.br/docs/openapi.yaml): Machine-readable OpenAPI 3.0 spec
+- [GitHub repository](https://github.com/omarciovsena/abibliadigital): Source code and issue tracker
+
+## API Endpoints
+
+### Versions
+- `GET /versions` — List all available Bible versions (nvi, ra, acf, kjv, bbe)
+
+### Books
+- `GET /books` — List all 66 Bible books with abbreviations, author, chapter count, testament (VT/NT), and group
+- `GET /books/:abbrev` — Get details for a single book by abbreviation (e.g. `gn`, `mt`, `jo`)
+
+### Verses
+- `GET /verses/:version/:abbrev/:chapter` — Get all verses in a chapter
+- `GET /verses/:version/:abbrev/:chapter/:number` — Get a specific verse
+- `GET /verses/:version/random` — Get a random verse from the entire Bible
+- `GET /verses/:version/:abbrev/random` — Get a random verse from a specific book
+- `POST /verses/search` — Search for verses by word (body: `{"search": "palavra", "version": "nvi"}`)
+
+### Users
+- `POST /users` — Create a new user account (body: `{"name": "...", "email": "...", "password": "..."}`)
+- `GET /users/:email` — Get user profile (auth required)
+- `DELETE /users` — Delete account (auth required)
+- `PUT /users/token` — Refresh token (body: `{"email": "...", "password": "..."}`)
+- `POST /users/password/:email` — Request a new password by email
+
+### Requests (stats)
+- `GET /requests/:period` — List requests made during a period (`today`, `week`, `month`) — auth required
+- `GET /requests/amount/:period` — Count of requests in a period — auth required
+
+### Health
+- `GET /check` — Returns `{"result": "success"}` when the API is running
+
+## Notes
+
+- `:version` values: `nvi`, `ra`, `acf`, `kjv`, `bbe`
+- `:abbrev` uses standard Bible book abbreviations in Portuguese or English (e.g. `gn`=Genesis, `mt`=Matthew, `jo`=John)
+- `:chapter` and `:number` are 1-based integers
+- All responses are JSON
+- Rate limit without auth: 20 requests per hour (HTTP 429 when exceeded)

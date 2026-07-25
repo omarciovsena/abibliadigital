@@ -8,11 +8,8 @@ import books from './mock/books'
 import verses from './mock/verses'
 
 export const connect = async () => {
-  return mongoose.connect('mongodb://localhost/abibliadigital_test', {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-  })
+  mongoose.set('strictQuery', false);
+  return mongoose.connect('mongodb://localhost/abibliadigital_test')
 }
 
 const createBooks = async () => {
@@ -22,6 +19,8 @@ const createBooks = async () => {
 
 const createVerses = async (books) => {
   const bookByKey = {}
+
+  // eslint-disable-next-line
   await books.map(book => {
     bookByKey[book.abbrev.en] = book
   })
