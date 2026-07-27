@@ -323,6 +323,30 @@
     notifications: true
   }
   ```
+ 
+> If you prefer, you can download the Axios library and use the script to create an account and obtain a token, in case you don't have a way to get it in mind.
+> `npm install axios`
+> `node script.js`
+> ```js
+>  const axios = require('axios');
+>  const data = {
+>  name: "Name",
+>  email: "email@email.com",
+>  password: "1234...", // YOU PASSWORD
+>  notifications: true
+> };
+>
+> axios.post('https://www.abibliadigital.com.br/api/users', data, {
+>  headers: { 'Content-Type': 'application/json' }
+> })
+> .then(response => {
+>  console.log(response.data);
+> })
+> .catch(error => {
+>  console.error('Erro:', error.response.data);
+> });
+> ```
+
 </details>
 
 <details>
