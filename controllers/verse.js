@@ -69,6 +69,39 @@ export const getVerse = async (req, res) => {
   }
 }
 
+export const getVerseRange = async (req, res) => {
+  try {
+    await saveRequest(req)
+    const { version, abbrev, chapter } = req.params
+    const book = await getBook(abbrev)
+    if (!book) {
+      return notFound(res, 'Book')
+    }
+    const verses = await getRange(req.params)
+    if (!verses || verses.length === 0) {
+      return notFound(res, 'Verses')
+    }
+
+    res.json({
+      book: {
+        abbrev: book.abbrev,
+        name: book.name,
+        author: book.author,
+        group: book.group,
+        version
+      },
+      chapter,
+      verses: verses.map(c => ({
+        number: c.number,
+        text: c.text
+      }))
+    })
+  } catch (err) {
+    /* istanbul ignore next */
+    genericError(res, err)
+  }
+}
+
 export const getRandomVerse = async (req, res) => {
   try {
     await saveRequest(req)
@@ -142,6 +175,23 @@ export const search = async (req, res) => {
     /* istanbul ignore next */
     genericError(res, err)
   }
+}
+
+const getRange = async params => {
+  const { version, abbrev, chapter, from, to } = params
+  return Verse.aggregate([
+    {
+      $match: {
+        $or: [{ 'book.abbrev.pt': abbrev }, { 'book.abbrev.en': abbrev }],
+        chapter: parseInt(chapter),
+        number: { $gte: parseInt(from), $lte: parseInt(to) },
+        version
+      }
+    },
+    {
+      $sort: { number: 1 }
+    }
+  ])
 }
 
 const getList = async params => {
