@@ -49,7 +49,7 @@
     "supertest": "^4.0.2"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
+    "eslint": "^9.39.2",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-import-helpers": "^1.1.0",
