@@ -85,6 +85,18 @@ If you do not want to install Mongo, Redis, Node and Yarn, follow these steps.
 - Run the project using the following command: `docker-compose up`
 - Visit `localhost:3000/api/check` to see the running api!
 
+### Import Bible versions
+
+The production database must be populated separately. The importer downloads the selected JSON versions from [damarals/biblias](https://github.com/damarals/biblias) and converts them to the application's MongoDB schema.
+
+In the EasyPanel console for `abibliadigital-app`, run:
+
+```bash
+BIBLE_VERSIONS=ACF,NVI,NVT MONGODB_URI=mongodb://mongo:27017/abibliadigital yarn import:bible
+```
+
+Replace `BIBLE_VERSIONS` with the versions you are authorized to use. The importer replaces only the selected versions and does not remove users or other versions. The source repository identifies which translations are public domain; copyrighted translations require permission from their respective rights holders.
+
 ## Rate Limit
 
 - Without authentication the limit rate is 20 requests/hour/ip

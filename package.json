@@ -17,6 +17,7 @@
     "test": "yarn test:db && jest --testTimeout=25000",
     "test:coverage": "jest --coverage --testTimeout=25000",
     "test:db": "babel-node __test__/initDatabase.js",
+    "import:bible": "babel-node scripts/importBibleData.js",
     "test:watch": "jest --watch --coverage --testTimeout=25000"
   },
   "husky": {

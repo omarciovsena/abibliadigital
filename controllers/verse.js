@@ -76,10 +76,20 @@ export const getRandomVerse = async (req, res) => {
     let book = abbrev && await getBook(abbrev)
     if (!book) {
       const books = await getBooks()
+      if (books.length === 0) {
+        return notFound(res, 'Verse')
+      }
       book = books[randomNumber(books.length)]
     }
     const allVerses = await getList({ version, abbrev: book.abbrev.pt, chapter: randomNumber(book.chapters) })
+    if (allVerses.length === 0) {
+      return notFound(res, 'Verse')
+    }
     const verse = allVerses[randomNumber(allVerses.length) - 1]
+
+    if (!verse) {
+      return notFound(res, 'Verse')
+    }
 
     return res.json({
       book: {
